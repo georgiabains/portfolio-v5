@@ -1,5 +1,7 @@
 <template>
-  <h1>Georgia Bains</h1>
+  <header class="gutter">
+    <h1>Georgia Bains</h1>
+  </header>
 </template>
 
 <style>

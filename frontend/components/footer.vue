@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer">
+  <footer class="footer gutter">
     <div class="footer__container">
       <div class="footer__left">
         <p>&copy; Georgia Bains {{ currentYear }}</p>
@@ -24,9 +24,6 @@
 
 <style lang="scss">
   .footer {
-    padding-inline-end: 1rem;
-    padding-inline-start: 1rem;
-
     &__container {
       align-items: center;
       background-color: #BA8F69;
