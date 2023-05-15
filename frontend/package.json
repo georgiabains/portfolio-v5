@@ -1,0 +1,27 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@types/node": "^18",
+    "eslint": "^8.40.0",
+    "eslint-plugin-vue": "^9.12.0",
+    "nuxt": "^3.4.3",
+    "sass": "^1.62.1",
+    "sass-loader": "^13.2.2"
+  },
+  "dependencies": {
+    "@fontsource/atkinson-hyperlegible": "^4.5.11",
+    "@fontsource/castoro": "^4.5.9",
+    "@fontsource/pt-mono": "^4.5.11",
+    "@nuxtjs/sanity": "^1.7.0",
+    "@sanity/client": "^5.4.2",
+    "vue-eslint-parser": "^9.3.0"
+  }
+}
