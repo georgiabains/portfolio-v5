@@ -5,6 +5,7 @@ import author from './author'
 import about from './about'
 import colors from './colors'
 import siteSettings from './siteSettings'
+import indexPage from './indexPage'
 
 export const schemaTypes = [
   post, 
@@ -13,5 +14,6 @@ export const schemaTypes = [
   blockContent, 
   colors,
   about,
-  siteSettings
+  siteSettings,
+  indexPage
 ]

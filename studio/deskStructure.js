@@ -31,12 +31,20 @@ export const myStructure = (S) =>
             // Each will pull one of our new singletons
             .items([
               S.listItem()
+                .title('Index Page')
+                .child(S.document().schemaType('indexPage').documentId('indexPage')),
+              S.listItem()
                 .title('About')
                 .child(S.document().schemaType('about').documentId('about')),
             ])
         ),
       // We also need to remove the new singletons from the main list
       ...S.documentTypeListItems().filter(
-        (listItem) => !['siteSettings', 'colors', 'navigation', 'about'].includes(listItem.getId())
+        (listItem) => ![
+          'siteSettings', 
+          'colors',
+          'about',
+          'indexPage'
+        ].includes(listItem.getId())
       ),
     ])
