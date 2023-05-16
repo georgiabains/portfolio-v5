@@ -42,7 +42,7 @@
         background-image: url('https://images.unsplash.com/photo-1485134532658-d720895a3b5e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80');
         background-size: cover;
         background-repeat: no-repeat;
-        filter: blur(10px);
+        filter: blur(10px) brightness(50%);
         height: 110%;
         left: -5%;
         position: absolute;
