@@ -33,7 +33,7 @@
 </script>
 
 
-<style>
+<style scoped>
   .container {
     margin: 2rem;
   }

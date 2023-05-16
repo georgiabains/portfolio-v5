@@ -26,7 +26,7 @@
   const { data: indexPage } = await useSanityQuery(indexPageQuery)
 </script>
 
-<style>
+<style scoped>
   .container {
     margin: 0 auto;
   }
