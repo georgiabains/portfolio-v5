@@ -7,8 +7,11 @@
     </div>
 
     <div class="content">
-      <template v-for="(section, sectionIndex) in indexPage.sections" :key="sectionIndex">
-        <SanityContent v-if="section.blockContent" :blocks="section.blockContent" />
+      <template v-for="(section) in indexPage.sections">
+        <SanityContent 
+          v-if="section.blockContent" 
+          :blocks="section.blockContent" 
+        />
 
         <pre v-if="section.code">{{ section.code }}</pre>
       </template>
