@@ -36,7 +36,6 @@
 <style>
   .container {
     margin: 2rem;
-    min-height: 100vh;
   }
 
   .content {
