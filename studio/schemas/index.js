@@ -6,6 +6,7 @@ import about from './about'
 import colors from './colors'
 import siteSettings from './siteSettings'
 import indexPage from './indexPage'
+import project from './project'
 
 export const schemaTypes = [
   post, 
@@ -15,5 +16,6 @@ export const schemaTypes = [
   colors,
   about,
   siteSettings,
-  indexPage
+  indexPage,
+  project
 ]

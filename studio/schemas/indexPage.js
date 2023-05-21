@@ -35,6 +35,29 @@ export default defineType({
               type: 'text'
             }
           ]
+        },
+        {
+          type: 'object',
+          name: 'indexProjects',
+          title: 'Projects',
+          fields: [
+            {
+              name: 'indexProjectArray',
+              title: 'Project Array',
+              type: 'array',
+              of: [
+                {
+                  title: 'Project',
+                  name: 'indexProject',
+                  type: 'reference',
+                  to: [{ type: 'project' }],
+                  options: {
+                    disableNew: true,
+                  }
+                }
+              ]
+            }
+          ]
         }
       ],
     }),

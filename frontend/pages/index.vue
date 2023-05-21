@@ -15,13 +15,41 @@
         />
 
         <pre v-if="section.code">{{ section.code }}</pre>
+
+        <div v-if="section.indexProjectArray">
+          <div v-for="(project) in section.indexProjectArray">
+            <h2 v-text="project.title" />
+            <img 
+              :alt="project.featuredImage.alt"
+              :src="project.featuredImage.asset.url" 
+            />
+            <p v-text="project.description" />
+          </div>
+        </div>
       </template>
     </div>
   </div>
 </template>
 
 <script setup>
-  const indexPageQuery = groq`*[_type == "indexPage"][0]`
+  const indexPageQuery = groq`
+    *[_type == "indexPage"][0]{
+      ...,
+      sections[] {
+        ...,
+        indexProjectArray[] -> {
+          title,
+          featuredImage{
+            ...,
+            asset -> {
+              url
+            }
+          },
+          description
+        }
+      }
+    }
+  `
 
   const { data: indexPage } = await useSanityQuery(indexPageQuery)
 </script>
