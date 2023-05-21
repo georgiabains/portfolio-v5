@@ -24,6 +24,9 @@
 
 <style lang="scss">
   .footer {
+    margin-block-end: 2em;
+    margin-block-start: 3em;
+
     &__container {
       align-items: center;
       background-color: #010201;
@@ -32,7 +35,7 @@
       display: flex;
       justify-content: space-between;
       overflow: hidden;
-      padding: 2rem 3rem;
+      padding: 2rem 3.6rem;
       position: relative;
       width: 100%;
       z-index: 0;

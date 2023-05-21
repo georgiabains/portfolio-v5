@@ -11,6 +11,8 @@ export default defineType({
       of: [
         {
           type: 'object',
+          name: 'indexBlockContent',
+          title: 'Block Content',
           fields: [
             {
               title: 'Block Content',
@@ -21,6 +23,18 @@ export default defineType({
         },
         {
           type: 'code'
+        },
+        {
+          type: 'object',
+          name: 'indexFeaturedText',
+          title: 'Featured Text',
+          fields: [
+            {
+              title: 'Featured text',
+              name: 'featuredText',
+              type: 'text'
+            }
+          ]
         }
       ],
     }),

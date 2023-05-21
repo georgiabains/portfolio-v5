@@ -1,16 +1,17 @@
 <template>
   <div class="container gutter">
-    <div class="posts">
-      <div v-for="(post, index) in posts" :key="index">
-        <h2><a :href="`/post/${post.slug.current}`" v-text="post.title" /></h2>
-      </div>
-    </div>
-
     <div class="content">
       <template v-for="(section) in indexPage.sections">
+        <p 
+          v-if="section.featuredText" 
+          class="featured-text"
+          v-text="section.featuredText" 
+        />
+
         <SanityContent 
           v-if="section.blockContent" 
           :blocks="section.blockContent" 
+          class="max-width--content"
         />
 
         <pre v-if="section.code">{{ section.code }}</pre>
@@ -20,10 +21,6 @@
 </template>
 
 <script setup>
-  const query = groq`*[_type == "post"]`
-
-  const { data: posts } = await useSanityQuery(query)
-
   const indexPageQuery = groq`*[_type == "indexPage"][0]`
 
   const { data: indexPage } = await useSanityQuery(indexPageQuery)
@@ -36,5 +33,10 @@
 
   .posts {
     margin: 2rem 0;
+  }
+
+  .featured-text {
+    font-size: 2.2rem;
+    max-width: 740px;
   }
 </style>

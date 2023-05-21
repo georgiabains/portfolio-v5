@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 10px;
+}
+
 html,
 body {
   margin: 0;
@@ -10,7 +14,7 @@ body {
 
 body {
   font-family: 'Atkinson Hyperlegible', sans-serif;
-  font-size: 16px;
+  font-size: 1.8rem;
   font-weight: 400;
 }
 
@@ -32,12 +36,16 @@ code {
 }
 
 .gutter {
-  padding-inline-end: 2rem;
-  padding-inline-start: 2rem;
+  padding-inline-end: 3.6rem;
+  padding-inline-start: 3.6rem;
 }
 
 .max-width {
   max-width: 1400px;
+
+  &--content {
+    max-width: 650px;
+  }
 }
 
 .list {
