@@ -9,6 +9,7 @@ html {
 html,
 body {
   margin: 0;
+  overflow-x: hidden;
   padding: 0;
 }
 
@@ -25,6 +26,7 @@ h4,
 h5,
 h6 {
   font-family: 'Castoro', serif;
+  font-weight: 400;
 }
 
 strong {
@@ -35,9 +37,22 @@ code {
   font-family: 'PT Mono', monospace;
 }
 
+img {
+  height: auto;
+  max-width: 100%;
+}
+
 .gutter {
   padding-inline-end: 3.6rem;
   padding-inline-start: 3.6rem;
+}
+
+.margin-reset {
+  margin: 0;
+  margin-block-end: 0;
+  margin-block-start: 0;
+  margin-inline-end: 0;
+  margin-inline-start: 0;
 }
 
 .max-width {

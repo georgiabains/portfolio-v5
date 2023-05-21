@@ -25,7 +25,7 @@
 <style lang="scss">
   .footer {
     margin-block-end: 2em;
-    margin-block-start: 3em;
+    margin-block-start: 2em;
 
     &__container {
       align-items: center;
@@ -61,7 +61,7 @@
 
     &__right {
       display: flex;
-      gap: 1rem;
+      gap: 1.8rem;
     }
   }
 </style>
