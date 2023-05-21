@@ -1,9 +1,9 @@
 <template>
   <div class="container gutter">
     <div class="content">
-      <template 
+      <section 
         v-for="(section, sectionIndex) in indexPage.sections"
-        :key="sectionIndex"
+        :class="sectionIndex % 2 === 0 ? 'section--even' : 'section--odd'"
       >
         <p 
           v-if="section.featuredText" 
@@ -21,26 +21,35 @@
 
         <div 
           v-if="section.indexProjectArray"
-          class="project-container"
         >
-          <div 
-            v-for="(project, projectIndex) in section.indexProjectArray"
-            class="project-card"
-            :key="projectIndex"
-          >
-            <div class="project-card__info">
-              <h2 class="margin-reset" v-text="project.title" />
-              <p class="margin-reset" v-text="project.description" />
-            </div>
+          <h2 v-text="'Projects'" />
 
-            <img 
-              :alt="project.featuredImage.alt"
-              class="project-card__image"
-              :src="project.featuredImage.asset.url" 
-            />
+          <div class="project-container">
+            <div 
+              v-for="(project, projectIndex) in section.indexProjectArray"
+              class="project-card"
+              :key="projectIndex"
+            >
+              <div class="project-card__info">
+                <h3 class="margin-reset project-card__title" v-text="project.title" />
+                <p class="margin-reset" v-text="project.description" />
+                <p class="margin-reset">
+                  <a 
+                    :href="`/project/${project.slug.current}`" 
+                    v-text="`Read ${project.title} case study`"
+                  />
+                </p>
+              </div>
+
+              <img 
+                :alt="project.featuredImage.alt"
+                class="project-card__image"
+                :src="project.featuredImage.asset.url" 
+              />
+            </div>
           </div>
         </div>
-      </template>
+      </section>
     </div>
   </div>
 </template>
@@ -53,6 +62,7 @@
         ...,
         indexProjectArray[] -> {
           title,
+          slug,
           featuredImage{
             ...,
             asset -> {
@@ -73,8 +83,11 @@
     margin: 0 auto;
   }
 
-  .posts {
-    margin: 2rem 0;
+  .section {
+    &--even {
+      background-color: grey;
+      border-radius: 0.5rem;
+    }
   }
 
   .featured-text {
@@ -89,13 +102,38 @@
   }
 
   .project-card {
+
     &__info {
+      flex-direction: column;
+      display: flex;
+      gap: 1rem;
       max-width: 650px;
+
+      a {
+        background-color: #3c4435;
+        border: 1px solid #3c4435;
+        border-radius: 0.5rem;
+        color: white;
+        display: inline-block;
+        padding: 1.2rem 1.6rem;
+        text-decoration: none;
+
+        &:focus,
+        &:hover {
+          background-color: #fff;
+          color: #3c4435;
+        }
+      }
+    }
+
+    &__title {
+      font-size: 2.6rem;
     }
 
     &__image {
-      border: 1px solid #4c543f;
+      border: 1px solid #3c4435;
       border-radius: 0.5em;
+      margin-block-start: 1.6rem;
     }
   }
 </style>
