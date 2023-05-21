@@ -1,9 +1,11 @@
 <template>
-  <footer class="footer gutter">
+  <footer class="footer">
     <div class="footer__container">
       <div class="footer__left">
         <p>&copy; Georgia Bains {{ currentYear }}</p>
       </div>
+
+      <!--TODO: When tabbing to links, move screen focus too-->
       <ul class="footer__right list--unstyled">
         <li><a href="https://github.com/georgiabains">Github</a></li>
         <li><a href="https://www.linkedin.com/in/georgia-bains/">LinkedIn</a></li>
@@ -24,18 +26,19 @@
 
 <style lang="scss">
   .footer {
-    margin-block-end: 2em;
-    margin-block-start: 2em;
+    bottom: 0;
+    margin-top: -2rem;
+    position: sticky;
+    width: 100%;
 
     &__container {
       align-items: center;
       background-color: #010201;
-      border-radius: 0.5em;
       color: #fff;
       display: flex;
       justify-content: space-between;
       overflow: hidden;
-      padding: 2rem 3.6rem;
+      padding: 10rem 3.6rem 8rem;
       position: relative;
       width: 100%;
       z-index: 0;
