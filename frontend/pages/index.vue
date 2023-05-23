@@ -1,51 +1,54 @@
 <template>
-  <div class="container gutter">
+  <div class="container">
     <div class="content">
       <section 
         v-for="(section, sectionIndex) in indexPage.sections"
+        class="section"
         :class="sectionIndex % 2 === 0 ? 'section--even' : 'section--odd'"
       >
-        <p 
-          v-if="section.featuredText" 
-          class="featured-text"
-          v-text="section.featuredText" 
-        />
+        <div class="gutter">
+          <p 
+            v-if="section.featuredText" 
+            class="featured-text"
+            v-text="section.featuredText" 
+          />
 
-        <SanityContent 
-          v-if="section.blockContent" 
-          :blocks="section.blockContent" 
-          class="max-width--content"
-        />
+          <SanityContent 
+            v-if="section.blockContent" 
+            :blocks="section.blockContent" 
+            class="max-width--content"
+          />
 
-        <pre v-if="section.code">{{ section.code }}</pre>
+          <pre v-if="section.code">{{ section.code }}</pre>
 
-        <div 
-          v-if="section.indexProjectArray"
-        >
-          <h2 v-text="'Projects'" />
+          <div 
+            v-if="section.indexProjectArray"
+          >
+            <h2 v-text="'Projects'" />
 
-          <div class="project-container">
-            <div 
-              v-for="(project, projectIndex) in section.indexProjectArray"
-              class="project-card"
-              :key="projectIndex"
-            >
-              <div class="project-card__info">
-                <h3 class="margin-reset project-card__title" v-text="project.title" />
-                <p class="margin-reset" v-text="project.description" />
-                <p class="margin-reset">
-                  <a 
-                    :href="`/project/${project.slug.current}`" 
-                    v-text="`Read ${project.title} case study`"
-                  />
-                </p>
+            <div class="project-container">
+              <div 
+                v-for="(project, projectIndex) in section.indexProjectArray"
+                class="project-card"
+                :key="projectIndex"
+              >
+                <div class="project-card__info">
+                  <h3 class="margin-reset project-card__title" v-text="project.title" />
+                  <p class="margin-reset" v-text="project.description" />
+                  <p class="margin-reset">
+                    <a 
+                      :href="`/project/${project.slug.current}`" 
+                      v-text="`Read ${project.title} case study`"
+                    />
+                  </p>
+                </div>
+
+                <img 
+                  :alt="project.featuredImage.alt"
+                  class="project-card__image"
+                  :src="project.featuredImage.asset.url" 
+                />
               </div>
-
-              <img 
-                :alt="project.featuredImage.alt"
-                class="project-card__image"
-                :src="project.featuredImage.asset.url" 
-              />
             </div>
           </div>
         </div>
@@ -84,9 +87,11 @@
   }
 
   .section {
+    padding-block-end: 6rem;
+    padding-block-start: 6rem;
+
     &--even {
-      background-color: grey;
-      border-radius: 0.5rem;
+      background-color: #d9dfd8;
     }
   }
 
