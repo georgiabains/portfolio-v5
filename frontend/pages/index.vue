@@ -87,8 +87,17 @@
   }
 
   .section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 50vh;
     padding-block-end: 6rem;
     padding-block-start: 6rem;
+
+    &:first-child {
+      justify-content: flex-start;
+      min-height: 70vh;
+    }
 
     &--even {
       background-color: #d9dfd8;

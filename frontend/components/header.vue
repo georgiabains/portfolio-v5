@@ -1,8 +1,8 @@
 <template>
-  <header class="gutter">
+  <header class="header gutter">
     <h1 
       v-if="route.name === 'index'" 
-      class="header__title"
+      class="header__title margin-reset"
       v-text="'Georgia Bains'" 
     />
 
@@ -35,6 +35,11 @@
 
 <style scoped lang="scss">
   .header {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 30vh;
+  
     &__title {
       font-size: 3.6rem;
       font-weight: 400;
