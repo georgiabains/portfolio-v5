@@ -100,7 +100,7 @@
     }
 
     &--even {
-      background-color: #d9dfd8;
+      background-color: #e3e9de;
     }
   }
 
@@ -124,8 +124,8 @@
       max-width: 650px;
 
       a {
-        background-color: #3c4435;
-        border: 1px solid #3c4435;
+        background-color: #1F2614;
+        border: 1px solid #1F2614;
         border-radius: 0.5rem;
         color: white;
         display: inline-block;
@@ -135,7 +135,7 @@
         &:focus,
         &:hover {
           background-color: #fff;
-          color: #3c4435;
+          color: #000;
         }
       }
     }
@@ -145,7 +145,7 @@
     }
 
     &__image {
-      border: 1px solid #3c4435;
+      border: 1px solid #1F2614;
       border-radius: 0.5em;
       margin-block-start: 1.6rem;
     }
