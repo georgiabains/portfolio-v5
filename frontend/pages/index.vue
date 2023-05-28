@@ -136,7 +136,7 @@
       display: flex;
       flex-direction: column;
       gap: 10rem;
-      padding: 4rem 0;
+      padding: 6rem 0;
       width: 100%;
     }
   }
