@@ -4,12 +4,11 @@
       <section 
         v-for="(section, sectionIndex) in indexPage.sections"
         class="section"
-        :class="sectionIndex % 2 === 0 ? 'section--even' : 'section--odd'"
       >
         <div class="gutter">
           <p 
             v-if="section.featuredText" 
-            class="featured-text"
+            class="margin-reset featured-text"
             v-text="section.featuredText" 
           />
 
@@ -23,10 +22,19 @@
 
           <div 
             v-if="section.indexProjectArray"
+            class="project-container"
           >
-            <h2 class="margin-reset" v-text="'Projects'" />
+            <h2 
+              class="project-container__title margin-reset" 
+              v-text="'Featured projects'" 
+            />
 
-            <div class="project-container">
+            <p 
+              class="margin-reset max-width--content project-container__subheading" 
+              v-text="section.indexProjectCopy" 
+            />
+
+            <div class="project-container__projects">
               <div 
                 v-for="(project, projectIndex) in section.indexProjectArray"
                 class="project-card"
@@ -91,17 +99,12 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: 50vh;
-    padding-block-end: 6rem;
-    padding-block-start: 6rem;
+    padding-block-end: 4rem;
+    padding-block-start: 4rem;
 
     &:first-child {
       justify-content: flex-start;
-      min-height: 70vh;
-    }
-
-    &--even {
-      background-color: #e3e9de;
+      min-height: 70vh; // if using min height add some visual indicator that the user can scroll for more content
     }
   }
 
@@ -111,11 +114,31 @@
   }
 
   .project-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10rem;
-    padding: 10rem 0;
-    width: 100%;
+    &__title {
+      align-items: center;
+      display: flex;
+      font-size: 6rem;
+      gap: 1rem;
+      justify-content: flex-start;
+      text-transform: lowercase;
+
+      span {
+        flex-shrink: 0;
+      }
+    }
+
+    &__subheading {
+      display: none;
+      margin: 1.0rem 0;
+    }
+
+    &__projects {
+      display: flex;
+      flex-direction: column;
+      gap: 10rem;
+      padding: 4rem 0;
+      width: 100%;
+    }
   }
 
   .project-card {
