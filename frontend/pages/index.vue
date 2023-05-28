@@ -24,7 +24,7 @@
           <div 
             v-if="section.indexProjectArray"
           >
-            <h2 v-text="'Projects'" />
+            <h2 class="margin-reset" v-text="'Projects'" />
 
             <div class="project-container">
               <div 
@@ -43,11 +43,12 @@
                   </p>
                 </div>
 
-                <img 
-                  :alt="project.featuredImage.alt"
-                  class="project-card__image"
-                  :src="project.featuredImage.asset.url" 
-                />
+                <div class="project-card__image">
+                  <img 
+                    :alt="project.featuredImage.alt"
+                    :src="project.featuredImage.asset.url" 
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -111,25 +112,33 @@
 
   .project-container {
     display: flex;
-    gap: 3.2rem;
+    flex-direction: column;
+    gap: 10rem;
+    padding: 10rem 0;
     width: 100%;
   }
 
   .project-card {
+    display: flex;
+    gap: 6rem;
 
     &__info {
       flex-direction: column;
       display: flex;
       gap: 1rem;
-      max-width: 650px;
+      width: 30%;
+
+      p {
+        font-size: 1.8rem;
+      }
 
       a {
-        background-color: #1F2614;
-        border: 1px solid #1F2614;
-        border-radius: 0.5rem;
-        color: white;
+        border-bottom: 1px solid #1F2614;
+        color: #000;
         display: inline-block;
-        padding: 1.2rem 1.6rem;
+        // font-family: 'PT Mono', monospace;
+        margin-block-start: 2rem;
+        padding-block-end: 0.4rem;
         text-decoration: none;
 
         &:focus,
@@ -141,13 +150,15 @@
     }
 
     &__title {
-      font-size: 2.6rem;
+      font-family: 'PT Mono', monospace;
+      font-size: 2.2rem;
     }
 
     &__image {
       border: 1px solid #1F2614;
       border-radius: 0.5em;
-      margin-block-start: 1.6rem;
+      overflow-x: hidden;
+      width: 70%;
     }
   }
 </style>
