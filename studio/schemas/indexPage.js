@@ -42,6 +42,11 @@ export default defineType({
           title: 'Projects',
           fields: [
             {
+              name: 'indexProjectCopy',
+              title: 'Projects copy',
+              type: 'text',
+            },
+            {
               name: 'indexProjectArray',
               title: 'Project Array',
               type: 'array',
