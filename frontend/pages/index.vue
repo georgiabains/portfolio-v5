@@ -104,7 +104,11 @@
 
     &:first-child {
       justify-content: flex-start;
-      min-height: 70vh; // if using min height add some visual indicator that the user can scroll for more content
+      min-height: 46vh; // if using min height add some visual indicator that the user can scroll for more content
+    }
+
+    &--even {
+      background-color: #d9efd4;
     }
   }
 
@@ -114,6 +118,8 @@
   }
 
   .project-container {
+    margin-block-start: 2rem;
+
     &__title {
       align-items: center;
       display: flex;
@@ -136,7 +142,7 @@
       display: flex;
       flex-direction: column;
       gap: 10rem;
-      padding: 6rem 0;
+      padding: 4rem 6rem;
       width: 100%;
     }
   }
