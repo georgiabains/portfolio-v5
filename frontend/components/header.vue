@@ -35,10 +35,13 @@
 
 <style scoped lang="scss">
   .header {
+    background-color: #fff;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     min-height: 30vh;
+    position: relative;
+    z-index: 1;
   
     &__title {
       font-size: 3.6rem;
