@@ -22,6 +22,7 @@
     "@fontsource/pt-mono": "^4.5.11",
     "@nuxtjs/sanity": "^1.7.0",
     "@sanity/client": "^5.4.2",
+    "nuxt-icons": "^3.2.1",
     "vue-eslint-parser": "^9.3.0"
   }
 }
