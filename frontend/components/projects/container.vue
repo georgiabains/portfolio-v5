@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="project-container"
-  >
+  <div class="project-container">
     <slot name="copy"></slot>
 
     <div class="gutter project-container__projects">
