@@ -48,8 +48,8 @@
       display: flex;
       flex-direction: column;
       gap: 10rem;
-      padding-block-end: 4rem;
-      padding-block-start: 4rem;
+      padding-block-end: 6rem;
+      padding-block-start: 6rem;
       width: 100%;
     }
   }
