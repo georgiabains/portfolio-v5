@@ -27,50 +27,28 @@
 
     <pre v-if="section.code">{{ section.code }}</pre>
 
-    <div 
-      v-if="section.indexProjectArray"
-      class="project-container"
+    <ProjectContainer 
+      v-if="section.indexProjectArray" 
+      :project-array="section.indexProjectArray"
     >
-      <h2 
-        class="project-container__title margin-reset gutter--heading" 
-        v-text="'Featured projects'" 
-      />
+      <template #copy>
+        <h2 
+          class="project-container__title margin-reset gutter--heading" 
+          v-text="'Featured projects'" 
+        />
 
-      <p 
-        class="gutter margin-reset max-width--content project-container__subheading" 
-        v-text="section.indexProjectCopy" 
-      />
-
-      <div class="gutter project-container__projects">
-        <div 
-          v-for="(project, projectIndex) in section.indexProjectArray"
-          class="project-card"
-          :key="projectIndex"
-        >
-          <div class="project-card__info">
-            <h3 class="margin-reset project-card__title" v-text="project.title" />
-            <p class="margin-reset" v-text="project.description" />
-            <p class="margin-reset">
-              <a 
-                :href="`/project/${project.slug.current}`" 
-                v-text="`Read ${project.title} case study`"
-              />
-            </p>
-          </div>
-
-          <div class="project-card__image">
-            <img 
-              :alt="project.featuredImage.alt"
-              :src="project.featuredImage.asset.url" 
-            />
-          </div>
-        </div>
-      </div>
-    </div>
+        <p 
+          class="gutter margin-reset max-width--content project-container__subheading" 
+          v-text="section.indexProjectCopy" 
+        />
+      </template>
+    </ProjectContainer>
   </section>
 </template>
 
 <script setup>
+  import ProjectContainer from '~/components/projects/container'
+
   const indexPageQuery = groq`
     *[_type == "indexPage"][0]{
       ...,
@@ -127,37 +105,6 @@
   .featured-text {
     font-size: 2.2rem;
     max-width: 740px;
-  }
-
-  .project-container {
-    margin-block-start: 2rem;
-
-    &__title {
-      align-items: center;
-      display: flex;
-      font-size: 6rem;
-      gap: 1rem;
-      justify-content: flex-start;
-      text-transform: lowercase;
-
-      span {
-        flex-shrink: 0;
-      }
-    }
-
-    &__subheading {
-      display: none;
-      margin: 1.0rem 0;
-    }
-
-    &__projects {
-      display: flex;
-      flex-direction: column;
-      gap: 10rem;
-      padding-block-end: 4rem;
-      padding-block-start: 4rem;
-      width: 100%;
-    }
   }
 
   .project-card {
