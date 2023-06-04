@@ -2,47 +2,21 @@
   <div
     class="project-container"
   >
-    <!-- <h2 
-      class="project-container__title margin-reset gutter--heading" 
-      v-text="'Featured projects'" 
-    />
-
-    <p 
-      class="gutter margin-reset max-width--content project-container__subheading" 
-      v-text="section.indexProjectCopy" 
-    /> -->
-
     <slot name="copy"></slot>
 
     <div class="gutter project-container__projects">
-      <div 
-        v-for="(project, projectIndex) in projectArray"
-        class="project-card"
+      <ProjectCard 
+        v-for="(project, projectIndex) in projectArray" 
         :key="projectIndex"
-      >
-        <div class="project-card__info">
-          <h3 class="margin-reset project-card__title" v-text="project.title" />
-          <p class="margin-reset" v-text="project.description" />
-          <p class="margin-reset">
-            <a 
-              :href="`/project/${project.slug.current}`" 
-              v-text="`Read ${project.title} case study`"
-            />
-          </p>
-        </div>
-
-        <div class="project-card__image">
-          <img 
-            :alt="project.featuredImage.alt"
-            :src="project.featuredImage.asset.url" 
-          />
-        </div>
-      </div>
+        :project="project" 
+      />
     </div>
   </div>
 </template>
 
 <script setup>
+  import ProjectCard from './project-card'
+
   const props = defineProps({
     projectArray: {
       type: [Array],
