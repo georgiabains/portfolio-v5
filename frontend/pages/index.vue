@@ -101,7 +101,7 @@
 
     &:first-child {
       justify-content: flex-start;
-      min-height: 70vh; // if using min height add some visual indicator that the user can scroll for more content
+      min-height: 73vh; // if using min height add some visual indicator that the user can scroll for more content
     }
 
     &--even {

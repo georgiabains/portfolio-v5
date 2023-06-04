@@ -49,7 +49,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    min-height: 30vh;
+    min-height: 27vh;
     position: relative;
     z-index: 1;
 
