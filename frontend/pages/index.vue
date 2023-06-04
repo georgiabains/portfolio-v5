@@ -11,6 +11,14 @@
       />
     </div>
 
+    <p 
+      v-if="sectionIndex === 0"
+      class="gutter section__scroll"
+    >
+      <nuxt-icon name="mouse" />
+      Scroll to browse my work
+    </p>
+
     <SanityContent 
       v-if="section.blockContent" 
       :blocks="section.blockContent" 
@@ -106,6 +114,13 @@
 
     &--even {
       background-color: #d9efd4;
+    }
+
+    &__scroll {
+      align-items: center;
+      display: flex;
+      gap: 1rem;
+      margin-block-start: 10rem;
     }
   }
 
