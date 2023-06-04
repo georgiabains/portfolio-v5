@@ -1,70 +1,65 @@
 <template>
-  <div class="container">
-    <div class="content">
-      <section 
-        v-for="(section, sectionIndex) in indexPage.sections"
-        class="section"
-      >
-        <div class="gutter">
-          <p 
-            v-if="section.featuredText" 
-            v-for="(text, textIndex) in section.featuredText"
-            class="featured-text"
-            v-text="text" 
-          />
+  <section 
+    v-for="(section, sectionIndex) in indexPage.sections"
+    class="section"
+  >
+    <div v-if="section.featuredText" class="gutter">
+      <p
+        v-for="(text) in section.featuredText"
+        class="featured-text"
+        v-text="text" 
+      />
+    </div>
 
-          <SanityContent 
-            v-if="section.blockContent" 
-            :blocks="section.blockContent" 
-            class="max-width--content"
-          />
+    <SanityContent 
+      v-if="section.blockContent" 
+      :blocks="section.blockContent" 
+      class="max-width--content gutter"
+    />
 
-          <pre v-if="section.code">{{ section.code }}</pre>
+    <pre v-if="section.code">{{ section.code }}</pre>
 
-          <div 
-            v-if="section.indexProjectArray"
-            class="project-container"
-          >
-            <h2 
-              class="project-container__title margin-reset" 
-              v-text="'Featured projects'" 
+    <div 
+      v-if="section.indexProjectArray"
+      class="project-container"
+    >
+      <h2 
+        class="project-container__title margin-reset gutter--heading" 
+        v-text="'Featured projects'" 
+      />
+
+      <p 
+        class="gutter margin-reset max-width--content project-container__subheading" 
+        v-text="section.indexProjectCopy" 
+      />
+
+      <div class="gutter project-container__projects">
+        <div 
+          v-for="(project, projectIndex) in section.indexProjectArray"
+          class="project-card"
+          :key="projectIndex"
+        >
+          <div class="project-card__info">
+            <h3 class="margin-reset project-card__title" v-text="project.title" />
+            <p class="margin-reset" v-text="project.description" />
+            <p class="margin-reset">
+              <a 
+                :href="`/project/${project.slug.current}`" 
+                v-text="`Read ${project.title} case study`"
+              />
+            </p>
+          </div>
+
+          <div class="project-card__image">
+            <img 
+              :alt="project.featuredImage.alt"
+              :src="project.featuredImage.asset.url" 
             />
-
-            <p 
-              class="margin-reset max-width--content project-container__subheading" 
-              v-text="section.indexProjectCopy" 
-            />
-
-            <div class="project-container__projects">
-              <div 
-                v-for="(project, projectIndex) in section.indexProjectArray"
-                class="project-card"
-                :key="projectIndex"
-              >
-                <div class="project-card__info">
-                  <h3 class="margin-reset project-card__title" v-text="project.title" />
-                  <p class="margin-reset" v-text="project.description" />
-                  <p class="margin-reset">
-                    <a 
-                      :href="`/project/${project.slug.current}`" 
-                      v-text="`Read ${project.title} case study`"
-                    />
-                  </p>
-                </div>
-
-                <div class="project-card__image">
-                  <img 
-                    :alt="project.featuredImage.alt"
-                    :src="project.featuredImage.asset.url" 
-                  />
-                </div>
-              </div>
-            </div>
           </div>
         </div>
-      </section>
+      </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup>
@@ -106,7 +101,7 @@
 
     &:first-child {
       justify-content: flex-start;
-      min-height: 46vh; // if using min height add some visual indicator that the user can scroll for more content
+      min-height: 70vh; // if using min height add some visual indicator that the user can scroll for more content
     }
 
     &--even {
@@ -144,7 +139,8 @@
       display: flex;
       flex-direction: column;
       gap: 10rem;
-      padding: 4rem 6rem;
+      padding-block-end: 4rem;
+      padding-block-start: 4rem;
       width: 100%;
     }
   }

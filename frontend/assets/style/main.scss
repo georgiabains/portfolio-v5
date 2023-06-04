@@ -59,8 +59,13 @@ img {
 }
 
 .gutter {
-  padding-inline-end: 3.6rem;
-  padding-inline-start: 3.6rem;
+  padding-inline-end: 9.6rem;
+  padding-inline-start: 9.6rem;
+
+  &--heading {
+    padding-inline-end: 3.6rem;
+    padding-inline-start: 3.6rem;
+  }
 }
 
 .margin-reset {

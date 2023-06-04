@@ -1,6 +1,6 @@
 <template>
-  <header class="header gutter">
-    <div class="header__container">
+  <header class="header">
+    <div class="header__container gutter">
       <h1 
         v-if="route.name === 'index'" 
         class="header__title margin-reset"
