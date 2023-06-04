@@ -96,6 +96,7 @@
   }
 
   .section {
+    background-color: var(--background);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -162,8 +163,8 @@
       }
 
       a {
-        border-bottom: 1px solid #1F2614;
-        color: #000;
+        border-bottom: 1px solid var(--text-link);
+        color: var(--text-link);
         display: inline-block;
         // font-family: 'PT Mono', monospace;
         margin-block-start: 2rem;
@@ -184,10 +185,14 @@
     }
 
     &__image {
-      border: 1px solid #1F2614;
-      border-radius: 0.5em;
-      overflow-x: hidden;
+      overflow: hidden;
       width: 70%;
+
+      img {
+        border: 1px solid var(--border);
+        border-radius: 1rem;
+        height: 100%;
+      }
     }
   }
 </style>

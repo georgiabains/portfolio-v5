@@ -1,3 +1,10 @@
+:root {
+  --background: #e5e9e2;
+  --border: #263918;
+  --text: #000000;
+  --text-link: #263918;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -8,6 +15,7 @@ html {
 
 html,
 body {
+  background-color: var(--background);
   margin: 0;
   padding: 0;
 }
@@ -19,7 +27,7 @@ body {
 }
 
 a {
-  color: #4c543f;
+  color: var(--text-link);
   
   &:hover,
   &:focus {

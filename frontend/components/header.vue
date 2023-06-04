@@ -35,7 +35,7 @@
 
 <style scoped lang="scss">
   .header {
-    background-color: #fff;
+    background-color: var(--background);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
