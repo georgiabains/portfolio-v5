@@ -66,12 +66,11 @@
     }
 
     &__image {
-      overflow: hidden;
       width: 70%;
 
       img {
-        border: 1px solid var(--border);
         border-radius: 1rem;
+        filter: drop-shadow(0 0 1rem var(--secondary));
         height: 100%;
       }
     }
