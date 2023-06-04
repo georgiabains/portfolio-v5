@@ -1,16 +1,26 @@
 <template>
   <header class="header gutter">
-    <h1 
-      v-if="route.name === 'index'" 
-      class="header__title margin-reset"
-      v-text="'Georgia Bains'" 
-    />
+    <div class="header__container">
+      <h1 
+        v-if="route.name === 'index'" 
+        class="header__title margin-reset"
+        v-text="'Georgia Bains'" 
+      />
 
-    <h2 
-      v-else 
-      class="header__title margin-reset"
-      v-text="'Georgia Bains'" 
-    />
+      <h2 
+        v-else 
+        class="header__title margin-reset"
+        v-text="'Georgia Bains'" 
+      />
+
+      <nav class="header__navigation">
+        <ul class="list--unstyled">
+          <li><a href="/about">about</a></li>
+          <li><a href="/projects">projects</a></li>
+          <li><a href="/blog">blog</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 </template>
 
@@ -42,10 +52,23 @@
     min-height: 30vh;
     position: relative;
     z-index: 1;
+
+    &__container {
+      align-items: baseline;
+      display: flex;
+      gap: 3.6rem;
+    }
   
     &__title {
       font-size: 3.6rem;
       font-weight: 400;
+    }
+
+    &__navigation > ul {
+      display: flex;
+      font-family: 'PT Mono', monospace;
+      font-size: 2.2rem;
+      gap: 2rem;
     }
   }
 </style>
