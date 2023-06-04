@@ -8,8 +8,9 @@
         <div class="gutter">
           <p 
             v-if="section.featuredText" 
-            class="margin-reset featured-text"
-            v-text="section.featuredText" 
+            v-for="(text, textIndex) in section.featuredText"
+            class="featured-text"
+            v-text="text" 
           />
 
           <SanityContent 
