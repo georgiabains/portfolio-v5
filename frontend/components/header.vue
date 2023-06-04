@@ -8,7 +8,7 @@
 
     <h2 
       v-else 
-      class="header__title"
+      class="header__title margin-reset"
       v-text="'Georgia Bains'" 
     />
   </header>
