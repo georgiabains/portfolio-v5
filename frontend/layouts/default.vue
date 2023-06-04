@@ -8,7 +8,7 @@
 
 <style lang="scss">
   main {
-    background-color: #fff;
+    background-color: var(--background);
     border-bottom-left-radius: 1.6rem;
     border-bottom-right-radius: 1.6rem;
     min-height: 100vh;
