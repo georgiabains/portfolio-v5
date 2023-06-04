@@ -4,14 +4,16 @@
       <h1 
         v-if="route.name === 'index'" 
         class="header__title margin-reset"
-        v-text="'Georgia Bains'" 
-      />
+      >
+        <a href="/" v-text="'Georgia Bains'" />
+      </h1>
 
       <h2 
         v-else 
         class="header__title margin-reset"
-        v-text="'Georgia Bains'" 
-      />
+      >
+        <a href="/" v-text="'Georgia Bains'" />
+      </h2>
 
       <nav class="header__navigation">
         <ul class="list--unstyled">
@@ -62,6 +64,10 @@
     &__title {
       font-size: 3.6rem;
       font-weight: 400;
+
+      a {
+        text-decoration: none;
+      }
     }
 
     &__navigation > ul {
