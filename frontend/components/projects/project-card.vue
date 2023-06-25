@@ -44,17 +44,19 @@
       }
 
       a {
-        border-bottom: 1px solid var(--text-link);
-        color: var(--text-link);
+        border: 1px solid var(--text);
+        border-radius: 0.5rem;
+        color: var(--text);
         display: inline-block;
         // font-family: 'PT Mono', monospace;
         margin-block-start: 2rem;
-        padding-block-end: 0.4rem;
+        padding-block: 0.5rem;
+        padding-inline: 1rem;
         text-decoration: none;
 
         &:focus,
         &:hover {
-          background-color: #fff;
+          background-color: var(--secondary);
           color: #000;
         }
       }
@@ -62,7 +64,7 @@
 
     &__title {
       font-family: 'PT Mono', monospace;
-      font-size: 2.2rem;
+      font-size: 2.4rem;
     }
 
     &__image {

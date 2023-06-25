@@ -75,6 +75,16 @@
       font-family: 'PT Mono', monospace;
       font-size: 2.2rem;
       gap: 2rem;
+
+      a {
+        border-bottom: 2px solid var(--text-link);
+        padding-block-end: 0.2rem;
+        text-decoration: none;
+
+        &:hover {
+          border-bottom: 2px solid var(--text);
+        }
+      }
     }
   }
 </style>

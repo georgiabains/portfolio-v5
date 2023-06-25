@@ -90,6 +90,10 @@
       min-height: 73vh; // if using min height add some visual indicator that the user can scroll for more content
     }
 
+    &:last-child {
+      padding-block-end: 10rem;
+    }
+
     &--even {
       background-color: #d9efd4;
     }

@@ -12,14 +12,14 @@
           <li>
             <a href="https://github.com/georgiabains" rel="noreferrer noopener">
               <nuxt-icon name="github" />
-              <span class="footer__link">Explore my Github</span>
+              <span class="footer__socials--link">Explore my Github</span>
             </a>
           </li>
 
           <li>
             <a href="https://www.linkedin.com/in/georgia-bains/" rel="noreferrer noopener">
               <nuxt-icon name="linkedin" /> 
-              <span class="footer__link">Connect with me on LinkedIn</span>
+              <span class="footer__socials--link">Connect with me on LinkedIn</span>
             </a>
           </li>
         </ul>
@@ -59,6 +59,8 @@
 
 <style lang="scss">
   .footer {
+    $parent: &;
+
     align-items: center;
     background-color: #010201;
     bottom: 0;
@@ -99,7 +101,15 @@
       }
 
       a {
+        border-bottom: 1px solid #fff;
         color: #fff;
+        text-decoration: none;
+
+        &:hover,
+        &:focus {
+          background-color: #fff;
+          color: var(--text);
+        }
       }
     }
 
@@ -126,9 +136,20 @@
 
       a {
         align-items: center;
+        border: none;
         display: flex;
         gap: 0.8rem;
         text-decoration: none;
+
+        &:hover {
+          background-color: transparent;
+          color: #fff;
+
+          #{$parent}__socials--link {
+            background-color: #fff;
+            color: var(--text);
+          }
+        }
       }
 
       svg {
@@ -136,10 +157,12 @@
         width: 2.6rem;
         height: 2.6rem;
       }
-    }
 
-    &__link {
-      border-bottom: 1px solid #fff;
+      &--link {
+        border-bottom: 1px solid #fff;
+        padding-inline: 0.2rem;
+        padding-block: 0.4rem 0.2rem;
+      }
     }
 
     &__privacy {
