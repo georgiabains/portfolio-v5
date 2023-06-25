@@ -31,6 +31,7 @@
     &__title {
       font-size: 6rem;
       margin-block-start: 2.2rem;
+      text-transform: lowercase;
     }
 
     &__body {
