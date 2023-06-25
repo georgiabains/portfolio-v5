@@ -10,7 +10,7 @@
       />
     </div>
 
-    <div class="gutter">
+    <div v-if="!hideCta" class="gutter">
       <p class="project-container__cta">
         <nuxt-icon name="eye" />
         <a href="/projects">View all projects</a>
@@ -23,6 +23,10 @@
   import ProjectCard from './project-card'
 
   const props = defineProps({
+    hideCta: {
+      type: Boolean,
+      default: false,
+    },
     projectArray: {
       type: [Array],
     }
