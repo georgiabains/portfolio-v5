@@ -88,7 +88,6 @@ export default defineType({
             },
             prepare: ({ subtitle }) => {
               const fixedTitle = 'Project Container'
-              console.log(subtitle)
               return {
                 title: fixedTitle,
                 subtitle: `${subtitle}`
