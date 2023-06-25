@@ -9,6 +9,13 @@
         :project="project" 
       />
     </div>
+
+    <div class="gutter">
+      <p class="project-container__cta">
+        <nuxt-icon name="eye" />
+        <a href="/projects">View all projects</a>
+      </p>
+    </div>
   </div>
 </template>
 
@@ -51,6 +58,18 @@
       padding-block-end: 6rem;
       padding-block-start: 6rem;
       width: 100%;
+    }
+
+    &__cta {
+      align-items: center;
+      display: flex;
+      gap: 1rem;
+
+      a {
+        border-bottom: 1px solid var(--text);
+        color: var(--text);
+        text-decoration: none;
+      }
     }
   }
 </style>
