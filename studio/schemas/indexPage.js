@@ -37,7 +37,20 @@ export default defineType({
                 type: 'text',
               }]
             }
-          ]
+          ],
+          preview: {
+            select: {
+              title: 'title',
+              subtitle: 'featuredText'
+            },
+            prepare: ({ subtitle }) => {
+              const fixedTitle = 'Featured Text'
+              return {
+                title: fixedTitle,
+                subtitle: `${subtitle[0]}`
+              }
+            }
+          }
         },
         {
           type: 'object',
