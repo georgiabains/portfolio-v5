@@ -1,4 +1,5 @@
 import { defineField, defineType } from 'sanity'
+import { BlockContentIcon, DesktopIcon } from '@sanity/icons'
 
 export default defineType({
   name: 'indexPage',
@@ -28,6 +29,7 @@ export default defineType({
           type: 'object',
           name: 'indexFeaturedText',
           title: 'Featured Text',
+          icon: BlockContentIcon,
           fields: [
             {
               title: 'Featured text',
@@ -56,6 +58,7 @@ export default defineType({
           type: 'object',
           name: 'indexProjects',
           title: 'Projects',
+          icon: DesktopIcon,
           fields: [
             {
               name: 'indexProjectCopy',
@@ -78,7 +81,20 @@ export default defineType({
                 }
               ]
             }
-          ]
+          ],
+          preview: {
+            select: {
+              subtitle: 'indexProjectCopy',
+            },
+            prepare: ({ subtitle }) => {
+              const fixedTitle = 'Project Container'
+              console.log(subtitle)
+              return {
+                title: fixedTitle,
+                subtitle: `${subtitle}`
+              }
+            }
+          }
         }
       ],
     }),
