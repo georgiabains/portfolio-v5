@@ -43,10 +43,23 @@
         />
       </template>
     </ProjectContainer>
+
+    <BlogContainer 
+      v-if="section.indexBlogArray"
+      :blog-array="section.indexBlogArray"
+    >
+      <template #copy>
+        <h2 
+          class="blogs-container__title margin-reset gutter--heading" 
+          v-text="'blog posts'" 
+        />
+      </template>
+    </BlogContainer>
   </section>
 </template>
 
 <script setup>
+  import BlogContainer from '~/components/blog/container'
   import ProjectContainer from '~/components/projects/container'
 
   const indexPageQuery = groq`
@@ -64,12 +77,19 @@
             }
           },
           description
+        },
+        indexBlogArray[] -> {
+          title,
+          slug,
+          publishedAt
         }
       }
     }
   `
 
   const { data: indexPage } = await useSanityQuery(indexPageQuery)
+
+  console.log(indexPage)
 </script>
 
 <style scoped lang="scss">
