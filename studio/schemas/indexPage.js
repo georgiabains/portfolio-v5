@@ -1,5 +1,5 @@
 import { defineField, defineType } from 'sanity'
-import { BlockContentIcon, DesktopIcon } from '@sanity/icons'
+import { BookIcon, BlockContentIcon, DesktopIcon } from '@sanity/icons'
 
 export default defineType({
   name: 'indexPage',
@@ -90,7 +90,48 @@ export default defineType({
               const fixedTitle = 'Project Container'
               return {
                 title: fixedTitle,
-                subtitle: `${subtitle}`
+                subtitle: subtitle ? `${subtitle}` : ''
+              }
+            }
+          }
+        },
+        {
+          type: 'object',
+          name: 'indexBlogPosts',
+          title: 'Blog posts',
+          icon: BookIcon,
+          fields: [
+            {
+              name: 'indexBlogCopy',
+              title: 'Blogs copy',
+              type: 'text',
+            },
+            {
+              name: 'indexBlogArray',
+              title: 'Blog Array',
+              type: 'array',
+              of: [
+                {
+                  title: 'Blog',
+                  name: 'indexBlog',
+                  type: 'reference',
+                  to: [{ type: 'post' }],
+                  options: {
+                    disableNew: true,
+                  }
+                }
+              ]
+            }
+          ],
+          preview: {
+            select: {
+              subtitle: 'indexBlogCopy',
+            },
+            prepare: ({ subtitle }) => {
+              const fixedTitle = 'Blog Posts'
+              return {
+                title: fixedTitle,
+                subtitle: subtitle ? `${subtitle}` : ''
               }
             }
           }
