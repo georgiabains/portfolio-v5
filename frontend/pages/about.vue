@@ -18,8 +18,6 @@
   `
 
   const { data: aboutPage } = await useSanityQuery(aboutPageQuery)
-
-  console.log(aboutPage)
 </script>
 
 <style lang="scss">

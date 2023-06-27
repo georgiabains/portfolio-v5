@@ -10,8 +10,6 @@
       type: [Object],
     }
   })
-
-  console.log(props)
 </script>
 
 <style lang="scss">

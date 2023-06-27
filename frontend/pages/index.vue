@@ -88,8 +88,6 @@
   `
 
   const { data: indexPage } = await useSanityQuery(indexPageQuery)
-
-  console.log(indexPage)
 </script>
 
 <style scoped lang="scss">

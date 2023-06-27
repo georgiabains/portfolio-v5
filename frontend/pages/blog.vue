@@ -23,8 +23,6 @@
   `
 
   const { data: blogs } = await useSanityQuery(postsQuery)
-
-  console.log(blogs)
 </script>
 
 <style lang="scss">
