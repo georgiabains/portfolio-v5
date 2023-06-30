@@ -1,66 +1,15 @@
 <template>
-  <section 
+  <template 
     v-for="(section, sectionIndex) in indexPage.sections"
     class="section"
+    :key="section._key"
   >
-    <div v-if="section.featuredText" class="gutter">
-      <p
-        v-for="(text) in section.featuredText"
-        class="featured-text"
-        v-text="text" 
-      />
-    </div>
-
-    <p 
-      v-if="sectionIndex === 0"
-      class="gutter section__scroll"
-    >
-      <nuxt-icon name="mouse" />
-      Scroll to browse my work
-    </p>
-
-    <SanityContent 
-      v-if="section.blockContent" 
-      :blocks="section.blockContent" 
-      class="max-width--content gutter"
-    />
-
-    <pre v-if="section.code">{{ section.code }}</pre>
-
-    <ProjectContainer 
-      v-if="section.indexProjectArray" 
-      :project-array="section.indexProjectArray"
-    >
-      <template #copy>
-        <h2 
-          class="project-container__title margin-reset gutter--heading" 
-          v-text="'Featured projects'" 
-        />
-
-        <p 
-          class="gutter margin-reset max-width--content project-container__subheading" 
-          v-text="section.indexProjectCopy" 
-        />
-      </template>
-    </ProjectContainer>
-
-    <BlogContainer 
-      v-if="section.indexBlogArray"
-      :blog-array="section.indexBlogArray"
-    >
-      <template #copy>
-        <h2 
-          class="blogs-container__title margin-reset gutter--heading" 
-          v-text="'blog posts'" 
-        />
-      </template>
-    </BlogContainer>
-  </section>
+    <Section :section="section" :index="sectionIndex" />
+  </template>
 </template>
 
 <script setup>
-  import BlogContainer from '~/components/blog/container'
-  import ProjectContainer from '~/components/projects/container'
+  import Section from '~/components/section'
 
   const indexPageQuery = groq`
     *[_type == "indexPage"][0]{
@@ -87,45 +36,5 @@
     }
   `
 
-  const { data: indexPage } = await useSanityQuery(indexPageQuery)
+  const { data: indexPage } = reactive(await useSanityQuery(indexPageQuery))
 </script>
-
-<style scoped lang="scss">
-  .container {
-    margin: 0 auto;
-  }
-
-  .section {
-    background-color: var(--background);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-block-end: 4rem;
-    padding-block-start: 4rem;
-
-    &:first-child {
-      justify-content: flex-start;
-      min-height: 73vh; // if using min height add some visual indicator that the user can scroll for more content
-    }
-
-    &:last-child {
-      padding-block-end: 10rem;
-    }
-
-    &--even {
-      background-color: #d9efd4;
-    }
-
-    &__scroll {
-      align-items: center;
-      display: flex;
-      gap: 1rem;
-      margin-block-start: 10rem;
-    }
-  }
-
-  .featured-text {
-    font-size: 2.2rem;
-    max-width: 740px;
-  }
-</style>
