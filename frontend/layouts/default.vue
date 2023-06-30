@@ -13,6 +13,7 @@
     border-bottom-right-radius: 1.6rem;
     min-height: 100vh;
     overflow-x: hidden; 
+    padding-block-end: 8rem;
     position: relative;
     z-index: 1;
   }

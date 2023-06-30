@@ -24,7 +24,6 @@
   .about {
     margin: 0 auto;
     padding-block-start: 4rem;
-    padding-block-end: 10rem;
 
     &__title {
       font-size: 6rem;
