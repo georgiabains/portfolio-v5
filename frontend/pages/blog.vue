@@ -17,7 +17,7 @@
   import BlogContainer from '~/components/blog/blog-container'
 
   const postsQuery = groq`
-    *[_type == "post"]{
+    *[_type == "post"] | order(_createdAt desc) {
       ...
     }
   `

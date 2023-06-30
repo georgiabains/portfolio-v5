@@ -46,9 +46,9 @@
     class="section"
     :class="{ 'section--first': index === 0 }"
   >
-    <BlogContainer 
-      v-if="section.indexBlogArray"
+    <BlogContainer
       :blog-array="section.indexBlogArray"
+      :use-latest="section.indexBlogUseLatest"
     >
       <template #copy>
         <h2 
@@ -88,9 +88,28 @@
    * @returns {Boolean}
    */
   const showBlogPosts = computed(() => {
-    return sectionData.type === 'indexBlogPosts' 
-      && props.section.indexBlogArray?.length > 0
+    if (!props.section.indexBlogUseLatest) {
+      return sectionData.type === 'indexBlogPosts' 
+        && props.section.indexBlogArray?.length > 0
+    }
+
+    return props.section.indexBlogUseLatest
   })
+
+  const getLatestBlogPosts = async () => {
+    const latestBlogsQuery = groq`
+      *[_type == "post"][0..2] {
+        title,
+        body
+      }
+    `
+
+    const { data: latestBlogs } = await useSanityQuery(latestBlogsQuery)
+
+    console.log(latestBlogs)
+
+    return latestBlogs
+  }
 
   /**
    * Determine if the current section is a populated Featured Text section.

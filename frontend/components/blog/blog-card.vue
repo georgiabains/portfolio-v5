@@ -1,6 +1,6 @@
 <template>
   <article class="blog-card">
-    {{ blog.title }}
+    <h2 v-text="blog.title" />
   </article>
 </template>
 

@@ -4,7 +4,7 @@
 
     <div class="gutter blogs-container__projects">
       <BlogCard 
-        v-for="(blog, blogIndex) in blogArray" 
+        v-for="(blog, blogIndex) in blogPosts" 
         :key="blogIndex"
         :blog="blog" 
       />
@@ -22,6 +22,9 @@
 <script setup>
   import BlogCard from './blog-card'
 
+  /**
+   * Props.
+   */
   const props = defineProps({
     blogArray: {
       type: [Array],
@@ -29,8 +32,38 @@
     hideCta: {
       type: Boolean,
       default: false,
+    },
+    useLatest: {
+      type: Boolean,
+      default: false,
     }
   })
+
+
+  /**
+   * Get the 3 latest blog posts.
+   * @returns {Array}
+   */
+  const getLatestBlogPosts = () => {
+    const latestBlogsQuery = groq`
+      *[_type == "post"][0..2] | order(_createdAt desc) {
+        title,
+        body
+      }
+    `
+
+    const { data: latestBlogs } = useSanityQuery(latestBlogsQuery)
+
+    return latestBlogs
+  }
+
+  /**
+   * Choose which blog array to render based on if the user selected the 'use
+   * latest' option in Sanity.
+   * - Query for latest blogs is only performed if the user did select to use
+   *   the latest blogs.
+   */
+  const blogPosts = props.useLatest ? getLatestBlogPosts() : props.blogArray
 </script>
 
 <style lang="scss">
