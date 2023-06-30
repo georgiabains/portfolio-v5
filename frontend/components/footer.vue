@@ -135,9 +135,9 @@
       }
 
       a {
-        align-items: center;
+        align-items: baseline;
         border: none;
-        display: flex;
+        display: inline-flex;
         gap: 0.8rem;
         text-decoration: none;
 
