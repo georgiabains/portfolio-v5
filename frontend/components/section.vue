@@ -97,21 +97,6 @@
     return props.section.indexBlogUseLatest
   })
 
-  const getLatestBlogPosts = async () => {
-    const latestBlogsQuery = groq`
-      *[_type == "post"][0..2] {
-        title,
-        body
-      }
-    `
-
-    const { data: latestBlogs } = await useSanityQuery(latestBlogsQuery)
-
-    console.log(latestBlogs)
-
-    return latestBlogs
-  }
-
   /**
    * Determine if the current section is a populated Featured Text section.
    * @returns {Boolean}
