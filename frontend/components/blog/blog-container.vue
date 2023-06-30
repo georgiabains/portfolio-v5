@@ -7,6 +7,7 @@
         v-for="(blog, blogIndex) in blogPosts" 
         :key="blogIndex"
         :blog="blog" 
+        :use-h3="useH3"
       />
     </div>
 
@@ -30,6 +31,10 @@
       type: [Array],
     },
     hideCta: {
+      type: Boolean,
+      default: false,
+    },
+    useH3: {
       type: Boolean,
       default: false,
     },

@@ -48,6 +48,7 @@
   >
     <BlogContainer
       :blog-array="section.indexBlogArray"
+      use-h3
       :use-latest="section.indexBlogUseLatest"
     >
       <template #copy>
