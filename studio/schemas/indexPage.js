@@ -102,9 +102,19 @@ export default defineType({
           icon: BookIcon,
           fields: [
             {
+              name: 'indexBlogSectionTitle',
+              title: 'Blog title',
+              type: 'string',
+            },
+            {
               name: 'indexBlogCopy',
               title: 'Blogs copy',
               type: 'text',
+            },
+            {
+              name: 'indexBlogUseLatest',
+              title: 'Use latest?',
+              type: 'boolean',
             },
             {
               name: 'indexBlogArray',
