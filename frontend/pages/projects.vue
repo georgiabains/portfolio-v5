@@ -14,7 +14,7 @@
 </template>
 
 <script setup>
-  import ProjectContainer from '~/components/projects/container'
+  import ProjectContainer from '~/components/projects/projects-container'
 
   const projectsQuery = groq`
     *[_type == "project"]{

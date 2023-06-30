@@ -14,7 +14,7 @@
 </template>
 
 <script setup>
-  import BlogContainer from '~/components/blog/container'
+  import BlogContainer from '~/components/blog/blog-container'
 
   const postsQuery = groq`
     *[_type == "post"]{
