@@ -19,7 +19,7 @@
         <ul class="list--unstyled">
           <li><a href="/about">about</a></li>
           <li><a href="/projects">projects</a></li>
-          <li><a href="/blog">blog</a></li>
+          <li><a href="/blogs">blog</a></li>
         </ul>
       </nav>
     </div>

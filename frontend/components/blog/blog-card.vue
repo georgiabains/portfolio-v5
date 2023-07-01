@@ -1,5 +1,5 @@
 <template>
-  <a :href="blog.slug.current" class="blog-card">
+  <a :href="getSlug" class="blog-card">
     <div class="blog-card__info">
       <component 
         :is="useH3 ? 'h3' : 'h2'"
@@ -30,6 +30,14 @@
       type: Boolean,
       default: false,
     }
+  })
+
+  /**
+   * Return blog slug with correct path.
+   * @returns {String}
+   */
+  const getSlug = computed(() => {
+    return `/blog/${props.blog.slug.current}`
   })
 
   /**
