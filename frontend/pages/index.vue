@@ -29,6 +29,7 @@
         },
         indexBlogArray[] -> {
           title,
+          slug,
           _createdAt,
           mainImage {
             ...,

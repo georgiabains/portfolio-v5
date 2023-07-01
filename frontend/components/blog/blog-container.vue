@@ -53,6 +53,7 @@
     const latestBlogsQuery = groq`
       *[_type == "post"][0..2] | order(_createdAt desc) {
         title,
+        slug,
         _createdAt,
         mainImage {
           ...,
@@ -98,7 +99,10 @@
 
     &__blogs {
       display: flex;
+      flex-wrap: wrap;
+      gap: 4rem;
       justify-content: space-between;
+      margin-block: 6rem;
     }
 
     &__cta {

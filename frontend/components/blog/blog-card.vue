@@ -1,14 +1,24 @@
 <template>
-  <article class="blog-card">
-    <component :is="useH3 ? 'h3' : 'h2'">
-      <span v-text="blog.title" />
-    </component>
+  <a :href="blog.slug.current" class="blog-card">
+    <div class="blog-card__info">
+      <component 
+        :is="useH3 ? 'h3' : 'h2'"
+        class="margin-reset blog-card__title"
+      >
+        <span v-text="blog.title" />
+      </component>
 
-    <time 
-      :datetime="blog._createdAt" 
-      v-text="publishDate" 
-    />
-  </article>
+      <time 
+        class="blog-card__date"
+        :datetime="blog._createdAt" 
+        v-text="publishDate" 
+      />
+    </div>
+
+    <div class="blog-card__image">
+      <img :src="blog.mainImage.asset.url" alt="" />
+    </div>
+  </a>
 </template>
 
 <script setup>
@@ -45,8 +55,49 @@
 
 <style lang="scss">
   .blog-card {
-    border: 1px solid red;
-    gap: 1rem;
-    width: 33%;
+    $parent: &;
+
+    border: 1px solid var(--border);
+    border-radius: 2.8rem;
+    color: var(--text);
+    height: fit-content;
+    overflow: hidden;
+    padding: 2rem;
+    text-decoration: none;
+    width: 31%;
+
+    &:hover {
+      background-color: var(--secondary);
+      border: 1px solid var(--secondary);
+    }
+
+    &__info {
+      padding-block: 0.2rem 1.8rem;
+    }
+
+    &__title {
+      font-size: 2.4rem;
+      line-height: 1.4;
+      max-width: 95%;
+    }
+
+    &__date {
+      display: block;
+      margin-block-start: 1rem;
+    }
+
+    &__image {
+      border-radius: 0.8rem;
+      height: 24rem;
+      overflow: hidden;
+      width: 100%;
+
+      img {
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+        width: 100%;
+      }
+    }
   }
 </style>
