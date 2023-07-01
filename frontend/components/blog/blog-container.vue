@@ -2,7 +2,7 @@
   <div class="blogs-container">
     <slot name="copy"></slot>
 
-    <div class="gutter blogs-container__projects">
+    <div class="gutter blogs-container__blogs">
       <BlogCard 
         v-for="(blog, blogIndex) in blogPosts" 
         :key="blogIndex"
@@ -53,11 +53,13 @@
     const latestBlogsQuery = groq`
       *[_type == "post"][0..2] | order(_createdAt desc) {
         title,
-        body
+        _createdAt
       }
     `
 
     const { data: latestBlogs } = useSanityQuery(latestBlogsQuery)
+
+    console.log(latestBlogs)
 
     return latestBlogs
   }
@@ -88,18 +90,9 @@
       }
     }
 
-    &__subheading {
-      display: none;
-      margin: 1.0rem 0;
-    }
-
-    &__projects {
+    &__blogs {
       display: flex;
-      flex-direction: column;
-      gap: 10rem;
-      padding-block-end: 6rem;
-      padding-block-start: 6rem;
-      width: 100%;
+      justify-content: space-between;
     }
 
     &__cta {
