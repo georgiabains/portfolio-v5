@@ -66,8 +66,6 @@
 
     const { data: latestBlogs } = useSanityQuery(latestBlogsQuery)
 
-    console.log(latestBlogs)
-
     return latestBlogs
   }
 
