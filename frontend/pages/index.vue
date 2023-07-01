@@ -19,7 +19,7 @@
         indexProjectArray[] -> {
           title,
           slug,
-          featuredImage{
+          featuredImage {
             ...,
             asset -> {
               url
@@ -29,8 +29,13 @@
         },
         indexBlogArray[] -> {
           title,
-          slug,
-          publishedAt
+          _createdAt,
+          mainImage {
+            ...,
+            asset -> {
+              url
+            }
+          }
         }
       }
     }

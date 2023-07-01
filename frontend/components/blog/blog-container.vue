@@ -53,7 +53,13 @@
     const latestBlogsQuery = groq`
       *[_type == "post"][0..2] | order(_createdAt desc) {
         title,
-        _createdAt
+        _createdAt,
+        mainImage {
+          ...,
+          asset -> {
+            url
+          }
+        }
       }
     `
 
