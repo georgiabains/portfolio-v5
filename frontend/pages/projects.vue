@@ -35,7 +35,6 @@
   .project-container {
     margin-block-start: 0;
     padding-block-start: 4rem;
-    padding-block-end: 10rem;
 
     &__title {
       margin-block-start: 2.2rem;

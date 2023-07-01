@@ -1,12 +1,13 @@
 <template>
   <BlogContainer 
     v-if="blogs"
+    class="blogs"
     hide-cta
     :blog-array="blogs"
   >
     <template #copy>
       <h1 
-        class="blogs-container__title margin-reset gutter--heading" 
+        class="blogs__title margin-reset gutter--heading" 
         v-text="'All blog posts'" 
       />
     </template>
@@ -33,9 +34,11 @@
 
 <style lang="scss">
   .blogs {
+    margin-block-start: 0;
+    padding-block-start: 4rem;
+
     &__title {
-      font-size: 6rem;
-      text-transform: lowercase;
+      margin-block-start: 2.2rem;
     }
   }
 </style>
