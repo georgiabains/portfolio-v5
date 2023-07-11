@@ -4,11 +4,13 @@
     class="gutter section"
     :class="{ 'section--first': index === 0 }"
   >
-    <p
-      v-for="(text) in section.featuredText"
-      class="featured-text"
-      v-text="text" 
-    />
+    <div class="featured-text">
+      <p
+        v-for="(text) in section.featuredText"
+        class="featured-text__copy"
+        v-text="text" 
+      />
+    </div>
   
     <p 
       v-if="index === 0"
@@ -141,5 +143,9 @@
   .featured-text {
     font-size: 2.2rem;
     max-width: 740px;
+    padding: 1rem 3.6rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 1rem var(--secondary);
+    margin-block-start: 4rem;
   }
 </style>
