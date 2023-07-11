@@ -72,7 +72,7 @@
     overflow: hidden;
     padding: 2rem;
     text-decoration: none;
-    width: 31%;
+    width: 100%;
 
     &:hover {
       background-color: var(--secondary);

@@ -96,9 +96,9 @@
     }
 
     &__blogs {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 4rem;
+      display: grid;
+      grid-template-columns: auto;
+      gap: 6rem;
       justify-content: space-between;
       margin-block: 6rem;
     }
@@ -112,6 +112,19 @@
         border-bottom: 1px solid var(--text);
         color: var(--text);
         text-decoration: none;
+      }
+    }
+
+    @media screen and (min-width: 960px) {
+      &__blogs {
+        gap: 4rem;
+        grid-template-columns: auto auto;
+      }
+    }
+
+    @media screen and (min-width: 1400px) {
+      &__blogs {
+        grid-template-columns: auto auto auto;
       }
     }
   }
