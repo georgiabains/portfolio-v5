@@ -122,7 +122,7 @@
       }
     }
 
-    @media screen and (min-width: 1400px) {
+    @media screen and (min-width: 1520px) {
       &__blogs {
         grid-template-columns: auto auto auto;
       }
