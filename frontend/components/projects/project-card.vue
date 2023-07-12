@@ -30,14 +30,15 @@
 
 <style lang="scss">
   .project-card {
-    display: flex;
+    display: grid;
     gap: 6rem;
+    grid-template-columns: 1fr;
 
     &__info {
       flex-direction: column;
       display: flex;
       gap: 1rem;
-      width: 30%;
+      width: 100%;
 
       p {
         font-size: 1.8rem;
@@ -68,13 +69,17 @@
     }
 
     &__image {
-      width: 70%;
+      width: 100%;
 
       img {
         border-radius: 1rem;
         filter: drop-shadow(0 0 1rem var(--secondary));
         height: 100%;
       }
+    }
+
+    @media screen and (min-width: 960px) {
+      grid-template-columns: 1fr 2fr;
     }
   }
 </style>
