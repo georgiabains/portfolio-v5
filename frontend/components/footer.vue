@@ -92,9 +92,10 @@
     &__container {
       align-items: baseline;
       display: flex;
+      flex-direction: column;
       gap: 6rem;
       justify-content: center;
-      width: 60%;
+      width: 80%;
 
       h2 {
         font-family: 'PT Mono', monospace;
@@ -111,14 +112,6 @@
           color: var(--text);
         }
       }
-    }
-
-    &__left {
-      width: 60%;
-    }
-
-    &__right {
-      width: 40%;
     }
 
     &__display-copy {
@@ -180,10 +173,40 @@
 
     &__copyright {
       margin-block-start: 10rem;
-      width: 60%;
+      width: 80%;
 
       a {
         color: #fff;
+      }
+    }
+
+    @media screen and (min-width: 960px) {
+      &__container,
+      &__copyright {
+        width: 60%;
+      }
+
+      &__right {
+        align-items: baseline;
+        display: flex;
+        gap: 2rem;
+        justify-content: space-between;
+        width: 100%;
+      }
+    }
+
+    @media screen and (min-width: 1520px) {
+      &__container {
+        flex-direction: row;
+      }
+
+      &__left {
+        width: 60%;
+      }
+
+      &__right {
+        flex-direction: column;
+        width: 40%;
       }
     }
   }
