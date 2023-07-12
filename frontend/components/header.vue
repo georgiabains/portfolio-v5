@@ -57,6 +57,7 @@
 
     &__container {
       align-items: baseline;
+      flex-direction: column;
       display: flex;
       gap: 3.6rem;
     }
@@ -84,6 +85,12 @@
         &:hover {
           border-bottom: 2px solid var(--text);
         }
+      }
+    }
+
+    @media screen and (min-width: 960px) {
+      &__container {
+        flex-direction: row;
       }
     }
   }
