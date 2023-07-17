@@ -1,21 +1,40 @@
 <template>
   <section
     v-if="showFeaturedText"
-    class="gutter section"
+    class="section"
     :class="{ 'section--first': index === 0 }"
   >
-    <div class="featured-text">
-      <p
-        v-for="text in section.featuredText"
-        class="featured-text__copy"
-        v-text="text"
-      />
-    </div>
+    <div>
+      <h2 class="heading gutter gutter--heading">accessibility-focused frontend developer</h2>
 
-    <p v-if="index === 0" class="section__scroll">
-      <nuxt-icon name="mouse" />
-      Scroll to browse my work
-    </p>
+      <div class="gutter grid">
+        <div>
+        <p
+          v-for="text in section.featuredText"
+          class="featured-text__copy"
+          v-text="text"
+        />
+
+        <p v-if="index === 0" class="section__scroll">
+          <nuxt-icon name="mouse" />
+          Scroll to browse my work
+        </p>
+        </div>
+
+        <div class="grid__image">
+          <svg style="visibility: hidden; position: absolute;" width="0" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1">
+            <defs>
+              <filter id="round">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />    
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+                <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+              </filter>
+            </defs>
+          </svg>
+          <img alt="Computer desk with lamp and tea." src="https://images.unsplash.com/photo-1601642964568-1917224f4e4d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80">
+        </div>
+      </div>
+    </div>
   </section>
 
   <section
@@ -129,8 +148,10 @@ const showProjects = computed(() => {
   padding-block-start: 4rem;
 
   &--first {
+    padding-block-start: 0;
     justify-content: flex-start;
-    min-height: 73vh; // if using min height add some visual indicator that the user can scroll for more content
+    // min-height: 73vh; // if using min height add some visual indicator that the user can scroll for more content
+    min-height: calc(100vh - 8rem);
   }
 
   &__scroll {
@@ -148,5 +169,28 @@ const showProjects = computed(() => {
   border-radius: 1rem;
   box-shadow: 0 0 1rem var(--secondary);
   margin-block-start: 4rem;
+
+  &__copy {
+    font-size: 2.2rem;
+  }
+}
+
+.heading {
+  font-size: 6rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  &__image {
+    filter: url(#round);
+    max-width: 50rem;
+    justify-self: end;
+  }
+
+  img {
+    clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+  }
 }
 </style>

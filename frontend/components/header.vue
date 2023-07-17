@@ -51,7 +51,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    min-height: 27vh;
+    padding-block: 4rem;
     position: relative;
     z-index: 1;
 
@@ -60,6 +60,7 @@
       flex-direction: column;
       display: flex;
       gap: 3.6rem;
+      justify-content: space-between;
     }
   
     &__title {
@@ -78,8 +79,10 @@
       gap: 2rem;
 
       a {
-        border-bottom: 2px solid var(--text-link);
-        padding-block-end: 0.2rem;
+        border: 1px solid var(--text-link);
+        border-radius: 0.5rem;
+        padding-block: 0.5rem;
+        padding-inline: 1rem;
         text-decoration: none;
 
         &:hover {
