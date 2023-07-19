@@ -17,9 +17,24 @@
 
       <nav class="header__navigation">
         <ul class="list--unstyled">
-          <li><a href="/about">about</a></li>
-          <li><a href="/projects">projects</a></li>
-          <li><a href="/blogs">blog</a></li>
+          <li>
+            <a href="/about">
+              about 
+              <nuxt-icon name="squiggly-line" />
+            </a>
+          </li>
+          <li>
+            <a href="/projects">
+              projects
+              <nuxt-icon name="squiggly-line" />
+            </a>
+          </li>
+          <li>
+            <a href="/blogs">
+              blog
+              <nuxt-icon name="squiggly-line" />
+            </a>
+          </li>
         </ul>
       </nav>
     </div>
@@ -74,20 +89,36 @@
 
     &__navigation > ul {
       display: flex;
-      font-family: 'PT Mono', monospace;
-      font-size: 2.2rem;
+      font-size: 2rem;
       gap: 2rem;
 
       a {
-        border: 1px solid var(--text-link);
-        border-radius: 0.5rem;
-        display: inline-block;
-        padding-block: 0.5rem;
-        padding-inline: 1rem;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        padding-block: 0.2rem;
+        padding-inline: 0.4rem;
+        position: relative;
         text-decoration: none;
 
         &:hover {
-          border-bottom: 2px solid var(--text);
+          background-color: var(--secondary);
+          border-color: var(--secondary);
+          border-radius: 0.5rem;
+
+          .nuxt-icon {
+            display: none;
+          }
+        }
+
+        .nuxt-icon {
+          bottom: -1.4rem;
+          fill: none !important;
+          position: absolute;
+        }
+
+        .nuxt-icon.nuxt-icon--fill * {
+          fill: none !important;
         }
       }
     }
