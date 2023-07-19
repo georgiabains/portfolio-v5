@@ -17,24 +17,9 @@
 
       <nav class="header__navigation">
         <ul class="list--unstyled">
-          <li>
-            <a href="/about">
-              about 
-              <nuxt-icon name="squiggly-line" />
-            </a>
-          </li>
-          <li>
-            <a href="/projects">
-              projects
-              <nuxt-icon name="squiggly-line" />
-            </a>
-          </li>
-          <li>
-            <a href="/blogs">
-              blog
-              <nuxt-icon name="squiggly-line" />
-            </a>
-          </li>
+          <li><a href="/about">about</a></li>
+          <li><a href="/projects">projects</a></li>
+          <li><a href="/blogs">blog</a></li>
         </ul>
       </nav>
     </div>
@@ -101,12 +86,23 @@
         position: relative;
         text-decoration: none;
 
+        &::after {
+          content: '';
+          background-image: url("data:image/svg+xml,%3Csvg version='1.1' id='squiggly-line-svg' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 92.8 12' style='enable-background:new 0 0 92.8 12;height: 6px;width: 100%25;' xml:space='preserve' data-v-5be51a94='' fill='none'%3E%3Cpath stroke-width='2' d='M1.4,6c0,0,9-9,18,0s18,0,18,0s9-9,18,0s18,0,18,0s9-9,18,0' data-v-5be51a94='' stroke='currentColor' fill='none'%3E%3C/path%3E%3C/svg%3E");
+          background-repeat: no-repeat;
+          background-size: 100% 100%;
+          bottom: -0.4rem;
+          height: 6px;
+          position: absolute;
+          width: 100%;
+        }
+
         &:hover {
           background-color: var(--secondary);
           border-color: var(--secondary);
           border-radius: 0.5rem;
 
-          .nuxt-icon {
+          &::after {
             display: none;
           }
         }
