@@ -5,23 +5,23 @@
     :class="{ 'section--first': index === 0 }"
   >
     <div>
-      <h2 class="heading gutter gutter--heading">accessibility-focused frontend developer</h2>
+      <h2 class="heading gutter gutter--heading margin-reset">accessibility-focused frontend developer</h2>
 
-      <div class="gutter grid">
+      <div class="featured-text gutter grid">
         <div>
-        <p
-          v-for="text in section.featuredText"
-          class="featured-text__copy"
-          v-text="text"
-        />
+          <p
+            v-for="text in section.featuredText"
+            class="featured-text__copy"
+            v-text="text"
+          />
 
-        <p v-if="index === 0" class="section__scroll">
-          <nuxt-icon name="mouse" />
-          Scroll to browse my work
-        </p>
+          <p v-if="index === 0" class="section__scroll">
+            <nuxt-icon name="mouse" />
+            Scroll to browse my work
+          </p>
         </div>
 
-        <div class="grid__image">
+        <div class="featured-text__image">
           <svg style="visibility: hidden; position: absolute;" width="0" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1">
             <defs>
               <filter id="round">
@@ -163,34 +163,30 @@ const showProjects = computed(() => {
 }
 
 .featured-text {
-  font-size: 2.2rem;
-  max-width: 740px;
-  padding: 1rem 3.6rem;
-  border-radius: 1rem;
-  box-shadow: 0 0 1rem var(--secondary);
-  margin-block-start: 4rem;
+  margin-block-start: 6rem;
 
   &__copy {
     font-size: 2.2rem;
   }
-}
-
-.heading {
-  font-size: 6rem;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
 
   &__image {
     filter: url(#round);
-    max-width: 50rem;
+    max-width: 64rem;
     justify-self: end;
   }
 
   img {
     clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
   }
+}
+
+.heading {
+  font-size: 6.6rem;
+}
+
+.grid {
+  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 </style>

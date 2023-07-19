@@ -51,7 +51,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding-block: 4rem;
+    padding-block: var(--gutter);
     position: relative;
     z-index: 1;
 
@@ -64,7 +64,7 @@
     }
   
     &__title {
-      font-size: 3.6rem;
+      font-size: 3.2rem;
       font-weight: 400;
 
       a {
