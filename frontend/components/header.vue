@@ -93,7 +93,7 @@
           bottom: -0.4rem;
           height: 6px;
           position: absolute;
-          width: 70%;
+          width: 80%;
         }
 
         &:hover {
