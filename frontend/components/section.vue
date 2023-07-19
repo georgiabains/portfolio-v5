@@ -159,6 +159,8 @@ const showProjects = computed(() => {
     display: flex;
     gap: 1rem;
     margin-block-start: 10rem;
+    position: relative;
+    z-index: 2;
   }
 }
 
@@ -171,12 +173,25 @@ const showProjects = computed(() => {
 
   &__image {
     filter: url(#round);
-    max-width: 64rem;
+    max-width: 56rem;
     justify-self: end;
   }
 
   img {
     clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+  }
+
+  @media screen and (min-width: 700px) {
+    &__image {
+      margin-block-start: -12rem;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    &__image {
+      margin-block-start: 0;
+      max-width: 64rem;
+    }
   }
 }
 
@@ -187,6 +202,10 @@ const showProjects = computed(() => {
 .grid {
   align-items: center;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+
+  @media screen and (min-width: 1200px) {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 </style>

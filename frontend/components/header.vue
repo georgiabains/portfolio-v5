@@ -81,6 +81,7 @@
       a {
         border: 1px solid var(--text-link);
         border-radius: 0.5rem;
+        display: inline-block;
         padding-block: 0.5rem;
         padding-inline: 1rem;
         text-decoration: none;
