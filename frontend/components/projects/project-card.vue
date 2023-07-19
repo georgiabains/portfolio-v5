@@ -58,6 +58,7 @@
         &:focus,
         &:hover {
           background-color: var(--secondary);
+          border-color: var(--secondary);
           color: #000;
         }
       }
