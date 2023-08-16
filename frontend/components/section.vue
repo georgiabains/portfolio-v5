@@ -165,15 +165,15 @@ const showProjects = computed(() => {
 }
 
 .featured-text {
-  margin-block-start: 3.75rem;
+  margin-block-start: var(--spacing-3xl);
 
   &__copy {
-    font-size: var(--font-24);
+    font-size: var(--font-22);
   }
 
   &__image {
     filter: url(#round);
-    max-width: 35rem;
+    max-width: 35rem; // 560px
     justify-self: end;
   }
 
@@ -190,7 +190,7 @@ const showProjects = computed(() => {
   @media screen and (min-width: 1200px) {
     &__image {
       margin-block-start: 0;
-      max-width: 40rem;
+      max-width: 40rem; // 640px
     }
   }
 }
@@ -202,7 +202,7 @@ const showProjects = computed(() => {
 .grid {
   align-items: center;
   display: grid;
-  gap: 3.75rem;
+  gap: var(--spacing-3xl);
 
   @media screen and (min-width: 1200px) {
     grid-template-columns: 1fr 1fr;
