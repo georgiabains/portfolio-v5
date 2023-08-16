@@ -31,7 +31,7 @@
 <style lang="scss">
   .project-card {
     display: grid;
-    gap: 6rem;
+    gap: 3.75rem;
     grid-template-columns: 1fr;
 
     &__info {
@@ -41,7 +41,7 @@
       width: 100%;
 
       p {
-        font-size: 1.8rem;
+        font-size: 1.125rem;
       }
 
       a {
@@ -50,7 +50,7 @@
         color: var(--text);
         display: inline-block;
         // font-family: 'PT Mono', monospace;
-        margin-block-start: 2rem;
+        margin-block-start: 1.25rem;
         padding-block: 0.5rem;
         padding-inline: 1rem;
         text-decoration: none;
@@ -66,7 +66,7 @@
 
     &__title {
       font-family: 'PT Mono', monospace;
-      font-size: 2.4rem;
+      font-size: 1.5rem;
     }
 
     &__image {

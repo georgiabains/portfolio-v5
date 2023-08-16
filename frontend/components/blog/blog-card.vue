@@ -84,7 +84,7 @@
     }
 
     &__title {
-      font-size: 2.4rem;
+      font-size: 1.5rem;
       line-height: 1.4;
       max-width: 95%;
     }
@@ -96,7 +96,7 @@
 
     &__image {
       border-radius: 0.8rem;
-      height: 24rem;
+      height: 15rem;
       overflow: hidden;
       width: 100%;
 

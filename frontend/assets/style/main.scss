@@ -1,29 +1,9 @@
-:root {
-  /**
-   * Colours.
-   */
-  --background: #e5e9e2;
-  --border: #263918;
-  --secondary: #bcc8b6;
-  --text: #000000;
-  --text-link: #263918;
-
-  /**
-   * Spacing.
-   */
-  --gutter: 3.6rem;
-
-  @media screen and (min-width: 700px) {
-    --gutter: 9.6rem;
-  }
-}
-
 * {
   box-sizing: border-box;
 }
 
 html {
-  font-size: 10px;
+  font-size: 16px;
 }
 
 html,
@@ -35,7 +15,7 @@ body {
 
 body {
   font-family: 'Atkinson Hyperlegible', sans-serif;
-  font-size: 1.8rem;
+  font-size: 1.125rem;
   font-weight: 400;
 }
 
@@ -76,10 +56,10 @@ img {
   padding-inline-start: var(--gutter);
 
   &--heading {
-    --gutter: 3.6rem;
+    --gutter: 2rem;
 
     @media screen and (min-width: 700px) {
-      --gutter: 4.8rem;
+      --gutter: 3rem;
     }
   }
 }

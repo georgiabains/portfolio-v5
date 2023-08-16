@@ -35,12 +35,12 @@
 
 <style scoped>
   .container {
-    margin: 2rem;
+    margin: 1.25rem;
   }
 
   .content {
-    margin: 2rem 0;
-    max-width: 38rem;
+    margin: 1.25rem 0;
+    max-width: 24rem;
   }
 
   p {

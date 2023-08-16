@@ -35,12 +35,12 @@
 
 <style lang="scss">
   .project-container {
-    margin-block-start: 2rem;
+    margin-block-start: 1.25rem;
 
     &__title {
       align-items: center;
       display: flex;
-      font-size: 6rem;
+      font-size: 3/75rem;
       gap: 1rem;
       justify-content: flex-start;
       text-transform: lowercase;
@@ -58,9 +58,9 @@
     &__projects {
       display: flex;
       flex-direction: column;
-      gap: 10rem;
-      padding-block-end: 6rem;
-      padding-block-start: 6rem;
+      gap: 6rem;
+      padding-block-end: 3.75rem;
+      padding-block-start: 3.75rem;
       width: 100%;
     }
 

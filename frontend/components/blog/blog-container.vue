@@ -80,12 +80,12 @@
 
 <style lang="scss">
   .blogs-container {
-    margin-block-start: 2rem;
+    margin-block-start: 1.25rem;
 
     &__title {
       align-items: center;
       display: flex;
-      font-size: 6rem;
+      font-size: 3.75rem;
       gap: 1rem;
       justify-content: flex-start;
       text-transform: lowercase;
@@ -98,9 +98,9 @@
     &__blogs {
       display: grid;
       grid-template-columns: auto;
-      gap: 6rem;
+      gap: 3.75rem;
       justify-content: space-between;
-      margin-block: 6rem;
+      margin-block: 3.75rem;
     }
 
     &__cta {
@@ -117,7 +117,7 @@
 
     @media screen and (min-width: 960px) {
       &__blogs {
-        gap: 4rem;
+        gap: 2.5rem;
         grid-template-columns: auto auto;
       }
     }

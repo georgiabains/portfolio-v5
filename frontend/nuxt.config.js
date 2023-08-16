@@ -8,7 +8,8 @@ export default defineNuxtConfig({
   },
   css: [
     // SCSS file in the project
-    '~/assets/style/main.scss', // you should add main.scss somewhere in your app
+    '~/assets/style/variables.scss',
+    '~/assets/style/main.scss',
   ],
   modules: [
     'nuxt-icons',

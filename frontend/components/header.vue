@@ -59,12 +59,12 @@
       align-items: baseline;
       flex-direction: column;
       display: flex;
-      gap: 3.6rem;
+      gap: 2rem;
       justify-content: space-between;
     }
   
     &__title {
-      font-size: 3.2rem;
+      font-size: 2rem;
       font-weight: 400;
 
       a {
@@ -74,8 +74,8 @@
 
     &__navigation > ul {
       display: flex;
-      font-size: 2rem;
-      gap: 2rem;
+      font-size: 1.125rem;
+      gap: 1.125rem;
 
       a {
         align-items: center;

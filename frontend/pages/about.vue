@@ -23,16 +23,16 @@ const { data: aboutPage } = await useSanityQuery(aboutPageQuery);
 <style lang="scss">
 .about {
   margin: 0 auto;
-  padding-block-start: 4rem;
+  padding-block-start: 2.5rem;
 
   &__title {
-    font-size: 6rem;
-    margin-block-start: 2.2rem;
+    font-size: 3.75rem;
+    margin-block-start: 1.375rem;
     text-transform: lowercase;
   }
 
   &__body {
-    font-size: 2rem;
+    font-size: 1.25rem;
     max-width: 850px;
   }
 }

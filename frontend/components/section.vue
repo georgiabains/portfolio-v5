@@ -144,36 +144,36 @@ const showProjects = computed(() => {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-block-end: 4rem;
-  padding-block-start: 4rem;
+  padding-block-end: 2.5rem;
+  padding-block-start: 2.5rem;
 
   &--first {
     padding-block-start: 0;
     justify-content: flex-start;
     // min-height: 73vh; // if using min height add some visual indicator that the user can scroll for more content
-    min-height: calc(100vh - 8rem);
+    min-height: calc(100vh - 5rem);
   }
 
   &__scroll {
     align-items: center;
     display: flex;
     gap: 1rem;
-    margin-block-start: 10rem;
+    margin-block-start: 6rem;
     position: relative;
     z-index: 2;
   }
 }
 
 .featured-text {
-  margin-block-start: 6rem;
+  margin-block-start: 3.75rem;
 
   &__copy {
-    font-size: 2.2rem;
+    font-size: 1.375rem;
   }
 
   &__image {
     filter: url(#round);
-    max-width: 56rem;
+    max-width: 35rem;
     justify-self: end;
   }
 
@@ -183,26 +183,26 @@ const showProjects = computed(() => {
 
   @media screen and (min-width: 700px) {
     &__image {
-      margin-block-start: -12rem;
+      margin-block-start: -7.5rem;
     }
   }
 
   @media screen and (min-width: 1200px) {
     &__image {
       margin-block-start: 0;
-      max-width: 64rem;
+      max-width: 40rem;
     }
   }
 }
 
 .heading {
-  font-size: 6.6rem;
+  font-size: 4.125rem;
 }
 
 .grid {
   align-items: center;
   display: grid;
-  gap: 6rem;
+  gap: 3.75rem;
 
   @media screen and (min-width: 1200px) {
     grid-template-columns: 1fr 1fr;

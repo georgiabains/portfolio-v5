@@ -1,0 +1,19 @@
+:root {
+  /**
+   * Colours.
+   */
+  --background: #e5e9e2;
+  --border: #263918;
+  --secondary: #bcc8b6;
+  --text: #000000;
+  --text-link: #263918;
+
+  /**
+   * Spacing.
+   */
+  --gutter: 2rem;
+
+  @media screen and (min-width: 700px) {
+    --gutter: 6rem;
+  }
+}

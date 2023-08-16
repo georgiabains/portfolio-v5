@@ -30,10 +30,10 @@ const { data: blogs } = await useSanityQuery(postsQuery);
 <style lang="scss">
 .blogs {
   margin-block-start: 0;
-  padding-block-start: 4rem;
+  padding-block-start: 2.5rem;
 
   &__title {
-    margin-block-start: 2.2rem;
+    margin-block-start: 1.25rem;
   }
 }
 </style>

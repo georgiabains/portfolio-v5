@@ -68,10 +68,10 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-top: -2rem;
+    margin-top: -1.25rem;
     min-height: 80vh;
     overflow: hidden;
-    padding: 4rem 3.6rem 2rem;
+    padding: 2.5rem 2rem 1.25rem;
     position: sticky;
     width: 100%;
 
@@ -93,7 +93,7 @@
       align-items: baseline;
       display: flex;
       flex-direction: column;
-      gap: 6rem;
+      gap: 3.75rem;
       justify-content: center;
       width: 80%;
 
@@ -116,11 +116,11 @@
 
     &__display-copy {
       font-family: 'Castoro', serif;
-      font-size: 4.4rem;
+      font-size: 2.75rem;
     }
 
     &__socials {
-      font-size: 2.2rem;
+      font-size: 1.5rem;
       line-height: 140%;
 
       li {
@@ -147,8 +147,8 @@
 
       svg {
         fill: #fff;
-        width: 2.6rem;
-        height: 2.6rem;
+        width: 1.5rem;
+        height: 1.5rem;
       }
 
       &--link {
@@ -162,7 +162,7 @@
       align-items: flex-start;
       display: flex;
       gap: 0.8rem;
-      margin-block-start: 6rem;
+      margin-block-start: 3.75rem;
 
       svg {
         fill: #fff;
@@ -172,7 +172,7 @@
     }
 
     &__copyright {
-      margin-block-start: 10rem;
+      margin-block-start: 6rem;
       width: 80%;
 
       a {
@@ -189,7 +189,7 @@
       &__right {
         align-items: baseline;
         display: flex;
-        gap: 2rem;
+        gap: 1.125rem;
         justify-content: space-between;
         width: 100%;
       }
