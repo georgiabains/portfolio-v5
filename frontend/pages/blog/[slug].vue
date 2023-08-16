@@ -3,8 +3,11 @@
     <div v-if="post">
       <h1 v-if="post.title" class="title" v-text="post.title" />
 
-      <SanityContent v-if="post.body" :blocks="post.body" :serializers="serializers" />
-
+      <SanityContent
+        v-if="post.body"
+        :blocks="post.body"
+        :serializers="serializers"
+      />
     </div>
 
     <div v-else>
@@ -23,15 +26,22 @@
 
   const route = useRoute()
 
-  const { data: post } = await useSanityQuery(query, { slug: route.params.slug })
+  const { data: post } = await useSanityQuery(query, {
+    slug: route.params.slug,
+  })
 
   const serializers = {
     types: {
-      code: (props) => {return <pre><code>{ props.code }</code></pre>}
-    }
+      code: (props) => {
+        return (
+          <pre>
+            <code>{props.code}</code>
+          </pre>
+        )
+      },
+    },
   }
 </script>
-
 
 <style scoped>
   .container {

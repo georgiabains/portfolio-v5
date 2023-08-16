@@ -2,11 +2,12 @@
   <footer class="footer">
     <div class="footer__container">
       <div class="footer__left">
-        <p class="footer__display-copy margin-reset">All text on this background image is WCAG 2.1 AAA compliant.</p>
+        <p class="footer__display-copy margin-reset">
+          All text on this background image is WCAG 2.1 AAA compliant.
+        </p>
       </div>
 
       <div class="footer__right">
-        
         <!--TODO: When tabbing to links, move screen focus too-->
         <ul class="list--unstyled footer__socials">
           <li>
@@ -17,22 +18,36 @@
           </li>
 
           <li>
-            <a href="https://www.linkedin.com/in/georgia-bains/" rel="noreferrer noopener">
-              <nuxt-icon name="linkedin" /> 
-              <span class="footer__socials--link">Connect with me on LinkedIn</span>
+            <a
+              href="https://www.linkedin.com/in/georgia-bains/"
+              rel="noreferrer noopener"
+            >
+              <nuxt-icon name="linkedin" />
+              <span class="footer__socials--link"
+                >Connect with me on LinkedIn</span
+              >
             </a>
           </li>
         </ul>
 
         <div class="footer__privacy">
           <nuxt-icon name="analytics" />
-          <p class="margin-reset">This site uses Vercel's Web Analytics. <br />See <a href="https://vercel.com/docs/concepts/analytics/privacy-policy" rel="noreferrer noopener">Vercel's privacy policy</a> for details.</p>
+          <p class="margin-reset">
+            This site uses Vercel's Web Analytics. <br />See
+            <a
+              href="https://vercel.com/docs/concepts/analytics/privacy-policy"
+              rel="noreferrer noopener"
+              >Vercel's privacy policy</a
+            >
+            for details.
+          </p>
         </div>
       </div>
     </div>
 
-    <div class="footer__copyright">&copy; Georgia Bains {{ dateRange }}. All rights reserved.</div>
-    
+    <div class="footer__copyright">
+      &copy; Georgia Bains {{ dateRange }}. All rights reserved.
+    </div>
   </footer>
 </template>
 
@@ -43,17 +58,17 @@
         const initialYear = 2023
         const currentYear = new Date().getFullYear()
 
-        return initialYear === currentYear 
-          ? initialYear 
+        return initialYear === currentYear
+          ? initialYear
           : `${initialYear} - ${currentYear}`
-      }
+      },
     },
 
     data() {
       return {
-        currentYear: new Date().getFullYear()
+        currentYear: new Date().getFullYear(),
       }
-    }
+    },
   }
 </script>
 
@@ -75,7 +90,7 @@
     width: 100%;
 
     &::before {
-      content: "";
+      content: '';
       background-image: url('https://images.unsplash.com/photo-1485134532658-d720895a3b5e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80');
       background-size: cover;
       background-repeat: no-repeat;

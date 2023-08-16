@@ -10,9 +10,9 @@
 </template>
 
 <script setup>
-import ProjectContainer from "~/components/projects/projects-container";
+  import ProjectContainer from '~/components/projects/projects-container'
 
-const projectsQuery = groq`
+  const projectsQuery = groq`
     *[_type == "project"]{
       ...,
       featuredImage{
@@ -22,18 +22,18 @@ const projectsQuery = groq`
         }
       },
     }
-  `;
+  `
 
-const { data: projects } = await useSanityQuery(projectsQuery);
+  const { data: projects } = await useSanityQuery(projectsQuery)
 </script>
 
 <style lang="scss">
-.project-container {
-  margin-block-start: 0;
-  padding-block-start: 2.5rem;
+  .project-container {
+    margin-block-start: 0;
+    padding-block-start: 2.5rem;
 
-  &__title {
-    margin-block-start: 1.25rem;
+    &__title {
+      margin-block-start: 1.25rem;
+    }
   }
-}
 </style>

@@ -3,10 +3,10 @@
     <slot name="copy"></slot>
 
     <div class="gutter project-container__projects">
-      <ProjectCard 
-        v-for="(project, projectIndex) in projectArray" 
+      <ProjectCard
+        v-for="(project, projectIndex) in projectArray"
         :key="projectIndex"
-        :project="project" 
+        :project="project"
       />
     </div>
 
@@ -29,7 +29,7 @@
     },
     projectArray: {
       type: [Array],
-    }
+    },
   })
 </script>
 

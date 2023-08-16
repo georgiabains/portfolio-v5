@@ -10,9 +10,9 @@
 </template>
 
 <script setup>
-import BlogContainer from "~/components/blog/blog-container";
+  import BlogContainer from '~/components/blog/blog-container'
 
-const postsQuery = groq`
+  const postsQuery = groq`
     *[_type == "post"] | order(_createdAt desc) {
       ...,
       mainImage {
@@ -22,18 +22,18 @@ const postsQuery = groq`
         }
       }
     }
-  `;
+  `
 
-const { data: blogs } = await useSanityQuery(postsQuery);
+  const { data: blogs } = await useSanityQuery(postsQuery)
 </script>
 
 <style lang="scss">
-.blogs {
-  margin-block-start: 0;
-  padding-block-start: 2.5rem;
+  .blogs {
+    margin-block-start: 0;
+    padding-block-start: 2.5rem;
 
-  &__title {
-    margin-block-start: 1.25rem;
+    &__title {
+      margin-block-start: 1.25rem;
+    }
   }
-}
 </style>

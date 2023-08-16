@@ -3,10 +3,10 @@
     <slot name="copy"></slot>
 
     <div class="gutter blogs-container__blogs">
-      <BlogCard 
-        v-for="(blog, blogIndex) in blogPosts" 
+      <BlogCard
+        v-for="(blog, blogIndex) in blogPosts"
         :key="blogIndex"
-        :blog="blog" 
+        :blog="blog"
         :use-h3="useH3"
       />
     </div>
@@ -41,9 +41,8 @@
     useLatest: {
       type: Boolean,
       default: false,
-    }
+    },
   })
-
 
   /**
    * Get the 3 latest blog posts.

@@ -1,17 +1,11 @@
 <template>
   <header class="header">
     <div class="header__container gutter">
-      <h1 
-        v-if="route.name === 'index'" 
-        class="header__title margin-reset"
-      >
+      <h1 v-if="route.name === 'index'" class="header__title margin-reset">
         <a href="/" v-text="'Georgia Bains'" />
       </h1>
 
-      <h2 
-        v-else 
-        class="header__title margin-reset"
-      >
+      <h2 v-else class="header__title margin-reset">
         <a href="/" v-text="'Georgia Bains'" />
       </h2>
 
@@ -32,18 +26,19 @@
 
   useHead({
     htmlAttrs: {
-      lang: 'en'
+      lang: 'en',
     },
     title,
-    meta: [{
-      name: 'description',
-      content: description
-    }]
+    meta: [
+      {
+        name: 'description',
+        content: description,
+      },
+    ],
   })
 
   const route = useRoute()
 </script>
-
 
 <style scoped lang="scss">
   .header {
@@ -62,7 +57,7 @@
       gap: var(--spacing-3xl);
       justify-content: space-between;
     }
-  
+
     &__title {
       font-size: var(--font-32);
       font-weight: 400;
@@ -89,7 +84,8 @@
         &::after {
           @include negative(bottom, var(--spacing-2xs));
           content: '';
-          mask: url("data:image/svg+xml,%3Csvg version='1.1' id='squiggly-line-svg' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 64 12' fill='none'%3E%3Cpath stroke-width='2' d='M-1,6c0,0,8-8,16,0s16,0,16,0s8-8,16,0s16,0,16,0s8-8,16,0,8-8,16' stroke='currentcolor' fill='none'%3E%3C/path%3E%3C/svg%3E") center repeat;
+          mask: url("data:image/svg+xml,%3Csvg version='1.1' id='squiggly-line-svg' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 64 12' fill='none'%3E%3Cpath stroke-width='2' d='M-1,6c0,0,8-8,16,0s16,0,16,0s8-8,16,0s16,0,16,0s8-8,16,0,8-8,16' stroke='currentcolor' fill='none'%3E%3C/path%3E%3C/svg%3E")
+            center repeat;
           background-color: var(--text-link);
           height: 0.375rem; // 6px
           position: absolute;

@@ -4,17 +4,17 @@
       <h3 class="margin-reset project-card__title" v-text="project.title" />
       <p class="margin-reset" v-text="project.description" />
       <p class="margin-reset">
-        <a 
-          :href="`/project/${project.slug.current}`" 
+        <a
+          :href="`/project/${project.slug.current}`"
           v-text="`Read ${project.title} case study`"
         />
       </p>
     </div>
 
     <div class="project-card__image">
-      <img 
+      <img
         :alt="project.featuredImage.alt"
-        :src="project.featuredImage.asset.url" 
+        :src="project.featuredImage.asset.url"
       />
     </div>
   </div>
@@ -24,7 +24,7 @@
   const props = defineProps({
     project: {
       type: [Object],
-    }
+    },
   })
 </script>
 

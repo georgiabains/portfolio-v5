@@ -1,17 +1,17 @@
 <template>
   <a :href="getSlug" class="blog-card">
     <div class="blog-card__info">
-      <component 
+      <component
         :is="useH3 ? 'h3' : 'h2'"
         class="margin-reset blog-card__title"
       >
         <span v-text="blog.title" />
       </component>
 
-      <time 
+      <time
         class="blog-card__date"
-        :datetime="blog._createdAt" 
-        v-text="publishDate" 
+        :datetime="blog._createdAt"
+        v-text="publishDate"
       />
     </div>
 
@@ -29,7 +29,7 @@
     useH3: {
       type: Boolean,
       default: false,
-    }
+    },
   })
 
   /**
@@ -47,16 +47,13 @@
   const publishDate = computed(() => {
     const date = new Date(props.blog._createdAt)
 
-    const day = date.getDay() >= 10 
-      ? date.getDay() 
-      : `0${date.getDay()}`
+    const day = date.getDay() >= 10 ? date.getDay() : `0${date.getDay()}`
 
-    const month = date.getMonth() >= 10 
-      ? date.getMonth() + 1 
-      : `0${date.getMonth() + 1}`
+    const month =
+      date.getMonth() >= 10 ? date.getMonth() + 1 : `0${date.getMonth() + 1}`
 
     const year = date.getFullYear()
-    
+
     return `${year} . ${month} . ${day}`
   })
 </script>

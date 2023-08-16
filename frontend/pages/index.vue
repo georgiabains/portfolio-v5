@@ -1,5 +1,5 @@
 <template>
-  <template 
+  <template
     v-for="(section, sectionIndex) in indexPage.sections"
     class="section"
     :key="section._key"
