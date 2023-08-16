@@ -66,11 +66,11 @@
     $parent: &;
 
     border: 1px solid var(--border);
-    border-radius: 2.8rem;
+    border-radius: var(--border-radius-44);
     color: var(--text);
     height: fit-content;
     overflow: hidden;
-    padding: 2rem;
+    padding: var(--spacing-2xl);
     text-decoration: none;
     width: 100%;
 
@@ -80,7 +80,7 @@
     }
 
     &__info {
-      padding-block: 0.2rem 1.8rem;
+      padding-block-end: var(--spacing-m);
     }
 
     &__title {
@@ -91,12 +91,12 @@
 
     &__date {
       display: block;
-      margin-block-start: 1rem;
+      margin-block-start: var(--spacing-xs);
     }
 
     &__image {
-      border-radius: 0.8rem;
-      height: 15rem;
+      border-radius: var(--border-radius-16);
+      height: 15rem; // 240px
       overflow: hidden;
       width: 100%;
 
