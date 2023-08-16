@@ -8,8 +8,8 @@ export default defineNuxtConfig({
   },
   css: [
     // SCSS file in the project
-    '~/assets/style/variables.scss',
-    '~/assets/style/main.scss',
+    '@/assets/style/variables.scss',
+    '@/assets/style/main.scss',
   ],
   modules: [
     'nuxt-icons',
@@ -19,4 +19,13 @@ export default defineNuxtConfig({
     projectId: process.env.NUXT_ENV_SANITY_PROJECT_ID,
     apiVersion: '2022-03-25'
   },
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: '@use "@/assets/style/mixins.scss" as *;',
+        },
+      },
+    },
+  }
 })
