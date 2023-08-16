@@ -63,15 +63,14 @@
 
     @include negative(margin-top, var(--spacing-l));
     align-items: center;
-    background-color: #010201;
+    background-color: var(--background-dark);
     bottom: 0;
-    color: #fff;
+    color: var(--text-inverse);
     display: flex;
     flex-direction: column;
     justify-content: center;
     min-height: 80vh;
     overflow: hidden;
-    padding: 2.5rem 2rem 1.25rem;
     position: sticky;
     width: 100%;
 
@@ -93,7 +92,7 @@
       align-items: baseline;
       display: flex;
       flex-direction: column;
-      gap: 3.75rem;
+      gap: var(--spacing-5xl);
       justify-content: center;
       width: 80%;
 
@@ -102,13 +101,13 @@
       }
 
       a {
-        border-bottom: 1px solid #fff;
-        color: #fff;
+        border-bottom: 1px solid var(--text-inverse);
+        color: var(--text-inverse);
         text-decoration: none;
 
         &:hover,
         &:focus {
-          background-color: #fff;
+          background-color: var(--text-inverse);
           color: var(--text);
         }
       }
@@ -120,39 +119,39 @@
     }
 
     &__socials {
-      font-size: var(--font-24);
+      display: flex;
+      flex-direction: column;
+      font-size: var(--font-22);
+      gap: var(--spacing-xs);
       line-height: 140%;
-
-      li {
-        margin-block-start: 1rem;
-      }
 
       a {
         align-items: baseline;
         border: none;
         display: inline-flex;
-        gap: 0.8rem;
+        gap: var(--spacing-xs);
         text-decoration: none;
 
         &:hover {
           background-color: transparent;
-          color: #fff;
+          color: var(--text-inverse);
 
           #{$parent}__socials--link {
-            background-color: #fff;
+            background-color: var(--text-inverse);
             color: var(--text);
           }
         }
       }
 
       svg {
-        fill: #fff;
-        width: 1.5rem;
-        height: 1.5rem;
+        fill: var(--text-inverse);
+        width: var(--icon-m);
+        height: var(--icon-m);
       }
 
+      /** TODO: Update to add border radius */
       &--link {
-        border-bottom: 1px solid #fff;
+        border-bottom: 1px solid var(--text-inverse);
         padding-inline: 0.2rem;
         padding-block: 0.4rem 0.2rem;
       }
@@ -161,22 +160,22 @@
     &__privacy {
       align-items: flex-start;
       display: flex;
-      gap: 0.8rem;
-      margin-block-start: 3.75rem;
+      gap: var(--spacing-s);
+      margin-block-start: var(--spacing-5xl);
 
       svg {
-        fill: #fff;
-        width: 1.8rem;
-        height: 2.2rem;
+        fill: var(--text-inverse);
+        width: var(--icon-s);
+        height: var(--icon-m);
       }
     }
 
     &__copyright {
-      margin-block-start: 6rem;
+      margin-block-start: var(--spacing-6xl);
       width: 80%;
 
       a {
-        color: #fff;
+        color: var(--text-inverse);
       }
     }
 
@@ -189,7 +188,7 @@
       &__right {
         align-items: baseline;
         display: flex;
-        gap: 1.125rem;
+        gap: var(--spacing-l);
         justify-content: space-between;
         width: 100%;
       }

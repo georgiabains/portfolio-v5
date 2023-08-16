@@ -1,6 +1,6 @@
 :root {
   /**
-   *
+   * Border radii.
    */
   --border-radius-12: 0.75rem; // 12px
   --border-radius-16: 1rem; // 16px
@@ -10,9 +10,11 @@
    * Colours.
    */
   --background: #e5e9e2;
+  --background-dark: #010201;
   --border: #263918;
   --secondary: #bcc8b6;
   --text: #000000;
+  --text-inverse: #ffffff;
   --text-link: #263918;
 
   /**
@@ -26,6 +28,12 @@
   --font-44: 2.75rem; // 44px
   --font-60: 3.75rem; // 60px
   --font-64: 4rem; // 64px
+
+  /**
+   * Icon sizes.
+   */
+  --icon-s: 1rem; // 16px
+  --icon-m: 1.5rem; // 24px
 
   /**
    * Spacing.
