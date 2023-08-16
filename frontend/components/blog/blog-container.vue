@@ -80,13 +80,13 @@
 
 <style lang="scss">
   .blogs-container {
-    margin-block-start: 1.25rem;
+    margin-block-start: var(--spacing-l);
 
     &__title {
       align-items: center;
       display: flex;
       font-size: var(--font-60);
-      gap: 1rem;
+      gap: var(--spacing-m);
       justify-content: flex-start;
       text-transform: lowercase;
 
@@ -98,15 +98,15 @@
     &__blogs {
       display: grid;
       grid-template-columns: auto;
-      gap: 3.75rem;
+      gap: var(--spacing-5xl);
       justify-content: space-between;
-      margin-block: 3.75rem;
+      margin-block: var(--spacing-5xl);
     }
 
     &__cta {
       align-items: center;
       display: flex;
-      gap: 1rem;
+      gap: var(--spacing-m);
 
       a {
         border-bottom: 1px solid var(--text);
@@ -117,7 +117,7 @@
 
     @media screen and (min-width: 960px) {
       &__blogs {
-        gap: 2.5rem;
+        gap: var(--spacing-4xl);
         grid-template-columns: auto auto;
       }
     }

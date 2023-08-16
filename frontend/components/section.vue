@@ -165,7 +165,7 @@ const showProjects = computed(() => {
 }
 
 .featured-text {
-  margin-block-start: var(--spacing-4xl);
+  margin-block-start: var(--spacing-5xl);
 
   &__copy {
     font-size: var(--font-22);
@@ -202,7 +202,7 @@ const showProjects = computed(() => {
 .grid {
   align-items: center;
   display: grid;
-  gap: var(--spacing-4xl);
+  gap: var(--spacing-5xl);
 
   @media screen and (min-width: 1200px) {
     grid-template-columns: 1fr 1fr;
