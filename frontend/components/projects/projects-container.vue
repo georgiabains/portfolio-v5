@@ -35,7 +35,7 @@
 
 <style lang="scss">
   .project-container {
-    margin-block-start: 1.25rem;
+    margin-block-start: var(--spacing-l);
 
     &__title {
       align-items: center;
@@ -52,22 +52,22 @@
 
     &__subheading {
       display: none;
-      margin: 1.0rem 0;
+      margin: var(--spacing-m) 0;
     }
 
     &__projects {
       display: flex;
       flex-direction: column;
       gap: 6rem;
-      padding-block-end: 3.75rem;
-      padding-block-start: 3.75rem;
+      padding-block-end: var(--spacing-5xl);
+      padding-block-start: var(--spacing-5xl);
       width: 100%;
     }
 
     &__cta {
       align-items: center;
       display: flex;
-      gap: 1rem;
+      gap: var(--spacing-s);
 
       a {
         border-bottom: 1px solid var(--text);
