@@ -31,13 +31,13 @@
 <style lang="scss">
   .project-card {
     display: grid;
-    gap: 3.75rem;
+    gap: var(--spacing-4xl);
     grid-template-columns: 1fr;
 
     &__info {
       flex-direction: column;
       display: flex;
-      gap: 1rem;
+      gap: var(--spacing-m);
       width: 100%;
 
       p {
@@ -46,20 +46,20 @@
 
       a {
         border: 1px solid var(--text);
-        border-radius: 0.5rem;
+        border-radius: var(--border-radius-12);
         color: var(--text);
         display: inline-block;
         // font-family: 'PT Mono', monospace;
-        margin-block-start: 1.25rem;
-        padding-block: 0.5rem;
-        padding-inline: 1rem;
+        margin-block-start: var(--spacing-m);
+        padding-block: var(--spacing-xs);
+        padding-inline: var(--spacing-s);
         text-decoration: none;
 
         &:focus,
         &:hover {
           background-color: var(--secondary);
           border-color: var(--secondary);
-          color: #000;
+          color: var(--text);
         }
       }
     }
@@ -73,8 +73,8 @@
       width: 100%;
 
       img {
-        border-radius: 1rem;
-        filter: drop-shadow(0 0 1rem var(--secondary));
+        border-radius: var(--border-radius-44);
+        filter: drop-shadow(0 0 var(--spacing-m) var(--secondary));
         height: 100%;
       }
     }
