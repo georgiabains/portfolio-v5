@@ -61,6 +61,7 @@
   .footer {
     $parent: &;
 
+    @include negative(margin-top, var(--spacing-l));
     align-items: center;
     background-color: #010201;
     bottom: 0;
@@ -68,7 +69,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-top: -1.25rem;
     min-height: 80vh;
     overflow: hidden;
     padding: 2.5rem 2rem 1.25rem;
