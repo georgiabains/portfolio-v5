@@ -84,7 +84,7 @@
     }
 
     &__title {
-      font-size: 1.5rem;
+      font-size: var(--font-24);
       line-height: 1.4;
       max-width: 95%;
     }

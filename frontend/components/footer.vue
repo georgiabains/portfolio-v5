@@ -116,11 +116,11 @@
 
     &__display-copy {
       font-family: 'Castoro', serif;
-      font-size: 2.75rem;
+      font-size: var(--font-44);
     }
 
     &__socials {
-      font-size: 1.5rem;
+      font-size: var(--font-24);
       line-height: 140%;
 
       li {

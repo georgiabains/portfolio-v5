@@ -64,7 +64,7 @@
     }
   
     &__title {
-      font-size: 2rem;
+      font-size: var(--font-32);
       font-weight: 400;
 
       a {
@@ -74,7 +74,7 @@
 
     &__navigation > ul {
       display: flex;
-      font-size: 1.125rem;
+      font-size: var(--font-18);
       gap: 1.125rem;
 
       a {

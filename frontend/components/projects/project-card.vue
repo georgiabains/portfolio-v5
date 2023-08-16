@@ -41,7 +41,7 @@
       width: 100%;
 
       p {
-        font-size: 1.125rem;
+        font-size: var(--font-18);
       }
 
       a {
@@ -66,7 +66,7 @@
 
     &__title {
       font-family: 'PT Mono', monospace;
-      font-size: 1.5rem;
+      font-size: var(--font-24);
     }
 
     &__image {

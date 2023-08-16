@@ -85,7 +85,7 @@
     &__title {
       align-items: center;
       display: flex;
-      font-size: 3.75rem;
+      font-size: var(--font-60);
       gap: 1rem;
       justify-content: flex-start;
       text-transform: lowercase;

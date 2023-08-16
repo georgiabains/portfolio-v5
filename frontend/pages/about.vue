@@ -26,13 +26,13 @@ const { data: aboutPage } = await useSanityQuery(aboutPageQuery);
   padding-block-start: 2.5rem;
 
   &__title {
-    font-size: 3.75rem;
+    font-size: var(--font-60);
     margin-block-start: 1.375rem;
     text-transform: lowercase;
   }
 
   &__body {
-    font-size: 1.25rem;
+    font-size: var(--font-20);
     max-width: 850px;
   }
 }

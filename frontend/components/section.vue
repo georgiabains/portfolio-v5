@@ -168,7 +168,7 @@ const showProjects = computed(() => {
   margin-block-start: 3.75rem;
 
   &__copy {
-    font-size: 1.375rem;
+    font-size: var(--font-24);
   }
 
   &__image {
@@ -196,7 +196,7 @@ const showProjects = computed(() => {
 }
 
 .heading {
-  font-size: 4.125rem;
+  font-size: var(--font-64);
 }
 
 .grid {
