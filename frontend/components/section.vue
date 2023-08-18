@@ -225,7 +225,7 @@
     gap: var(--spacing-5xl);
 
     @media screen and (min-width: 1200px) {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1.5fr;
     }
   }
 </style>
