@@ -12,7 +12,6 @@
       <nav class="header__navigation">
         <ul class="list--unstyled">
           <li><a href="/about">about</a></li>
-          <li><a href="/projects">projects</a></li>
           <li><a href="/blogs">blog</a></li>
         </ul>
       </nav>
@@ -69,7 +68,7 @@
 
     &__navigation > ul {
       display: flex;
-      font-size: var(--font-18);
+      font-size: var(--font-20);
       gap: var(--spacing-l);
 
       a {
