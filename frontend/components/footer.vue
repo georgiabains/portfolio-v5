@@ -84,7 +84,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: 80vh;
+    min-height: 90vh;
     overflow: hidden;
     position: sticky;
     width: 100%;
