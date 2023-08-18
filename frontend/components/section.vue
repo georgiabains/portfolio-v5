@@ -1,59 +1,26 @@
 <template>
   <section
     v-if="showFeaturedText"
-    class="section"
+    class="section featured-text"
     :class="{ 'section--first': index === 0 }"
   >
     <div>
-      <h2 class="heading gutter gutter--heading margin-reset">
+      <h2 class="heading margin-reset gutter">
         accessibility-focused frontend developer
       </h2>
 
-      <div class="featured-text gutter grid">
-        <div>
-          <p
-            v-for="text in section.featuredText"
-            class="featured-text__copy"
-            v-text="text"
-          />
-
-          <p v-if="index === 0" class="section__scroll">
-            <nuxt-icon name="mouse" />
-            Scroll to browse my work
-          </p>
-        </div>
-
-        <div class="featured-text__image">
-          <svg
-            style="visibility: hidden; position: absolute"
-            width="0"
-            height="0"
-            xmlns="http://www.w3.org/2000/svg"
-            version="1.1"
-          >
-            <defs>
-              <filter id="round">
-                <feGaussianBlur
-                  in="SourceGraphic"
-                  stdDeviation="5"
-                  result="blur"
-                />
-                <feColorMatrix
-                  in="blur"
-                  mode="matrix"
-                  values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
-                  result="goo"
-                />
-                <feComposite in="SourceGraphic" in2="goo" operator="atop" />
-              </filter>
-            </defs>
-          </svg>
-          <img
-            alt="Computer desk with lamp and tea."
-            src="https://images.unsplash.com/photo-1601642964568-1917224f4e4d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
-          />
-        </div>
+      <div class="featured-text__grid gutter">
+        <p
+          v-for="text in section.featuredText"
+          class="featured-text__copy"
+          v-text="text"
+        />
       </div>
+
+      <p v-if="index === 0" class="section__scroll gutter">
+        <nuxt-icon name="mouse" />
+        Scroll to browse my work
+      </p>
     </div>
   </section>
 
@@ -65,7 +32,7 @@
     <ProjectContainer :project-array="section.indexProjectArray">
       <template #copy>
         <h2
-          class="project-container__title margin-reset gutter gutter--heading"
+          class="project-container__title margin-reset gutter"
           v-text="'Featured projects'"
         />
 
@@ -89,7 +56,7 @@
     >
       <template #copy>
         <h2
-          class="blogs-container__title margin-reset gutter gutter--heading"
+          class="blogs-container__title margin-reset gutter"
           v-text="'blog posts'"
         />
       </template>
@@ -164,68 +131,46 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-block-end: 2.5rem;
-    padding-block-start: 2.5rem;
+    padding-block: var(--spacing-3xl);
 
     &--first {
       padding-block-start: 0;
       justify-content: flex-start;
       // min-height: 73vh; // if using min height add some visual indicator that the user can scroll for more content
-      min-height: calc(100vh - 5rem);
+      min-height: calc(100vh - 15rem);
     }
 
     &__scroll {
       align-items: center;
       display: flex;
-      gap: 1rem;
-      margin-block-start: 6rem;
+      gap: var(--spacing-s);
+      margin-block-start: var(--spacing-5xl);
       position: relative;
       z-index: 2;
     }
   }
 
   .featured-text {
-    margin-block-start: var(--spacing-5xl);
+    margin-inline: auto;
+    width: 90rem; // 1440px
 
     &__copy {
       font-size: var(--font-22);
+      margin-block-start: var(--spacing-5xl);
     }
 
-    &__image {
-      filter: url(#round);
-      max-width: 35rem; // 560px
-      justify-self: end;
-    }
+    &__grid {
+      align-items: center;
+      display: grid;
+      gap: var(--spacing-5xl);
 
-    img {
-      clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
-    }
-
-    @media screen and (min-width: 700px) {
-      &__image {
-        margin-block-start: -7.5rem;
-      }
-    }
-
-    @media screen and (min-width: 1200px) {
-      &__image {
-        margin-block-start: 0;
-        max-width: 40rem; // 640px
+      @media screen and (min-width: 1200px) {
+        grid-template-columns: 1fr 1fr;
       }
     }
   }
 
   .heading {
     font-size: var(--font-64);
-  }
-
-  .grid {
-    align-items: center;
-    display: grid;
-    gap: var(--spacing-5xl);
-
-    @media screen and (min-width: 1200px) {
-      grid-template-columns: 1fr 1.5fr;
-    }
   }
 </style>
