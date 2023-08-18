@@ -76,7 +76,7 @@
   .footer {
     $parent: &;
 
-    @include negative(margin-top, var(--spacing-l));
+    @include negative(margin-top, var(--spacing-4xl));
     align-items: center;
     background-color: var(--background-dark);
     bottom: 0;
@@ -84,7 +84,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: 90vh;
+    min-height: 95vh;
     overflow: hidden;
     position: sticky;
     width: 100%;
