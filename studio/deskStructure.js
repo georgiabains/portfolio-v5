@@ -36,6 +36,9 @@ export const myStructure = (S) =>
               S.listItem()
                 .title('About')
                 .child(S.document().schemaType('about').documentId('about')),
+                S.listItem()
+                .title('Blogs')
+                .child(S.document().schemaType('blogs').documentId('blogs')),
             ])
         ),
       // We also need to remove the new singletons from the main list
@@ -44,6 +47,7 @@ export const myStructure = (S) =>
           'siteSettings', 
           'colors',
           'about',
+          'blogs',
           'indexPage'
         ].includes(listItem.getId())
       ),
