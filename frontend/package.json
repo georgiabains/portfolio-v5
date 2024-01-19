@@ -23,6 +23,7 @@
     "@nuxtjs/sanity": "^1.7.0",
     "@sanity/client": "^5.4.2",
     "nuxt-icons": "^3.2.1",
+    "@vercel/analytics": "^1.0.1",
     "vue-eslint-parser": "^9.3.0"
   }
 }

@@ -1,4 +1,4 @@
+.env
 .sanity
+dist
 node_modules
-sanity.cli.js
-sanity.config.js
