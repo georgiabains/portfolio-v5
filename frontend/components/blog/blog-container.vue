@@ -79,21 +79,6 @@
 
 <style lang="scss">
   .blogs-container {
-    margin-block-start: var(--spacing-l);
-
-    &__title {
-      align-items: center;
-      display: flex;
-      font-size: var(--font-60);
-      gap: var(--spacing-m);
-      justify-content: flex-start;
-      text-transform: lowercase;
-
-      span {
-        flex-shrink: 0;
-      }
-    }
-
     &__blogs {
       display: grid;
       grid-template-columns: auto;
