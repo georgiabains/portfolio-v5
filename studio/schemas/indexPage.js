@@ -32,6 +32,11 @@ export default defineType({
           icon: BlockContentIcon,
           fields: [
             {
+              title: 'Title',
+              name: 'title',
+              type: 'string'
+            },
+            {
               title: 'Featured text',
               name: 'featuredText',
               type: 'array',

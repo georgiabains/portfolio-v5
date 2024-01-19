@@ -1,6 +1,10 @@
 <template>
   <section class="section featured-text" :class="{ 'section--first': isFirst }">
-    <h2 class="heading margin-reset gutter">Hello! I'm Georgia</h2>
+    <h2
+      v-if="section.title"
+      class="heading margin-reset gutter"
+      v-text="section.title"
+    />
 
     <div class="featured-text__grid gutter">
       <p
