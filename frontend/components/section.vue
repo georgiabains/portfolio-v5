@@ -1,26 +1,9 @@
 <template>
-  <section
+  <FeaturedText
     v-if="showFeaturedText"
-    class="section featured-text"
-    :class="{ 'section--first': index === 0 }"
-  >
-    <div>
-      <h2 class="heading margin-reset gutter">Introduction</h2>
-
-      <div class="featured-text__grid gutter">
-        <p
-          v-for="text in section.featuredText"
-          class="featured-text__copy margin-reset"
-          v-text="text"
-        />
-      </div>
-
-      <p v-if="index === 0" class="section__scroll gutter">
-        <nuxt-icon name="mouse" />
-        Scroll to browse my work
-      </p>
-    </div>
-  </section>
+    :is-first="index === 0"
+    :section="section"
+  />
 
   <section
     v-if="showProjects"
@@ -64,6 +47,7 @@
 
 <script setup>
   import BlogContainer from '~/components/blog/blog-container'
+  import FeaturedText from './featured-text'
   import ProjectContainer from '~/components/projects/projects-container'
 
   /**
@@ -145,20 +129,6 @@
       margin-block-start: var(--spacing-5xl);
       position: relative;
       z-index: 2;
-    }
-  }
-
-  .featured-text {
-    width: 50rem; // 1440px
-
-    &__copy {
-      font-size: var(--font-22);
-    }
-
-    &__grid {
-      align-items: center;
-      display: grid;
-      gap: var(--spacing-m);
     }
   }
 
