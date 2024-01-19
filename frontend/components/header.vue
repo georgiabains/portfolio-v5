@@ -1,13 +1,12 @@
 <template>
   <header class="header">
     <div class="header__container gutter">
-      <h1 v-if="route.name === 'index'" class="header__title margin-reset">
+      <component
+        :is="route.name === 'index' ? 'h1' : 'h2'"
+        class="header__title margin-reset"
+      >
         <a href="/" v-text="'Georgia Bains'" />
-      </h1>
-
-      <h2 v-else class="header__title margin-reset">
-        <a href="/" v-text="'Georgia Bains'" />
-      </h2>
+      </component>
 
       <nav class="header__navigation">
         <ul class="list--unstyled">
