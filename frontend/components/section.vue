@@ -25,24 +25,18 @@
     </ProjectContainer>
   </section>
 
-  <section
-    v-else-if="showBlogPosts"
+  <BlogContainer
+    v-if="showBlogPosts"
+    :blog-array="section.indexBlogArray"
     class="section"
     :class="{ 'section--first': index === 0 }"
+    use-h3
+    :use-latest="section.indexBlogUseLatest"
   >
-    <BlogContainer
-      :blog-array="section.indexBlogArray"
-      use-h3
-      :use-latest="section.indexBlogUseLatest"
-    >
-      <template #copy>
-        <h2
-          class="blogs-container__title margin-reset gutter"
-          v-text="'blog posts'"
-        />
-      </template>
-    </BlogContainer>
-  </section>
+    <template #copy>
+      <h2 class="margin-reset heading" v-text="'Blog posts'" />
+    </template>
+  </BlogContainer>
 </template>
 
 <script setup>

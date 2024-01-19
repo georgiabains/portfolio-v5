@@ -1,8 +1,8 @@
 <template>
-  <div class="blogs-container">
+  <section class="blogs-container gutter">
     <slot name="copy"></slot>
 
-    <div class="gutter blogs-container__blogs">
+    <div class="blogs-container__blogs">
       <BlogCard
         v-for="(blog, blogIndex) in blogPosts"
         :key="blogIndex"
@@ -11,13 +11,13 @@
       />
     </div>
 
-    <div v-if="!hideCta" class="gutter">
+    <div v-if="!hideCta">
       <p class="blogs-container__cta">
         <nuxt-icon name="eye" />
         <a href="/blog">View all blog posts</a>
       </p>
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup>
