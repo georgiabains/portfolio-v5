@@ -2,7 +2,7 @@
   <header class="header">
     <div class="header__container gutter">
       <component
-        :is="route.name === 'index' ? 'h1' : 'h2'"
+        :is="isCurrentPage('index') ? 'h1' : 'h2'"
         class="header__title margin-reset"
       >
         <a href="/" v-text="'Georgia Bains'" />
@@ -10,8 +10,21 @@
 
       <nav class="header__navigation">
         <ul class="list--unstyled">
-          <li><a href="/about">about</a></li>
-          <li><a href="/blogs">blog</a></li>
+          <li>
+            <a
+              :aria-current="isCurrentPage('about') ? 'page' : false"
+              href="/about"
+              v-text="'about'"
+            ></a>
+          </li>
+
+          <li>
+            <a
+              :aria-current="isCurrentPage('blogs') ? 'page' : false"
+              href="/blogs"
+              v-text="'blogs'"
+            ></a>
+          </li>
         </ul>
       </nav>
     </div>
@@ -36,6 +49,13 @@
   })
 
   const route = useRoute()
+
+  /**
+   * Determine if a given route matches the current page's route.
+   * @param {String} routeName - Target route name.
+   * @returns {Boolean}
+   */
+  const isCurrentPage = (routeName) => route.name === routeName
 </script>
 
 <style scoped lang="scss">
