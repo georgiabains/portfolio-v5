@@ -65,4 +65,9 @@
   @media screen and (min-width: 700px) {
     --gutter: var(--spacing-6xl); // 96px
   }
+
+  /**
+   * Widths.
+   */
+  --width-copy: 48rem; 
 }

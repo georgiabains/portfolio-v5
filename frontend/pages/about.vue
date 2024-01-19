@@ -1,13 +1,11 @@
 <template>
-  <div class="about">
-    <h1
-      class="about__title gutter gutter--heading margin-reset"
-      v-text="aboutPage.title"
-    />
-    <div class="about__body gutter">
+  <article class="about gutter">
+    <h1 class="heading margin-reset" v-text="aboutPage.title" />
+
+    <div class="about__body">
       <SanityContent v-if="aboutPage.body" :blocks="aboutPage.body" />
     </div>
-  </div>
+  </article>
 </template>
 
 <script setup>
@@ -22,18 +20,11 @@
 
 <style lang="scss">
   .about {
-    margin: 0 auto;
-    padding-block-start: 2.5rem;
-
-    &__title {
-      font-size: var(--font-60);
-      margin-block-start: 1.375rem;
-      text-transform: lowercase;
-    }
+    width: var(--width-copy);
 
     &__body {
       font-size: var(--font-20);
-      max-width: 850px;
+      line-height: var(--line-140);
     }
   }
 </style>

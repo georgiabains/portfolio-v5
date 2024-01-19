@@ -130,8 +130,4 @@
       z-index: 2;
     }
   }
-
-  .heading {
-    font-size: var(--font-48);
-  }
 </style>

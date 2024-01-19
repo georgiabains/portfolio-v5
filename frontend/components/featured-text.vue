@@ -1,12 +1,15 @@
 <template>
-  <section class="section featured-text" :class="{ 'section--first': isFirst }">
+  <section
+    class="section featured-text gutter"
+    :class="{ 'section--first': isFirst }"
+  >
     <h2
       v-if="section.title"
-      class="heading margin-reset gutter"
+      class="heading margin-reset"
       v-text="section.title"
     />
 
-    <div class="featured-text__grid gutter">
+    <div class="featured-text__grid">
       <p
         v-for="copy in section.featuredText"
         class="featured-text__copy margin-reset"
@@ -14,7 +17,7 @@
       />
     </div>
 
-    <p v-if="isFirst" class="section__scroll gutter">
+    <p v-if="isFirst" class="section__scroll">
       <nuxt-icon aria-hidden="true" name="mouse" />
       Scroll to browse my work
     </p>
@@ -46,7 +49,7 @@
 <style lang="scss">
   .featured-text {
     gap: var(--spacing-3xl);
-    width: 48rem; // 1440px
+    width: var(--width-copy);
 
     &__copy {
       font-size: var(--font-22);
