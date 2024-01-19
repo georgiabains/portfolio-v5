@@ -53,7 +53,7 @@
       align-items: center;
       flex-direction: column;
       display: flex;
-      gap: var(--spacing-3xl);
+      gap: var(--spacing-4xl);
     }
 
     &__title {
