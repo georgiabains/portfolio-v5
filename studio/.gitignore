@@ -1,3 +1,4 @@
 .env
 .sanity
+dist
 node_modules
