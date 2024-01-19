@@ -119,14 +119,13 @@
       padding-block-start: 0;
       justify-content: flex-start;
       // min-height: 73vh; // if using min height add some visual indicator that the user can scroll for more content
-      min-height: calc(100vh - 15rem);
+      min-height: calc(100vh - 16rem);
     }
 
     &__scroll {
       align-items: center;
       display: flex;
       gap: var(--spacing-s);
-      margin-block-start: var(--spacing-5xl);
       position: relative;
       z-index: 2;
     }

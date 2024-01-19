@@ -15,7 +15,7 @@
     </div>
 
     <p v-if="isFirst" class="section__scroll gutter">
-      <nuxt-icon name="mouse" />
+      <nuxt-icon aria-hidden="true" name="mouse" />
       Scroll to browse my work
     </p>
   </section>
@@ -45,7 +45,7 @@
 
 <style lang="scss">
   .featured-text {
-    gap: var(--spacing-xl);
+    gap: var(--spacing-3xl);
     width: 48rem; // 1440px
 
     &__copy {
@@ -55,11 +55,11 @@
     &__grid {
       align-items: center;
       display: grid;
-      gap: var(--spacing-xl);
+      gap: var(--spacing-2xl);
     }
-  }
 
-  .heading {
-    font-size: var(--font-48);
+    .heading {
+      font-size: var(--font-44);
+    }
   }
 </style>

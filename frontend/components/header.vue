@@ -45,7 +45,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding-block: var(--gutter);
+    padding-block: var(--spacing-7xl);
     position: relative;
     z-index: 1;
 
@@ -54,7 +54,6 @@
       flex-direction: column;
       display: flex;
       gap: var(--spacing-3xl);
-      justify-content: space-between;
     }
 
     &__title {
