@@ -1,24 +1,26 @@
 <template>
-  <a :href="getSlug" class="blog-card">
-    <div class="blog-card__info">
-      <component
-        :is="useH3 ? 'h3' : 'h2'"
-        class="margin-reset blog-card__title"
-      >
-        <span v-text="blog.title" />
-      </component>
+  <article>
+    <a :href="getSlug" class="blog-card">
+      <div class="blog-card__info">
+        <component
+          :is="useH3 ? 'h3' : 'h2'"
+          class="margin-reset blog-card__title"
+        >
+          <span v-text="blog.title" />
+        </component>
 
-      <time
-        class="blog-card__date"
-        :datetime="blog._createdAt"
-        v-text="publishDate"
-      />
-    </div>
+        <time
+          class="blog-card__date"
+          :datetime="blog._createdAt"
+          v-text="publishDate"
+        />
+      </div>
 
-    <div class="blog-card__image">
-      <img :src="blog.mainImage.asset.url" alt="" />
-    </div>
-  </a>
+      <div class="blog-card__image">
+        <img :src="blog.mainImage.asset.url" alt="" />
+      </div>
+    </a>
+  </article>
 </template>
 
 <script setup>
@@ -65,6 +67,7 @@
     border: 1px solid var(--border);
     border-radius: var(--border-radius-44);
     color: var(--text);
+    display: block;
     height: fit-content;
     overflow: hidden;
     padding: var(--spacing-2xl);
