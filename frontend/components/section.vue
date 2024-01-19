@@ -5,14 +5,12 @@
     :class="{ 'section--first': index === 0 }"
   >
     <div>
-      <h2 class="heading margin-reset gutter">
-        accessibility-focused frontend developer
-      </h2>
+      <h2 class="heading margin-reset gutter">Introduction</h2>
 
       <div class="featured-text__grid gutter">
         <p
           v-for="text in section.featuredText"
-          class="featured-text__copy"
+          class="featured-text__copy margin-reset"
           v-text="text"
         />
       </div>
@@ -151,26 +149,20 @@
   }
 
   .featured-text {
-    margin-inline: auto;
-    width: 90rem; // 1440px
+    width: 50rem; // 1440px
 
     &__copy {
       font-size: var(--font-22);
-      margin-block-start: var(--spacing-5xl);
     }
 
     &__grid {
       align-items: center;
       display: grid;
-      gap: var(--spacing-5xl);
-
-      @media screen and (min-width: 1200px) {
-        grid-template-columns: 1fr 1fr;
-      }
+      gap: var(--spacing-m);
     }
   }
 
   .heading {
-    font-size: var(--font-64);
+    font-size: var(--font-48);
   }
 </style>
