@@ -12,7 +12,7 @@
         <ul class="list--unstyled">
           <li>
             <a
-              :aria-current="isCurrentPage('about') ? 'page' : false"
+              :aria-current="getAriaCurrent('about')"
               href="/about"
               v-text="'about'"
             ></a>
@@ -20,7 +20,7 @@
 
           <li>
             <a
-              :aria-current="isCurrentPage('blogs') ? 'page' : false"
+              :aria-current="getAriaCurrent('blogs')"
               href="/blogs"
               v-text="'blogs'"
             ></a>
@@ -56,6 +56,15 @@
    * @returns {Boolean}
    */
   const isCurrentPage = (routeName) => route.name === routeName
+
+  /**
+   * Return aria-current value.
+   * @param {String} routeName - Target route name.
+   * @returns {Boolean|String}
+   */
+  const getAriaCurrent = (routeName) => {
+    return isCurrentPage(routeName) ? 'page' : false
+  }
 </script>
 
 <style scoped lang="scss">
