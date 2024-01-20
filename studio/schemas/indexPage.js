@@ -107,7 +107,7 @@ export default defineType({
           icon: BookIcon,
           fields: [
             {
-              name: 'indexBlogSectionTitle',
+              name: 'title',
               title: 'Blog title',
               type: 'string',
             },
