@@ -1,29 +1,29 @@
 <template>
-  <article>
-    <a :href="getSlug" class="blog-card">
-      <div class="blog-card__info">
-        <component
-          :is="useH3 ? 'h3' : 'h2'"
-          class="margin-reset blog-card__title"
-        >
-          <span v-text="blog.title" />
-        </component>
+  <article ref="blogCard" class="blog-card" @click.prevent="handleCardClick">
+    <div class="blog-card__info">
+      <component
+        :is="useH3 ? 'h3' : 'h2'"
+        class="margin-reset blog-card__title"
+      >
+        <a :href="getSlug" v-text="blog.title" />
+      </component>
 
-        <time
-          class="blog-card__date"
-          :datetime="blog._createdAt"
-          v-text="publishDate"
-        />
-      </div>
+      <time
+        class="blog-card__date"
+        :datetime="blog._createdAt"
+        v-text="publishDate"
+      />
+    </div>
 
-      <div class="blog-card__image">
-        <img :src="blog.mainImage.asset.url" alt="" />
-      </div>
-    </a>
+    <div class="blog-card__image">
+      <img :src="blog.mainImage.asset.url" alt="" />
+    </div>
   </article>
 </template>
 
 <script setup>
+  import { ref, onMounted } from 'vue'
+
   const props = defineProps({
     blog: {
       type: [Object],
@@ -58,13 +58,24 @@
 
     return `${year} . ${month} . ${day}`
   })
+
+  /**
+   * Redirect pointer users to the blog link.
+   */
+  const handleCardClick = () => window.location.assign(getSlug.value)
+
+  const blogCard = ref(null)
+
+  onMounted(() => {
+    blogCard.value.style.cursor = 'pointer'
+  })
 </script>
 
 <style lang="scss">
   .blog-card {
     $parent: &;
 
-    border: 1px solid var(--border);
+    background-color: var(--secondary);
     border-radius: var(--border-radius-44);
     color: var(--text);
     display: block;
@@ -75,8 +86,17 @@
     width: 100%;
 
     &:hover {
+      @include focus-ring;
       background-color: var(--secondary);
-      border: 1px solid var(--secondary);
+    }
+
+    &:focus-within {
+      @include focus-ring;
+
+      a:focus {
+        outline: none;
+        text-decoration: none;
+      }
     }
 
     &__info {
@@ -87,6 +107,15 @@
       font-size: var(--font-24);
       line-height: 1.4;
       max-width: 95%;
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--text);
+
+      &:focus {
+        text-decoration: underline;
+      }
     }
 
     &__date {
