@@ -109,7 +109,9 @@
         position: relative;
         text-decoration: none;
 
-        &:hover {
+        &:hover,
+        &:focus {
+          @include focus-ring(var(--spacing-3xs));
           background-color: var(--secondary);
           border-color: var(--secondary);
         }
