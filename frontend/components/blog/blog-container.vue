@@ -2,14 +2,11 @@
   <section class="blogs-container gutter">
     <slot name="copy"></slot>
 
-    <div class="blogs-container__blogs">
-      <BlogCard
-        v-for="(blog, blogIndex) in blogPosts"
-        :key="blogIndex"
-        :blog="blog"
-        :use-h3="useH3"
-      />
-    </div>
+    <ul class="blogs-container__blogs list--unstyled">
+      <li v-for="(blog, blogIndex) in blogPosts" :key="blogIndex">
+        <BlogCard :blog="blog" :use-h3="useH3" />
+      </li>
+    </ul>
 
     <div v-if="!hideCta">
       <p class="blogs-container__cta">
