@@ -1,6 +1,6 @@
 <template>
   <article ref="blogCard" class="blog-card" @click.prevent="handleCardClick">
-    <div class="blog-card__info">
+    <header class="blog-card__info">
       <component
         :is="useH3 ? 'h3' : 'h2'"
         class="margin-reset blog-card__title"
@@ -8,12 +8,14 @@
         <a :href="getSlug" v-text="blog.title" />
       </component>
 
-      <time
-        class="blog-card__date"
-        :datetime="blog._createdAt"
-        v-text="publishDate"
-      />
-    </div>
+      <p>
+        <time
+          class="blog-card__date"
+          :datetime="blog._createdAt"
+          v-text="publishDate"
+        />
+      </p>
+    </header>
 
     <div class="blog-card__image">
       <img :src="blog.mainImage.asset.url" alt="" />
@@ -119,7 +121,6 @@
     }
 
     &__date {
-      display: block;
       margin-block-start: var(--spacing-xs);
     }
 
