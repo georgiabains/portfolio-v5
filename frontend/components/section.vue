@@ -34,7 +34,7 @@
     :use-latest="section.indexBlogUseLatest"
   >
     <template #copy>
-      <h2 class="margin-reset heading" v-text="'Blog posts'" />
+      <h2 class="margin-reset heading" v-text="section.title" />
     </template>
   </BlogContainer>
 </template>
