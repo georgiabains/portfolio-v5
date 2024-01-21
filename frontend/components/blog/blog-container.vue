@@ -81,7 +81,7 @@
       grid-template-columns: auto;
       gap: var(--spacing-5xl);
       justify-content: space-between;
-      margin-block: var(--spacing-5xl);
+      margin-block: var(--spacing-3xl) var(--spacing-5xl);
     }
 
     &__cta {

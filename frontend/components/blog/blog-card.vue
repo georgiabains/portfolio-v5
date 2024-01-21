@@ -8,7 +8,7 @@
         <a :href="getSlug" v-text="blog.title" />
       </component>
 
-      <p>
+      <p class="margin-reset">
         <time
           class="blog-card__date"
           :datetime="blog._createdAt"
@@ -83,7 +83,6 @@
     display: block;
     height: fit-content;
     overflow: hidden;
-    padding: var(--spacing-2xl);
     text-decoration: none;
     width: 100%;
 
@@ -102,7 +101,11 @@
     }
 
     &__info {
-      padding-block-end: var(--spacing-m);
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-m);
+      padding-block: var(--spacing-3xl) var(--spacing-xl);
+      padding-inline: var(--spacing-3xl);
     }
 
     &__title {
@@ -125,8 +128,7 @@
     }
 
     &__image {
-      border-radius: var(--border-radius-16);
-      height: 15rem; // 240px
+      height: 12rem; // 240px
       overflow: hidden;
       width: 100%;
 
