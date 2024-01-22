@@ -76,6 +76,7 @@
 
 <style lang="scss">
   .blogs-container {
+    display: grid;
     gap: var(--spacing-3xl);
 
     &__blogs {
