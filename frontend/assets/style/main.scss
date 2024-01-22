@@ -92,3 +92,18 @@ img {
 .heading {
   font-size: var(--font-48);
 }
+
+.bubble {
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius-32);
+  padding-block: var(--spacing-xs);
+  padding-inline: var(--spacing-l);
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    @include focus-ring(var(--spacing-3xs));
+    background-color: var(--secondary);
+    color: var(--text);
+  }
+}
