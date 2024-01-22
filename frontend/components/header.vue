@@ -73,7 +73,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding-block: var(--spacing-7xl);
+    padding-block: var(--spacing-8xl);
     position: relative;
     z-index: 1;
 

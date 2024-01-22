@@ -186,7 +186,7 @@
     }
 
     &__copyright {
-      margin-block-start: var(--spacing-6xl);
+      margin-block-start: var(--spacing-7xl);
       width: 80%;
 
       a {
