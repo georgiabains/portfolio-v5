@@ -8,12 +8,12 @@
       </li>
     </ul>
 
-    <div v-if="!hideCta">
-      <p class="blogs-container__cta">
-        <nuxt-icon name="eye" />
-        <a href="/blog">View all blog posts</a>
-      </p>
-    </div>
+    <p v-if="!hideCta" class="blogs-container__cta-container">
+      <a href="/blogs" class="blogs-container__cta bubble">
+        <nuxt-icon name="eye" aria-hidden="true" />
+        View all blog posts
+      </a>
+    </p>
   </section>
 </template>
 
@@ -86,14 +86,9 @@
 
     &__cta {
       align-items: center;
-      display: flex;
+      display: inline-flex;
+      font-size: var(--font-20);
       gap: var(--spacing-m);
-
-      a {
-        border-bottom: 1px solid var(--text);
-        color: var(--text);
-        text-decoration: none;
-      }
     }
 
     @media screen and (min-width: 960px) {

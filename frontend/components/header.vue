@@ -14,6 +14,7 @@
             <a
               :aria-current="getAriaCurrent('about')"
               href="/about"
+              class="bubble"
               v-text="'about'"
             ></a>
           </li>
@@ -22,6 +23,7 @@
             <a
               :aria-current="getAriaCurrent('blogs')"
               href="/blogs"
+              class="bubble"
               v-text="'blogs'"
             ></a>
           </li>
@@ -100,21 +102,11 @@
 
       a {
         align-items: center;
-        border: 1px solid var(--text-link);
-        border-radius: var(--border-radius-22);
         display: flex;
         flex-direction: column;
         padding-block: var(--spacing-2xs);
         padding-inline: var(--spacing-m);
         position: relative;
-        text-decoration: none;
-
-        &:hover,
-        &:focus {
-          @include focus-ring(var(--spacing-3xs));
-          background-color: var(--secondary);
-          border-color: var(--secondary);
-        }
       }
     }
 
