@@ -76,12 +76,13 @@
 
 <style lang="scss">
   .blogs-container {
+    gap: var(--spacing-3xl);
+
     &__blogs {
       display: grid;
       grid-template-columns: auto;
       gap: var(--spacing-5xl);
       justify-content: space-between;
-      margin-block: var(--spacing-3xl) var(--spacing-5xl);
     }
 
     &__cta {
