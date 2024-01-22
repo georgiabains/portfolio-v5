@@ -1,21 +1,19 @@
 <template>
-  <div class="container">
-    <div v-if="post">
-      <h1 v-if="post.title" class="title" v-text="post.title" />
+  <article class="gutter post">
+    <template v-if="post">
+      <header>
+        <h1 v-if="post.title" class="title margin-reset" v-text="post.title" />
+      </header>
 
       <SanityContent
         v-if="post.body"
         :blocks="post.body"
         :serializers="serializers"
       />
-    </div>
+    </template>
 
-    <div v-else>
-      <p>Loading</p>
-    </div>
-
-    <p><a href="/">← Go back</a></p>
-  </div>
+    <p v-else>Loading</p>
+  </article>
 </template>
 
 <script lang="jsx" setup>
@@ -44,16 +42,8 @@
 </script>
 
 <style scoped>
-  .container {
-    margin: 1.25rem;
-  }
-
-  .content {
-    margin: 1.25rem 0;
-    max-width: 24rem;
-  }
-
-  p {
-    margin: 1rem 0;
+  .post {
+    display: grid;
+    max-width: var(--width-copy);
   }
 </style>
