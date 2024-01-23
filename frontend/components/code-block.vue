@@ -1,10 +1,8 @@
 <template>
   <pre class="code-block">
-    <code 
-      v-for="(codeSnippet, index) in formattedCode" 
-      :key="index"
+    <code
       :class="`language-${props.language}`" 
-      v-text="codeSnippet" 
+      v-text="code" 
     />
   </pre>
 </template>
@@ -23,8 +21,6 @@
       required: true,
     },
   })
-
-  const formattedCode = props.code.split('\n')
 </script>
 
 <style scoped>
@@ -37,6 +33,7 @@
     padding-inline: var(--spacing-xl);
 
     code {
+      font-size: var(--font-16);
       min-height: var(--font-20);
     }
   }
