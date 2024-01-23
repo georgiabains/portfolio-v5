@@ -14,6 +14,12 @@
 
     <p v-else>Loading</p>
   </article>
+
+  <BlogContainer use-latest>
+    <template #copy>
+      <h2 class="margin-reset" v-text="'Browse Other Blog Posts'" />
+    </template>
+  </BlogContainer>
 </template>
 
 <script setup>
@@ -42,6 +48,7 @@
 <style scoped>
   .post {
     display: grid;
+    margin-block-end: var(--spacing-6xl);
     max-width: var(--width-copy);
   }
 
