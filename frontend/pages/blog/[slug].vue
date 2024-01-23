@@ -16,7 +16,9 @@
   </article>
 </template>
 
-<script lang="jsx" setup>
+<script setup>
+  import CodeBlock from '../../components/code-block'
+
   const query = groq`*[_type == "post" && slug.current == $slug][0] {
     title,
     body
@@ -28,15 +30,11 @@
     slug: route.params.slug,
   })
 
+  console.log(post)
+
   const serializers = {
     types: {
-      code: (props) => {
-        return (
-          <pre>
-            <code>{props.code}</code>
-          </pre>
-        )
-      },
+      code: CodeBlock,
     },
   }
 </script>
@@ -45,5 +43,11 @@
   .post {
     display: grid;
     max-width: var(--width-copy);
+  }
+
+  pre {
+    background-color: var(--background-dark);
+    color: var(--text-inverse);
+    padding: var(--spacing-m);
   }
 </style>
