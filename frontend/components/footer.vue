@@ -11,21 +11,24 @@
         <!--TODO: When tabbing to links, move screen focus too-->
         <ul class="list--unstyled footer__socials">
           <li>
-            <a href="https://github.com/georgiabains" rel="noreferrer noopener">
-              <nuxt-icon name="github" />
-              <span class="footer__socials--link">Explore my Github</span>
+            <a
+              class="bubble bubble--has-icon bubble--background-light"
+              href="https://github.com/georgiabains"
+              rel="noreferrer noopener"
+            >
+              <nuxt-icon name="github" aria-hidden="true" />
+              <span v-text="'Explore my Github'" />
             </a>
           </li>
 
           <li>
             <a
+              class="bubble bubble--has-icon bubble--background-light"
               href="https://www.linkedin.com/in/georgia-bains/"
               rel="noreferrer noopener"
             >
-              <nuxt-icon name="linkedin" />
-              <span class="footer__socials--link"
-                >Connect with me on LinkedIn</span
-              >
+              <nuxt-icon name="linkedin" aria-hidden="true" />
+              <span v-text="'Connect on LinkedIn'" />
             </a>
           </li>
         </ul>
@@ -37,8 +40,8 @@
             <a
               href="https://vercel.com/docs/concepts/analytics/privacy-policy"
               rel="noreferrer noopener"
-              >Vercel's privacy policy</a
-            >
+              v-text="'Vercel\'s privacy policy'"
+            />
             for details.
           </p>
         </div>
@@ -114,18 +117,6 @@
       h2 {
         font-family: 'PT Mono', monospace;
       }
-
-      a {
-        border-bottom: 1px solid var(--text-inverse);
-        color: var(--text-inverse);
-        text-decoration: none;
-
-        &:hover,
-        &:focus {
-          background-color: var(--text-inverse);
-          color: var(--text);
-        }
-      }
     }
 
     &__display-copy {
@@ -140,35 +131,10 @@
       gap: var(--spacing-xs);
       line-height: 140%;
 
-      a {
-        align-items: baseline;
-        border: none;
-        display: inline-flex;
-        gap: var(--spacing-xs);
-        text-decoration: none;
-
-        &:hover {
-          background-color: transparent;
-          color: var(--text-inverse);
-
-          #{$parent}__socials--link {
-            background-color: var(--text-inverse);
-            color: var(--text);
-          }
-        }
-      }
-
       svg {
         fill: var(--text-inverse);
         width: var(--icon-m);
         height: var(--icon-m);
-      }
-
-      /** TODO: Update to add border radius */
-      &--link {
-        border-bottom: 1px solid var(--text-inverse);
-        padding-inline: 0.2rem;
-        padding-block: 0.4rem 0.2rem;
       }
     }
 
@@ -177,6 +143,18 @@
       display: flex;
       gap: var(--spacing-s);
       margin-block-start: var(--spacing-5xl);
+
+      a {
+        border-bottom: 1px solid var(--text-inverse);
+        color: var(--text-inverse);
+        text-decoration: none;
+
+        &:hover,
+        &:focus {
+          background-color: var(--text-inverse);
+          color: var(--text);
+        }
+      }
 
       svg {
         fill: var(--text-inverse);
