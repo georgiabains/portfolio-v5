@@ -12,7 +12,7 @@
     "@types/node": "^18",
     "eslint": "^8.40.0",
     "eslint-plugin-vue": "^9.12.0",
-    "nuxt": "^3.4.3",
+    "nuxt": "^3.9.3",
     "sass": "^1.62.1",
     "sass-loader": "^13.2.2"
   },
@@ -22,8 +22,8 @@
     "@fontsource/pt-mono": "^4.5.11",
     "@nuxtjs/sanity": "^1.7.0",
     "@sanity/client": "^5.4.2",
-    "nuxt-icons": "^3.2.1",
     "@vercel/analytics": "^1.0.1",
+    "nuxt-icons": "^3.2.1",
     "vue-eslint-parser": "^9.3.0"
   }
 }
