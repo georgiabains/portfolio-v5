@@ -94,6 +94,7 @@ img {
 }
 
 .bubble {
+  $parent: &;
   border: 1px solid var(--border);
   border-radius: var(--border-radius-32);
   padding-block: var(--spacing-xs);
@@ -106,10 +107,20 @@ img {
     gap: var(--spacing-m);
   }
 
+  &--background-light {
+    background-color: var(--background);
+  }
+
   &:hover,
   &:focus {
     @include focus-ring(var(--spacing-3xs));
     background-color: var(--secondary);
     color: var(--text);
+
+    &#{$parent}--background-light {
+      @include focus-ring(var(--spacing-2xs), var(--background));
+      background-color: var(--border);
+      color: var(--text-inverse);
+    }
   }
 }
