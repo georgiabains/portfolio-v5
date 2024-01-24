@@ -1,55 +1,58 @@
 <template>
-  <footer class="footer">
+  <footer class="footer gutter">
     <div class="footer__container">
-      <div class="footer__left">
-        <p class="footer__display-copy margin-reset">
-          All text on this background image is WCAG 2.1 AAA compliant.
-        </p>
+      <div class="footer__background" aria-hidden="true">
+        <img
+          alt=""
+          loading="lazy"
+          role="presentation"
+          src="https://images.unsplash.com/photo-1485134532658-d720895a3b5e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80"
+        />
       </div>
 
-      <div class="footer__right">
-        <!--TODO: When tabbing to links, move screen focus too-->
-        <ul class="list--unstyled footer__socials">
-          <li>
-            <a
-              class="bubble bubble--has-icon bubble--background-light"
-              href="https://github.com/georgiabains"
-              rel="noreferrer noopener"
-            >
-              <nuxt-icon name="github" aria-hidden="true" />
-              <span v-text="'Explore my Github'" />
-            </a>
-          </li>
-
-          <li>
-            <a
-              class="bubble bubble--has-icon bubble--background-light"
-              href="https://www.linkedin.com/in/georgia-bains/"
-              rel="noreferrer noopener"
-            >
-              <nuxt-icon name="linkedin" aria-hidden="true" />
-              <span v-text="'Connect on LinkedIn'" />
-            </a>
-          </li>
-        </ul>
-
-        <div class="footer__privacy">
-          <nuxt-icon name="analytics" />
-          <p class="margin-reset">
-            This site uses Vercel's Web Analytics. <br />See
-            <a
-              href="https://vercel.com/docs/concepts/analytics/privacy-policy"
-              rel="noreferrer noopener"
-              v-text="'Vercel\'s privacy policy'"
-            />
-            for details.
+      <div class="footer__content">
+        <div class="footer__left">
+          <p class="footer__display-copy margin-reset">
+            All text on this background image is WCAG 2.1 AAA compliant.
           </p>
         </div>
-      </div>
-    </div>
 
-    <div class="footer__copyright">
-      &copy; Georgia Bains {{ dateRange }}. All rights reserved.
+        <div class="footer__right">
+          <!--TODO: When tabbing to links, move screen focus too-->
+          <ul class="list--unstyled footer__socials">
+            <li>
+              <a
+                class="bubble bubble--has-icon bubble--background-light"
+                href="https://github.com/georgiabains"
+                rel="noreferrer noopener"
+              >
+                <nuxt-icon name="github" aria-hidden="true" />
+                <span v-text="'Explore my Github'" />
+              </a>
+            </li>
+
+            <li>
+              <a
+                class="bubble bubble--has-icon bubble--background-light"
+                href="https://www.linkedin.com/in/georgia-bains/"
+                rel="noreferrer noopener"
+              >
+                <nuxt-icon name="linkedin" aria-hidden="true" />
+                <span v-text="'Connect on LinkedIn'" />
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer__copyright">
+          &copy; Georgia Bains {{ dateRange }}. Using
+          <a
+            href="https://vercel.com/docs/analytics/privacy-policy"
+            rel="noreferrer noopener"
+            >Vercel's Web Analytics</a
+          >.
+        </div>
+      </div>
     </div>
   </footer>
 </template>
@@ -79,43 +82,50 @@
   .footer {
     $parent: &;
 
-    @include negative(margin-top, var(--spacing-4xl));
-    align-items: center;
-    background-color: var(--background-dark);
-    bottom: 0;
     color: var(--text-inverse);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 95vh;
-    overflow: hidden;
-    position: sticky;
-    width: 100%;
-
-    &::before {
-      content: '';
-      background-image: url('https://images.unsplash.com/photo-1485134532658-d720895a3b5e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80');
-      background-size: cover;
-      background-repeat: no-repeat;
-      filter: blur(10px) brightness(50%);
-      height: 110%;
-      left: -5%;
-      position: absolute;
-      top: -5%;
-      width: 110%;
-      z-index: -1;
-    }
+    display: grid;
+    padding-block: var(--spacing-7xl);
+    min-height: 100vh;
 
     &__container {
       align-items: baseline;
-      display: flex;
-      flex-direction: column;
+      background-color: var(--background-dark);
+      border-radius: var(--border-radius-44);
+      display: grid;
       gap: var(--spacing-5xl);
       justify-content: center;
-      width: 80%;
+      min-height: 100%;
+      overflow: hidden;
+      padding-block: var(--spacing-7xl);
+      padding-inline: var(--spacing-4xl);
+      position: relative;
+      width: 100%;
 
       h2 {
         font-family: 'PT Mono', monospace;
+      }
+    }
+
+    &__content {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: center;
+      position: relative;
+    }
+
+    &__background {
+      filter: blur(10px) brightness(50%);
+      height: 110%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 110%;
+
+      img {
+        max-width: unset;
+        min-width: 100%;
+        object-fit: cover;
       }
     }
 
@@ -128,13 +138,17 @@
       display: flex;
       flex-direction: column;
       font-size: var(--font-22);
-      gap: var(--spacing-xs);
-      line-height: 140%;
+      gap: var(--spacing-m);
 
       svg {
         fill: var(--text-inverse);
         width: var(--icon-m);
         height: var(--icon-m);
+      }
+
+      .bubble {
+        padding-block: var(--spacing-s);
+        padding-inline: var(--spacing-xl);
       }
     }
 
@@ -165,7 +179,6 @@
 
     &__copyright {
       margin-block-start: var(--spacing-7xl);
-      width: 80%;
 
       a {
         color: var(--text-inverse);
@@ -173,11 +186,6 @@
     }
 
     @media screen and (min-width: 960px) {
-      &__container,
-      &__copyright {
-        width: 60%;
-      }
-
       &__right {
         align-items: baseline;
         display: flex;

@@ -109,6 +109,7 @@ img {
 
   &--background-light {
     background-color: var(--background);
+    border-color: var(--background);
   }
 
   &:hover,
@@ -121,6 +122,12 @@ img {
       @include focus-ring(var(--spacing-2xs), var(--background));
       background-color: var(--border);
       color: var(--text-inverse);
+    }
+  }
+
+  &:focus-visible {
+    &#{$parent}--background-light {
+      outline: var(--background);
     }
   }
 }
