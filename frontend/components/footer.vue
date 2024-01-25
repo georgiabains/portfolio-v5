@@ -11,37 +11,40 @@
       </div>
 
       <div class="footer__content">
-        <div class="footer__left">
-          <p class="footer__display-copy margin-reset">
-            All text on this background image is WCAG 2.1 AAA compliant.
-          </p>
-        </div>
+        <div class="footer__split">
+          <div class="footer__left">
+            <p
+              class="footer__display-copy margin-reset"
+              v-text="'Let\'s make the web accessible for all.'"
+            />
+          </div>
 
-        <div class="footer__right">
-          <!--TODO: When tabbing to links, move screen focus too-->
-          <ul class="list--unstyled footer__socials">
-            <li>
-              <a
-                class="bubble bubble--has-icon bubble--background-light"
-                href="https://github.com/georgiabains"
-                rel="noreferrer noopener"
-              >
-                <nuxt-icon name="github" aria-hidden="true" />
-                <span v-text="'Explore my Github'" />
-              </a>
-            </li>
+          <div class="footer__right">
+            <!--TODO: When tabbing to links, move screen focus too-->
+            <ul class="list--unstyled footer__socials">
+              <li>
+                <a
+                  class="bubble bubble--has-icon bubble--background-light"
+                  href="https://github.com/georgiabains"
+                  rel="noreferrer noopener"
+                >
+                  <nuxt-icon name="github" aria-hidden="true" />
+                  <span v-text="'Explore my Github'" />
+                </a>
+              </li>
 
-            <li>
-              <a
-                class="bubble bubble--has-icon bubble--background-light"
-                href="https://www.linkedin.com/in/georgia-bains/"
-                rel="noreferrer noopener"
-              >
-                <nuxt-icon name="linkedin" aria-hidden="true" />
-                <span v-text="'Connect on LinkedIn'" />
-              </a>
-            </li>
-          </ul>
+              <li>
+                <a
+                  class="bubble bubble--has-icon bubble--background-light"
+                  href="https://www.linkedin.com/in/georgia-bains/"
+                  rel="noreferrer noopener"
+                >
+                  <nuxt-icon name="linkedin" aria-hidden="true" />
+                  <span v-text="'Connect on LinkedIn'" />
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
 
         <div class="footer__copyright">
@@ -88,18 +91,13 @@
     min-height: 100vh;
 
     &__container {
-      align-items: baseline;
       background-color: var(--background-dark);
       border-radius: var(--border-radius-44);
       display: grid;
-      gap: var(--spacing-5xl);
-      justify-content: center;
-      min-height: 100%;
       overflow: hidden;
       padding-block: var(--spacing-7xl);
       padding-inline: var(--spacing-4xl);
       position: relative;
-      width: 100%;
 
       h2 {
         font-family: 'PT Mono', monospace;
@@ -107,23 +105,24 @@
     }
 
     &__content {
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      gap: var(--spacing-7xl);
+      grid-template-rows: 3fr minmax(25px, 1fr);
       height: 100%;
-      justify-content: center;
       position: relative;
     }
 
     &__background {
-      filter: blur(10px) brightness(50%);
+      filter: blur(40px) brightness(50%);
       height: 110%;
-      left: 0;
+      left: -5%;
       position: absolute;
-      top: 0;
+      top: -5%;
       width: 110%;
 
       img {
         max-width: unset;
+        min-height: 100%;
         min-width: 100%;
         object-fit: cover;
       }
@@ -152,33 +151,8 @@
       }
     }
 
-    &__privacy {
-      align-items: flex-start;
-      display: flex;
-      gap: var(--spacing-s);
-      margin-block-start: var(--spacing-5xl);
-
-      a {
-        border-bottom: 1px solid var(--text-inverse);
-        color: var(--text-inverse);
-        text-decoration: none;
-
-        &:hover,
-        &:focus {
-          background-color: var(--text-inverse);
-          color: var(--text);
-        }
-      }
-
-      svg {
-        fill: var(--text-inverse);
-        width: var(--icon-s);
-        height: var(--icon-m);
-      }
-    }
-
     &__copyright {
-      margin-block-start: var(--spacing-7xl);
+      align-self: flex-end;
 
       a {
         color: var(--text-inverse);
