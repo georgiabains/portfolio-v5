@@ -1,4 +1,28 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+const sanityConfig = {
+  projectId: process.env.NUXT_ENV_SANITY_PROJECT_ID,
+  dataset: 'production',
+  apiVersion: '2022-03-25'
+}
+
+const sitemapUrls = async () => {
+  const sanityClient = require('@sanity/client');
+  const client = await sanityClient({
+    ...sanityClient,
+    useCdn: true,
+  });
+
+  const query = '*[_type == "post"] { slug, _updatedAt }';
+  const blogposts= await client.fetch(query);
+
+  return blogposts.map((post) => ({
+    url: `/posts/${post.slug.current}`,
+    lastmod: post._updatedAt,
+    changefreq: 'weekly',
+    priority: 0.8,
+  }));
+}
+
 export default defineNuxtConfig({
   app: {
     head: {
@@ -14,10 +38,11 @@ export default defineNuxtConfig({
   modules: [
     'nuxt-icons',
     '@nuxtjs/sanity',
+    '@nuxtjs/sitemap'
   ],
-  sanity: {
-    projectId: process.env.NUXT_ENV_SANITY_PROJECT_ID,
-    apiVersion: '2022-03-25'
+  sanity: {...sanityConfig},
+  sitemap: {
+    urls: sitemapUrls,
   },
   vite: {
     css: {

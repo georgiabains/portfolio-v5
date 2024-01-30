@@ -21,6 +21,7 @@
     "@fontsource/castoro": "^4.5.9",
     "@fontsource/pt-mono": "^4.5.11",
     "@nuxtjs/sanity": "^1.7.0",
+    "@nuxtjs/sitemap": "^5.0.5",
     "@sanity/client": "^5.4.2",
     "@vercel/analytics": "^1.0.1",
     "nuxt-icons": "^3.2.1",
