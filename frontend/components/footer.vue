@@ -103,13 +103,9 @@
       border-radius: var(--border-radius-44);
       display: grid;
       overflow: hidden;
-      padding-block: var(--spacing-7xl);
+      padding-block: var(--spacing-7xl) var(--spacing-4xl);
       padding-inline: var(--spacing-4xl);
       position: relative;
-
-      h2 {
-        font-family: 'PT Mono', monospace;
-      }
     }
 
     &__content {
