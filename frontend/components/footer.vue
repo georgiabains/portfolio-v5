@@ -13,48 +13,56 @@
       <div class="footer__content">
         <div class="footer__split">
           <div class="footer__left">
-            <p
+            <h2
               class="footer__display-copy margin-reset"
               v-text="'Let\'s make the web accessible for all.'"
             />
           </div>
 
           <div class="footer__right">
-            <!--TODO: When tabbing to links, move screen focus too-->
-            <ul class="list--unstyled footer__socials">
-              <li>
-                <a
-                  class="bubble bubble--has-icon bubble--background-light"
-                  href="https://github.com/georgiabains"
-                  rel="noreferrer noopener"
-                >
-                  <nuxt-icon name="github" aria-hidden="true" />
-                  <span v-text="'Explore my Github'" />
-                </a>
-              </li>
+            <div class="footer__links-group">
+              <h3 class="margin-reset">Pages</h3>
+              <ul class="list--unstyled">
+                <li><a href="/resources">Accessibility resources</a></li>
+                <li><a href="/sitemap.xml">Sitemap</a></li>
+              </ul>
+            </div>
+            <div class="footer__links-group">
+              <h3 class="margin-reset">Socials</h3>
+              <ul class="list--unstyled footer__socials">
+                <li>
+                  <a
+                    href="https://github.com/georgiabains"
+                    rel="noreferrer noopener"
+                  >
+                    <span v-text="'Explore my Github'" />
+                  </a>
+                </li>
 
-              <li>
-                <a
-                  class="bubble bubble--has-icon bubble--background-light"
-                  href="https://www.linkedin.com/in/georgia-bains/"
-                  rel="noreferrer noopener"
-                >
-                  <nuxt-icon name="linkedin" aria-hidden="true" />
-                  <span v-text="'Connect on LinkedIn'" />
-                </a>
-              </li>
-            </ul>
+                <li>
+                  <a
+                    href="https://www.linkedin.com/in/georgia-bains/"
+                    rel="noreferrer noopener"
+                  >
+                    <span v-text="'Connect on LinkedIn'" />
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
-        <div class="footer__copyright">
-          &copy; Georgia Bains {{ dateRange }}. Using
-          <a
-            href="https://vercel.com/docs/analytics/privacy-policy"
-            rel="noreferrer noopener"
-            >Vercel's Web Analytics</a
-          >.
-        </div>
+        <ul class="footer__copyright list--unstyled">
+          <li>&copy; Georgia Bains {{ dateRange }}.</li>
+          <li>
+            Using
+            <a
+              href="https://vercel.com/docs/analytics/privacy-policy"
+              rel="noreferrer noopener"
+              v-text="'Vercel\'s Web Analytics'"
+            />
+          </li>
+        </ul>
       </div>
     </div>
   </footer>
@@ -128,59 +136,31 @@
       }
     }
 
+    &__split {
+      display: grid;
+      gap: var(--spacing-4xl);
+      grid-template-columns: 1fr 2fr;
+    }
+
     &__display-copy {
       font-family: 'Castoro', serif;
       font-size: var(--font-44);
     }
 
-    &__socials {
-      display: flex;
-      flex-direction: column;
-      font-size: var(--font-22);
-      gap: var(--spacing-m);
-
-      svg {
-        fill: var(--text-inverse);
-        width: var(--icon-m);
-        height: var(--icon-m);
-      }
-
-      .bubble {
-        padding-block: var(--spacing-s);
-        padding-inline: var(--spacing-xl);
-      }
-    }
-
-    &__copyright {
-      align-self: flex-end;
-
+    &__links-group {
       a {
         color: var(--text-inverse);
       }
     }
 
-    @media screen and (min-width: 960px) {
-      &__right {
-        align-items: baseline;
-        display: flex;
-        gap: var(--spacing-l);
-        justify-content: space-between;
-        width: 100%;
-      }
-    }
+    &__copyright {
+      align-self: flex-end;
+      display: flex;
+      gap: var(--spacing-m);
+      justify-content: space-between;
 
-    @media screen and (min-width: 1520px) {
-      &__container {
-        flex-direction: row;
-      }
-
-      &__left {
-        width: 60%;
-      }
-
-      &__right {
-        flex-direction: column;
-        width: 40%;
+      a {
+        color: var(--text-inverse);
       }
     }
   }
