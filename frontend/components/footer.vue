@@ -23,9 +23,7 @@
         </li>
       </ul>
 
-      <div class="footer__right">
-        <p class="footer__copyright">&copy; Georgia Bains {{ dateRange }}.</p>
-      </div>
+      <p>&copy; Georgia Bains {{ dateRange }}.</p>
     </div>
   </footer>
 </template>
@@ -67,6 +65,7 @@
       display: flex;
       justify-content: space-between;
       overflow: hidden;
+      padding-block: var(--spacing-xs);
       padding-inline: var(--spacing-4xl);
       position: relative;
     }
@@ -77,16 +76,13 @@
     }
 
     &__link {
+      border-bottom: 1px solid var(--text-inverse);
       color: var(--text-inverse);
-    }
+      text-decoration: none;
 
-    &__copyright {
-      align-self: flex-end;
-      display: flex;
-      gap: var(--spacing-m);
-      justify-content: space-between;
-
-      a {
+      &:hover,
+      &:focus {
+        border-width: 4px;
         color: var(--text-inverse);
       }
     }

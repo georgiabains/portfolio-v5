@@ -1,5 +1,8 @@
 <template>
   <article ref="blogCard" class="blog-card" @click.prevent="handleCardClick">
+    <div class="blog-card__image">
+      <img :src="blog.mainImage.asset.url" alt="" />
+    </div>
     <header class="blog-card__info">
       <component
         :is="useH3 ? 'h3' : 'h2'"
@@ -16,10 +19,6 @@
         />
       </p>
     </header>
-
-    <div class="blog-card__image">
-      <img :src="blog.mainImage.asset.url" alt="" />
-    </div>
   </article>
 </template>
 
@@ -84,15 +83,6 @@
     &:hover {
       @include focus-ring;
       background-color: var(--secondary);
-    }
-
-    &:focus-within {
-      @include focus-ring;
-
-      a:focus {
-        outline: none;
-        text-decoration: none;
-      }
     }
 
     &__info {
