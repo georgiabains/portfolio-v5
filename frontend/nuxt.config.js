@@ -8,7 +8,7 @@ const sanityConfig = {
 const sitemapUrls = async () => {
   const sanityClient = require('@sanity/client');
   const client = await sanityClient({
-    ...sanityClient,
+    ...sanityConfig,
     useCdn: true,
   });
 
