@@ -73,7 +73,7 @@ img {
 
 .container {
   margin-inline: auto;
-  max-width: calc(1440px + var(--gutter) + var(--gutter));
+  max-width: 1440px;
   padding-inline-end: var(--gutter);
   padding-inline-start: var(--gutter);
 
