@@ -1,5 +1,5 @@
 <template>
-  <article class="about rte gutter">
+  <article class="about rte container">
     <h1 class="heading heading--primary" v-text="aboutPage.title" />
 
     <div class="about__body">

@@ -2,7 +2,7 @@
   <div class="project-container">
     <slot name="copy"></slot>
 
-    <div class="gutter project-container__projects">
+    <div class="container project-container__projects">
       <ProjectCard
         v-for="(project, projectIndex) in projectArray"
         :key="projectIndex"
@@ -10,7 +10,7 @@
       />
     </div>
 
-    <div v-if="!hideCta" class="gutter">
+    <div v-if="!hideCta" class="container">
       <p class="project-container__cta">
         <nuxt-icon name="eye" />
         <a href="/projects">View all projects</a>

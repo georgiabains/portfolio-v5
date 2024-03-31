@@ -1,6 +1,6 @@
 <template>
   <section
-    class="section featured-text gutter"
+    class="section featured-text container"
     :class="{ 'section--first': isFirst }"
   >
     <h2

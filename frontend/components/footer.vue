@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer gutter">
+  <footer class="footer container">
     <div class="footer__container">
       <ul class="list--unstyled footer__socials">
         <li>

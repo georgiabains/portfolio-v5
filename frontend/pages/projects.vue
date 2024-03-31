@@ -2,7 +2,7 @@
   <ProjectContainer v-if="projects" hide-cta :project-array="projects">
     <template #copy>
       <h1
-        class="project-container__title margin-reset gutter gutter--heading"
+        class="project-container__title margin-reset container container--heading"
         v-text="'All projects'"
       />
     </template>

@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <div class="header__container gutter">
+    <div class="header__container container">
       <component
         :is="isCurrentPage('index') ? 'h1' : 'h2'"
         class="header__title"
@@ -72,9 +72,6 @@
 <style scoped lang="scss">
   .header {
     background-color: var(--background);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
     padding-block: var(--spacing-5xl);
     position: relative;
     z-index: 1;

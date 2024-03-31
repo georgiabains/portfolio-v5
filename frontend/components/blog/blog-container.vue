@@ -1,5 +1,5 @@
 <template>
-  <section class="blogs-container gutter">
+  <section class="blogs-container container">
     <slot name="copy"></slot>
 
     <ul class="blogs-container__blogs list--unstyled">
@@ -99,7 +99,7 @@
     @media screen and (min-width: 1024px) {
       &__blogs {
         gap: var(--spacing-4xl);
-        grid-template-columns: auto auto auto;
+        grid-template-columns: 1fr 1fr 1fr;
       }
     }
   }

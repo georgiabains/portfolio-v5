@@ -13,12 +13,12 @@
     <ProjectContainer :project-array="section.indexProjectArray">
       <template #copy>
         <h2
-          class="project-container__title gutter"
+          class="project-container__title container"
           v-text="'Featured projects'"
         />
 
         <p
-          class="gutter project-container__subheading"
+          class="container project-container__subheading"
           v-text="section.indexProjectCopy"
         />
       </template>

@@ -1,5 +1,5 @@
 <template>
-  <div class="container gutter">
+  <div class="container container">
     <div v-if="project">
       <h1 v-if="project.title" class="title" v-text="project.title" />
 
