@@ -64,8 +64,8 @@
 
       &:hover,
       &:focus {
-        border-color: var(--text-inverse);
-        color: var(--text-inverse);
+        border-color: var(--text);
+        color: var(--text);
       }
     }
 
