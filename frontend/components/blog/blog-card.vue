@@ -8,13 +8,11 @@
         <a class="blog-card__title-link" :href="getSlug" v-text="blog.title" />
       </component>
 
-      <p>
-        <time
-          class="blog-card__date"
-          :datetime="blog._createdAt"
-          v-text="publishDate"
-        />
-      </p>
+      <time
+        class="blog-card__date"
+        :datetime="blog._createdAt"
+        v-text="publishDate"
+      />
     </header>
   </article>
 </template>
@@ -72,6 +70,7 @@
     border-radius: var(--border-radius-44);
     color: var(--text);
     display: block;
+    height: 100%;
     overflow: hidden;
     text-decoration: none;
     width: 100%;
@@ -88,8 +87,8 @@
     &__info {
       display: flex;
       flex-direction: column;
-      gap: var(--spacing-m);
-      padding-block: var(--spacing-3xl) var(--spacing-xl);
+      gap: var(--spacing-s);
+      padding-block: var(--spacing-3xl);
       padding-inline: var(--spacing-3xl);
     }
 
@@ -110,7 +109,7 @@
     }
 
     &__date {
-      margin-block-start: var(--spacing-xs);
+      font-size: var(--font-20);
     }
 
     &__image {

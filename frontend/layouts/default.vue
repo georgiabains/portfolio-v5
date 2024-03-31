@@ -17,7 +17,7 @@
     position: relative;
     z-index: 1;
 
-    @media screen and (min-width: 700px) {
+    @media screen and (min-width: 1024px) {
       // Screen minus header height
       min-height: calc(100vh - 260px);
     }

@@ -107,7 +107,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-block: var(--spacing-4xl);
+    padding-block: var(--spacing-3xl);
 
     &--first {
       padding-block-start: 0;
@@ -120,6 +120,18 @@
       gap: var(--spacing-s);
       position: relative;
       z-index: 2;
+    }
+
+    @media screen and (min-width: 1024px) {
+      padding-block: var(--spacing-5xl);
+
+      &--first {
+        padding-block-start: 0;
+      }
+
+      &__scroll {
+        font-size: var(--font-20);
+      }
     }
   }
 </style>

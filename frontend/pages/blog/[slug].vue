@@ -49,7 +49,6 @@
 
 <style lang="scss" scoped>
   .post {
-    display: grid;
     margin-block-end: var(--spacing-6xl);
 
     &__body {
@@ -60,6 +59,7 @@
   pre {
     background-color: var(--background-dark);
     color: var(--text-inverse);
+    overflow-x: scroll;
     padding: var(--spacing-m);
   }
 </style>

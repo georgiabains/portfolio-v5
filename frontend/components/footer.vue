@@ -55,7 +55,7 @@
 
     color: var(--text-inverse);
     display: grid;
-    margin-block: var(--spacing-6xl) var(--spacing-6xl);
+    margin-block: var(--spacing-3xl) var(--spacing-5xl);
 
     &__container {
       background-color: var(--background-dark);
@@ -87,7 +87,9 @@
       }
     }
 
-    @media screen and (min-width: 700px) {
+    @media screen and (min-width: 1024px) {
+      margin-block: var(--spacing-6xl) var(--spacing-8xl);
+
       &__container {
         align-items: center;
         flex-direction: row;

@@ -86,7 +86,7 @@
     }
 
     &__title {
-      font-size: var(--font-32);
+      font-size: var(--font-28);
       font-weight: 400;
 
       a {
@@ -109,13 +109,17 @@
       }
     }
 
-    @media screen and (min-width: 700px) {
+    @media screen and (min-width: 1024px) {
       padding-block: var(--spacing-8xl);
 
       &__container {
         align-items: center;
         gap: var(--spacing-4xl);
         flex-direction: row;
+      }
+
+      &__title {
+        font-size: var(--font-32);
       }
     }
   }
