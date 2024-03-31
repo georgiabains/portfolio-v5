@@ -36,7 +36,10 @@ export const myStructure = (S) =>
               S.listItem()
                 .title('About')
                 .child(S.document().schemaType('about').documentId('about')),
-                S.listItem()
+              S.listItem()
+                .title('Footer')
+                .child(S.document().schemaType('footer').documentId('footer')),
+              S.listItem()
                 .title('Blogs')
                 .child(S.document().schemaType('blogs').documentId('blogs')),
             ])
@@ -48,7 +51,8 @@ export const myStructure = (S) =>
           'colors',
           'about',
           'blogs',
-          'indexPage'
+          'indexPage',
+          'footer'
         ].includes(listItem.getId())
       ),
     ])

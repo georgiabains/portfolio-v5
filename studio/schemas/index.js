@@ -3,6 +3,7 @@ import category from './category'
 import post from './post'
 import author from './author'
 import about from './about'
+import footer from './footer'
 import blogs from './blogs'
 import colors from './colors'
 import siteSettings from './siteSettings'
@@ -16,6 +17,7 @@ export const schemaTypes = [
   blockContent, 
   colors,
   about,
+  footer,
   blogs,
   siteSettings,
   indexPage,

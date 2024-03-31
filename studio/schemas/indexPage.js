@@ -131,6 +131,7 @@ export default defineType({
                   name: 'indexBlog',
                   type: 'reference',
                   to: [{ type: 'post' }],
+                  weak: true,
                   options: {
                     disableNew: true,
                   }
