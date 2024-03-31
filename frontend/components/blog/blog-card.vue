@@ -4,14 +4,11 @@
       <img :src="blog.mainImage.asset.url" alt="" />
     </div>
     <header class="blog-card__info">
-      <component
-        :is="useH3 ? 'h3' : 'h2'"
-        class="margin-reset blog-card__title"
-      >
-        <a :href="getSlug" v-text="blog.title" />
+      <component :is="useH3 ? 'h3' : 'h2'" class="blog-card__title">
+        <a class="blog-card__title-link" :href="getSlug" v-text="blog.title" />
       </component>
 
-      <p class="margin-reset">
+      <p>
         <time
           class="blog-card__date"
           :datetime="blog._createdAt"
@@ -75,7 +72,6 @@
     border-radius: var(--border-radius-44);
     color: var(--text);
     display: block;
-    height: fit-content;
     overflow: hidden;
     text-decoration: none;
     width: 100%;
@@ -83,6 +79,10 @@
     &:hover {
       @include focus-ring;
       background-color: var(--secondary);
+
+      #{$parent}__title-link {
+        text-decoration: underline;
+      }
     }
 
     &__info {
@@ -99,10 +99,11 @@
       max-width: 95%;
     }
 
-    a {
-      text-decoration: none;
+    &__title-link {
       color: var(--text);
+      text-decoration: none;
 
+      &:hover,
       &:focus {
         text-decoration: underline;
       }

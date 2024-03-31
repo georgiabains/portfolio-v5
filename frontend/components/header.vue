@@ -3,7 +3,7 @@
     <div class="header__container gutter">
       <component
         :is="isCurrentPage('index') ? 'h1' : 'h2'"
-        class="header__title margin-reset"
+        class="header__title"
       >
         <a href="/" v-text="'Georgia Bains'" />
       </component>
@@ -34,7 +34,7 @@
 </template>
 
 <script setup>
-  const title = ref('Georgia Bains Portfolio')
+  const title = ref('Georgia Bains')
   const description = ref('My portfolio of web development work.')
 
   useHead({
@@ -75,15 +75,14 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding-block: var(--spacing-8xl);
+    padding-block: var(--spacing-5xl);
     position: relative;
     z-index: 1;
 
     &__container {
-      align-items: center;
       flex-direction: column;
       display: flex;
-      gap: var(--spacing-4xl);
+      gap: var(--spacing-m);
     }
 
     &__title {
@@ -110,8 +109,12 @@
       }
     }
 
-    @media screen and (min-width: 960px) {
+    @media screen and (min-width: 700px) {
+      padding-block: var(--spacing-8xl);
+
       &__container {
+        align-items: center;
+        gap: var(--spacing-4xl);
         flex-direction: row;
       }
     }

@@ -34,7 +34,7 @@
 
     code {
       font-size: var(--font-16);
-      min-height: var(--font-20);
+      min-height: var(--font-22);
     }
   }
 </style>

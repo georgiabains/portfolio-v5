@@ -5,7 +5,9 @@
 </template>
 
 <script>
-  import "@fontsource/atkinson-hyperlegible";
-  import "@fontsource/castoro"
-  import "@fontsource/pt-mono"
+  import '@fontsource/atkinson-hyperlegible'
+  import '@fontsource/castoro'
+  import '@fontsource/chivo'
+  import '@fontsource/overpass'
+  import '@fontsource/pt-mono'
 </script>

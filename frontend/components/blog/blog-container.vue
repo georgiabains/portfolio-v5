@@ -86,22 +86,19 @@
       justify-content: space-between;
     }
 
+    &__cta-container {
+      margin-block: var(--spacing-m) var(--spacing-2xs);
+    }
+
     &__cta {
       align-items: center;
       display: inline-flex;
-      font-size: var(--font-20);
       gap: var(--spacing-m);
     }
 
-    @media screen and (min-width: 960px) {
+    @media screen and (min-width: 1024px) {
       &__blogs {
         gap: var(--spacing-4xl);
-        grid-template-columns: auto auto;
-      }
-    }
-
-    @media screen and (min-width: 1520px) {
-      &__blogs {
         grid-template-columns: auto auto auto;
       }
     }

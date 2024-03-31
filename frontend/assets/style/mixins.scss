@@ -5,3 +5,11 @@
 @mixin focus-ring($width: var(--spacing-2xs), $color: var(--border)) {
   box-shadow: 0 0 0 $width $color;
 }
+
+@mixin margin-reset() {
+  margin: 0;
+  margin-block-end: 0;
+  margin-block-start: 0;
+  margin-inline-end: 0;
+  margin-inline-start: 0;
+}

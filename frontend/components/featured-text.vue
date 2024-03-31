@@ -5,14 +5,14 @@
   >
     <h2
       v-if="section.title"
-      class="heading margin-reset"
+      class="heading heading--primary"
       v-text="section.title"
     />
 
     <div class="featured-text__grid">
       <p
         v-for="copy in section.featuredText"
-        class="featured-text__copy margin-reset"
+        class="featured-text__copy"
         v-text="copy"
       />
     </div>
@@ -49,20 +49,16 @@
 <style lang="scss">
   .featured-text {
     gap: var(--spacing-3xl);
-    width: var(--width-copy);
 
     &__copy {
       font-size: var(--font-22);
+      max-width: var(--width-copy);
     }
 
     &__grid {
       align-items: center;
       display: grid;
       gap: var(--spacing-2xl);
-    }
-
-    .heading {
-      font-size: var(--font-44);
     }
   }
 </style>

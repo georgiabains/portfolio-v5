@@ -15,9 +15,11 @@ body {
 
 body {
   font-family: 'Atkinson Hyperlegible', sans-serif;
-  font-size: var(--font-20);
+  font-size: var(--font-22);
   font-weight: 400;
   line-height: var(--line-140);
+  margin-inline: auto;
+  max-width: 1920px;
 }
 
 a {
@@ -35,8 +37,17 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Castoro', serif;
   font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  @include margin-reset;
 }
 
 strong {
@@ -76,19 +87,7 @@ img {
 }
 
 .margin-reset {
-  margin: 0;
-  margin-block-end: 0;
-  margin-block-start: 0;
-  margin-inline-end: 0;
-  margin-inline-start: 0;
-}
-
-.max-width {
-  max-width: 1400px;
-
-  &--content {
-    max-width: 650px;
-  }
+  @include margin-reset;
 }
 
 .list {
@@ -100,7 +99,18 @@ img {
 }
 
 .heading {
-  font-size: var(--font-48);
+  font-size: var(--font-32);
+  max-width: var(--width-heading);
+
+  &--primary {
+    font-size: var(--font-44);
+  }
+}
+
+.rte {
+  p {
+    margin-block: var(--spacing-2xl);
+  }
 }
 
 .bubble {
@@ -138,6 +148,20 @@ img {
   &:focus-visible {
     &#{$parent}--background-light {
       outline: var(--background);
+    }
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .gutter--heading {
+    --gutter: 3rem;
+  }
+
+  .heading {
+    font-size: var(--font-44);
+  
+    &--primary {
+      font-size: var(--font-64);
     }
   }
 }

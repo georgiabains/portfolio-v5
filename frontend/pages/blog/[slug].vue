@@ -2,14 +2,16 @@
   <article class="gutter post">
     <template v-if="post">
       <header>
-        <h1 v-if="post.title" class="title margin-reset" v-text="post.title" />
+        <h1
+          v-if="post.title"
+          class="heading heading--primary"
+          v-text="post.title"
+        />
       </header>
 
-      <SanityContent
-        v-if="post.body"
-        :blocks="post.body"
-        :serializers="serializers"
-      />
+      <div v-if="post.body" class="post__body rte">
+        <SanityContent :blocks="post.body" :serializers="serializers" />
+      </div>
     </template>
 
     <p v-else>Loading</p>
@@ -17,7 +19,7 @@
 
   <BlogContainer use-latest>
     <template #copy>
-      <h2 class="margin-reset" v-text="'Browse Other Blog Posts'" />
+      <h2 v-text="'Browse Other Blog Posts'" />
     </template>
   </BlogContainer>
 </template>
@@ -45,11 +47,14 @@
   }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
   .post {
     display: grid;
     margin-block-end: var(--spacing-6xl);
-    max-width: var(--width-copy);
+
+    &__body {
+      max-width: var(--width-copy);
+    }
   }
 
   pre {

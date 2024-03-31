@@ -13,12 +13,12 @@
     <ProjectContainer :project-array="section.indexProjectArray">
       <template #copy>
         <h2
-          class="project-container__title margin-reset gutter"
+          class="project-container__title gutter"
           v-text="'Featured projects'"
         />
 
         <p
-          class="gutter margin-reset max-width--content project-container__subheading"
+          class="gutter project-container__subheading"
           v-text="section.indexProjectCopy"
         />
       </template>
@@ -34,7 +34,7 @@
     :use-latest="section.indexBlogUseLatest"
   >
     <template #copy>
-      <h2 class="margin-reset heading" v-text="section.title" />
+      <h2 class="heading" v-text="section.title" />
     </template>
   </BlogContainer>
 </template>
@@ -107,13 +107,11 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-block: var(--spacing-3xl);
+    padding-block: var(--spacing-4xl);
 
     &--first {
       padding-block-start: 0;
       justify-content: flex-start;
-      // min-height: 73vh; // if using min height add some visual indicator that the user can scroll for more content
-      min-height: calc(100vh - 16rem);
     }
 
     &__scroll {

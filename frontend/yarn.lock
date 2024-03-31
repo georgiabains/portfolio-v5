@@ -421,6 +421,16 @@
   resolved "https://registry.npmjs.org/@fontsource/castoro/-/castoro-4.5.9.tgz"
   integrity sha512-phSJFTB5qCaqKomek/+PmJslq2l+wKn9hD6oaDzjEuGlQ8ofwg2bG2MiYmejjz7QPeSY2cjZgziuoE51RaIxzA==
 
+"@fontsource/chivo@^5.0.12":
+  version "5.0.12"
+  resolved "https://registry.npmjs.org/@fontsource/chivo/-/chivo-5.0.12.tgz"
+  integrity sha512-1QLFS7DUsK/kGIVrXZKwJLvbSIT8eWUh3k6Qhp/3EF2xBUCzFbivoGFosgbVJ0KUtopSZES+nBS0z9kolTU87A==
+
+"@fontsource/overpass@^5.0.17":
+  version "5.0.17"
+  resolved "https://registry.npmjs.org/@fontsource/overpass/-/overpass-5.0.17.tgz"
+  integrity sha512-h2wLnOruXAcfiEl15z8mYPLROKPItNIvARDJ+5Hrkko95jITfDj8GtglmwN0fSpBD9xOrIXuAF7Kd/1/n92aCQ==
+
 "@fontsource/pt-mono@^4.5.11":
   version "4.5.11"
   resolved "https://registry.npmjs.org/@fontsource/pt-mono/-/pt-mono-4.5.11.tgz"

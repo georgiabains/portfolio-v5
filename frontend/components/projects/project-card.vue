@@ -1,9 +1,9 @@
 <template>
   <div class="project-card">
     <div class="project-card__info">
-      <h3 class="margin-reset project-card__title" v-text="project.title" />
-      <p class="margin-reset" v-text="project.description" />
-      <p class="margin-reset">
+      <h3 class="project-card__title" v-text="project.title" />
+      <p v-text="project.description" />
+      <p>
         <a
           :href="`/project/${project.slug.current}`"
           v-text="`Read ${project.title} case study`"
@@ -79,7 +79,7 @@
       }
     }
 
-    @media screen and (min-width: 960px) {
+    @media screen and (min-width: 1024px) {
       grid-template-columns: 1fr 2fr;
     }
   }
