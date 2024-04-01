@@ -1,4 +1,4 @@
-// ./deskStructure.js
+import { DocumentsIcon, EarthGlobeIcon } from '@sanity/icons'
 
 export const baseStructure = (S) =>
   S.list()
@@ -6,12 +6,14 @@ export const baseStructure = (S) =>
     .items([
       S.listItem()
         .title('Global')
+        .icon(EarthGlobeIcon)
         .child(
           S.list()
             .title('Global Settings')
             .items([
               S.listItem()
                 .title('Metadata')
+                .icon(EarthGlobeIcon)
                 .child(S.document().schemaType('metadata').documentId('metadata')),
               S.listItem()
                 .title('Footer')
@@ -20,6 +22,7 @@ export const baseStructure = (S) =>
         ),
       S.listItem()
         .title('Pages')
+        .icon(DocumentsIcon)
         .child(
           S.list()
             .title('Singleton pages')
@@ -35,13 +38,14 @@ export const baseStructure = (S) =>
                 .child(S.document().schemaType('blogs').documentId('blogs')),
             ])
         ),
+      S.divider(),
       ...S.documentTypeListItems().filter(
         (listItem) => ![
           'about',
           'blogs',
           'footer',
           'indexPage',
-          'siteSettings',
+          'metadata',
         ].includes(listItem.getId())
       ),
     ])

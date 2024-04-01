@@ -1,9 +1,11 @@
 import { defineField, defineType } from 'sanity'
+import { BlockContentIcon } from '@sanity/icons'
 
 export default defineType({
   name: 'post',
   title: 'Post',
   type: 'document',
+  icon: BlockContentIcon,
   fields: [
     defineField({
       name: 'title',
