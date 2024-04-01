@@ -1,6 +1,6 @@
 import {defineConfig} from 'sanity'
 import {codeInput} from '@sanity/code-input'
-import {deskTool} from 'sanity/desk'
+import {structureTool} from 'sanity/structure'
 import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemas'
 import {myStructure} from './deskStructure'
@@ -14,7 +14,7 @@ export default defineConfig({
 
   plugins: [
     codeInput(),
-    deskTool({
+    structureTool({
       structure: myStructure,
     }), 
     visionTool()
