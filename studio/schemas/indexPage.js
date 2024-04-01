@@ -3,8 +3,14 @@ import { BookIcon, BlockContentIcon, DesktopIcon } from '@sanity/icons'
 
 export default defineType({
   name: 'indexPage',
+  title: 'Index page',
   type: 'document',
   fields: [
+    {
+      name: 'title',
+      title: 'Index',
+      type: 'string'
+    },
     defineField({
       name: 'sections',
       title: 'Sections',
@@ -50,11 +56,11 @@ export default defineType({
               title: 'title',
               subtitle: 'featuredText'
             },
-            prepare: ({ subtitle }) => {
+            prepare: ({ title }) => {
               const fixedTitle = 'Featured Text'
               return {
                 title: fixedTitle,
-                subtitle: `${subtitle[0]}`
+                subtitle: title,
               }
             }
           }
@@ -141,18 +147,22 @@ export default defineType({
           ],
           preview: {
             select: {
-              subtitle: 'indexBlogCopy',
+              isLatest: 'indexBlogUseLatest',
             },
-            prepare: ({ subtitle }) => {
-              const fixedTitle = 'Blog Posts'
+            prepare: ({ isLatest }) => {
               return {
-                title: fixedTitle,
-                subtitle: subtitle ? `${subtitle}` : ''
+                title: 'Blog Posts',
+                subtitle: isLatest ? 'Latest' : 'Custom'
               }
             }
           }
-        }
+        },
       ],
+      preview: {
+        select: {
+          title: 'title'
+        }
+      }
     }),
   ],
 })
