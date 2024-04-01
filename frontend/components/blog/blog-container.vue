@@ -47,16 +47,23 @@
    */
   const getLatestBlogPosts = () => {
     const latestBlogsQuery = groq`
-      *[_type == "post"][0..2] | order(_createdAt desc) {
+      *[
+        _type == "post"
+        && (defined(slug))
+        && (defined(mainImage))
+      ] | order(_createdAt desc)[0..2]  {
         title,
-        slug,
+        defined(slug) => {
+          'slug': slug
+        },
         _createdAt,
-        mainImage {
-          ...,
-          asset -> {
-            url
+        defined(mainImage) => {
+          'mainImage':  {
+            'asset': {
+              'url': mainImage.asset -> url
+            }
           }
-        }
+        },
       }
     `
 

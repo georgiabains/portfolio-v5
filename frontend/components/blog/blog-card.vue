@@ -1,6 +1,11 @@
 <template>
-  <article ref="blogCard" class="blog-card" @click.prevent="handleCardClick">
-    <div class="blog-card__image">
+  <article
+    v-if="blog.slug"
+    ref="blogCard"
+    class="blog-card"
+    @click.prevent="handleCardClick"
+  >
+    <div v-if="blog.mainImage?.asset?.url" class="blog-card__image">
       <img :src="blog.mainImage.asset.url" alt="" />
     </div>
     <header class="blog-card__info">

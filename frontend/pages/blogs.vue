@@ -10,14 +10,22 @@
   import BlogContainer from '~/components/blog/blog-container'
 
   const postsQuery = groq`
-    *[_type == "post"] | order(_createdAt desc) {
+    *[
+      _type == "post"
+      && (defined(slug))
+      && (defined(mainImage))
+    ] | order(_createdAt desc) {
       ...,
-      mainImage {
-        ...,
-        asset -> {
-          url
+      defined(slug) => {
+        'slug': slug
+      },
+      defined(mainImage) => {
+        'mainImage':  {
+          'asset': {
+            'url': mainImage.asset -> url
+          }
         }
-      }
+      },
     }
   `
 
