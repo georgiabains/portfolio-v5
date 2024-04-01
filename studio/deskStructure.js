@@ -5,30 +5,24 @@ export const myStructure = (S) =>
     .title('Base')
     .items([
       S.listItem()
-        .title('Settings')
+        .title('Global')
         .child(
           S.list()
-            // Sets a title for our new list
-            .title('Settings Documents')
-            // Add items to the array
-            // Each will pull one of our new singletons
+            .title('Global Settings')
             .items([
               S.listItem()
                 .title('Metadata')
                 .child(S.document().schemaType('siteSettings').documentId('siteSettings')),
               S.listItem()
-                .title('Site Colors')
-                .child(S.document().schemaType('colors').documentId('colors')),
+                .title('Footer')
+                .child(S.document().schemaType('footer').documentId('footer')),
             ])
         ),
       S.listItem()
         .title('Pages')
         .child(
           S.list()
-            // Sets a title for our new list
             .title('Singleton pages')
-            // Add items to the array
-            // Each will pull one of our new singletons
             .items([
               S.listItem()
                 .title('Index Page')
@@ -37,22 +31,17 @@ export const myStructure = (S) =>
                 .title('About')
                 .child(S.document().schemaType('about').documentId('about')),
               S.listItem()
-                .title('Footer')
-                .child(S.document().schemaType('footer').documentId('footer')),
-              S.listItem()
                 .title('Blogs')
                 .child(S.document().schemaType('blogs').documentId('blogs')),
             ])
         ),
-      // We also need to remove the new singletons from the main list
       ...S.documentTypeListItems().filter(
         (listItem) => ![
-          'siteSettings', 
-          'colors',
           'about',
           'blogs',
+          'footer',
           'indexPage',
-          'footer'
+          'siteSettings',
         ].includes(listItem.getId())
       ),
     ])
