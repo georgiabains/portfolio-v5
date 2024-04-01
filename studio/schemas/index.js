@@ -1,21 +1,21 @@
-import blockContent from './blockContent'
-import category from './category'
-import post from './post'
 import about from './about'
-import footer from './footer'
+import blockContent from './blockContent'
 import blogs from './blogs'
-import siteSettings from './siteSettings'
+import category from './category'
+import footer from './footer'
 import indexPage from './indexPage'
+import post from './post'
 import project from './project'
+import siteSettings from './siteSettings'
 
 export const schemaTypes = [
-  post,
-  category, 
-  blockContent,
   about,
-  footer,
+  blockContent,
   blogs,
-  siteSettings,
+  category, 
+  footer,
   indexPage,
-  project
+  post,
+  project,
+  siteSettings,
 ]
