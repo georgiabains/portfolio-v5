@@ -12,7 +12,7 @@ export const baseStructure = (S) =>
             .items([
               S.listItem()
                 .title('Metadata')
-                .child(S.document().schemaType('siteSettings').documentId('siteSettings')),
+                .child(S.document().schemaType('metadata').documentId('metadata')),
               S.listItem()
                 .title('Footer')
                 .child(S.document().schemaType('footer').documentId('footer')),

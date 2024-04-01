@@ -1,6 +1,6 @@
 export default {
-  name: 'siteSettings',
-  title: 'Site Settings',
+  name: 'metadata',
+  title: 'Metadata',
   type: 'document',
   fields: [
     {

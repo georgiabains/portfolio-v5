@@ -4,9 +4,9 @@ import blogs from './blogs'
 import category from './category'
 import footer from './footer'
 import indexPage from './indexPage'
+import metadata from './metadata'
 import post from './post'
 import project from './project'
-import siteSettings from './siteSettings'
 
 export const schemaTypes = [
   about,
@@ -15,7 +15,7 @@ export const schemaTypes = [
   category, 
   footer,
   indexPage,
+  metadata,
   post,
   project,
-  siteSettings,
 ]
