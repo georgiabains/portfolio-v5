@@ -1,4 +1,10 @@
-import { DocumentsIcon, EarthGlobeIcon } from '@sanity/icons'
+import { 
+  DocumentsIcon, 
+  EarthGlobeIcon, 
+  HomeIcon, 
+  PublishIcon, 
+  UserIcon 
+} from '@sanity/icons'
 
 export const baseStructure = (S) =>
   S.list()
@@ -28,14 +34,17 @@ export const baseStructure = (S) =>
             .title('Singleton pages')
             .items([
               S.listItem()
-                .title('Index Page')
-                .child(S.document().schemaType('indexPage').documentId('indexPage')),
-              S.listItem()
                 .title('About')
+                .icon(UserIcon)
                 .child(S.document().schemaType('about').documentId('about')),
               S.listItem()
-                .title('Blogs')
+                .title('Blogs Page')
+                .icon(PublishIcon)
                 .child(S.document().schemaType('blogs').documentId('blogs')),
+              S.listItem()
+                .title('Index Page')
+                .icon(HomeIcon)
+                .child(S.document().schemaType('indexPage').documentId('indexPage')),
             ])
         ),
       S.divider(),
