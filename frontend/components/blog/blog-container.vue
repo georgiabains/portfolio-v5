@@ -88,7 +88,7 @@
 
     &__blogs {
       display: grid;
-      grid-template-columns: auto;
+      grid-template-columns: 1fr;
       gap: var(--spacing-5xl);
       justify-content: space-between;
     }
