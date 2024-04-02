@@ -51,6 +51,9 @@
   .footer {
     $parent: &;
 
+    display: grid;
+    font-size: var(--font-20);
+    gap: var(--spacing-m);
     margin-block: var(--spacing-3xl) var(--spacing-5xl);
 
     &__socials {

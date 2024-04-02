@@ -38,8 +38,6 @@
     slug: route.params.slug,
   })
 
-  console.log(post)
-
   const serializers = {
     types: {
       code: CodeBlock,

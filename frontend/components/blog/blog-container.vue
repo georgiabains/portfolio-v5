@@ -85,6 +85,7 @@
   .blogs-container {
     display: grid;
     gap: var(--spacing-3xl);
+    padding-block: var(--spacing-3xl);
 
     &__blogs {
       display: grid;
