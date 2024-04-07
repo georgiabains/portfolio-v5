@@ -12,13 +12,38 @@
   /**
    * Colours.
    */
-  --background: #e5e9e2;
-  --background-dark: #121a0b;
-  --border: #263918;
-  --secondary: #bcc8b6;
-  --text: #000000;
-  --text-inverse: #ffffff;
-  --text-link: #263918;
+  --color-off-black: #0f0f0fff;
+  --color-pale-green: #e7e9e7ff;
+  --color-green: #1f2a1cff;
+  --color-grey-green: #444d41ff;
+  --color-purple: #454049ff;
+  --color-off-white: #f0f0f0ff;
+  --color-dark-grey: #161816ff;
+  --color-light-green: #d7e2d4ff;
+  --color-light-grey-green: #b5bdb2ff;
+  --color-light-purple: #bbb5bfff;
+
+  /**
+   * Colours - light mode.
+   */
+  --accent: var(--color-purple);
+  --background: var(--color-pale-green);
+  --primary: var(--color-green);
+  --secondary: var(--color-grey-green);
+  --text: var(--color-off-black);
+  --text-inverse: var(--color-off-white);
+
+  /**
+   * Colours - dark mode.
+   */
+  @media (prefers-color-scheme: dark) {
+    --accent: var(--color-light-purple);
+    --background: var(--color-dark-grey);
+    --primary: var(--color-light-green);
+    --secondary: var(--color-light-grey-green);
+    --text: var(--color-off-white);
+    --text-inverse: var(--color-off-black);
+  }
 
   /**
    * Font sizes.

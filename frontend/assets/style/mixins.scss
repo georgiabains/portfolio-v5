@@ -2,7 +2,7 @@
   #{$property}: calc(#{$number} * -1);
 }
 
-@mixin focus-ring($width: var(--spacing-2xs), $color: var(--border)) {
+@mixin focus-ring($width: var(--spacing-2xs), $color: var(--primary)) {
   box-shadow: 0 0 0 $width $color;
 }
 

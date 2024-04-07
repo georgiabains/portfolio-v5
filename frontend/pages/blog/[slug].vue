@@ -55,8 +55,8 @@
   }
 
   pre {
-    background-color: var(--background-dark);
-    color: var(--text-inverse);
+    background-color: var(--color-dark-grey);
+    color: var(--color-off-white);
     overflow-x: scroll;
     padding: var(--spacing-m);
   }

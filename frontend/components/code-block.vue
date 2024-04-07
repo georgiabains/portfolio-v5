@@ -25,9 +25,9 @@
 
 <style scoped>
   .code-block {
-    background-color: var(--background-dark);
+    background-color: var(--color-dark-grey);
     border-radius: var(--border-radius-22);
-    color: var(--text-inverse);
+    color: var(--color-off-white);
     display: grid;
     padding-block: var(--spacing-m);
     padding-inline: var(--spacing-xl);

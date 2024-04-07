@@ -129,5 +129,13 @@
         width: 100%;
       }
     }
+
+    @media (prefers-color-scheme: dark) {
+      color: var(--text-inverse);
+
+      &__title-link {
+        color: var(--text-inverse);
+      }
+    }
   }
 </style>

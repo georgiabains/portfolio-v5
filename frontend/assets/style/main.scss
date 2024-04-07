@@ -14,6 +14,7 @@ body {
 }
 
 body {
+  color: var(--text);
   font-family: 'Atkinson Hyperlegible', sans-serif;
   font-size: var(--font-18);
   font-weight: 400;
@@ -21,11 +22,11 @@ body {
 }
 
 a {
-  color: var(--text-link);
+  color: var(--primary);
   
   &:hover,
   &:focus {
-    color: #000;
+    color: var(--text);
   }
 }
 
@@ -115,7 +116,7 @@ img {
 
 .bubble {
   $parent: &;
-  border: 1px solid var(--border);
+  border: 1px solid var(--primary);
   border-radius: var(--border-radius-32);
   padding-block: var(--spacing-xs);
   padding-inline: var(--spacing-l);
@@ -140,8 +141,8 @@ img {
 
     &#{$parent}--background-light {
       @include focus-ring(var(--spacing-2xs), var(--background));
-      background-color: var(--border);
-      color: var(--text-inverse);
+      background-color: var(--primary);
+      color: var(--color-off-white);
     }
   }
 
