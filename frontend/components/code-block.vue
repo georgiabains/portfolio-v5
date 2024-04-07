@@ -33,8 +33,8 @@
     padding-inline: var(--spacing-xl);
 
     code {
-      font-size: var(--font-16);
-      min-height: var(--font-22);
+      font-size: var(--text-s);
+      min-height: var(--text-m);
     }
   }
 </style>

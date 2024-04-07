@@ -98,7 +98,7 @@
     }
 
     &__title {
-      font-size: var(--font-24);
+      font-size: var(--text-s);
       line-height: 1.4;
       max-width: 95%;
     }
@@ -114,7 +114,7 @@
     }
 
     &__date {
-      font-size: var(--font-20);
+      font-size: var(--text-s);
     }
 
     &__image {

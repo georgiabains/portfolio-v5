@@ -40,7 +40,7 @@
     &__title {
       align-items: center;
       display: flex;
-      font-size: var(--font-60);
+      font-size: var(--text-xl);
       gap: 1rem;
       justify-content: flex-start;
       text-transform: lowercase;

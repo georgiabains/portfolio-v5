@@ -52,7 +52,7 @@
     $parent: &;
 
     display: grid;
-    font-size: var(--font-20);
+    font-size: var(--text-s);
     gap: var(--spacing-m);
     margin-block: var(--spacing-3xl) var(--spacing-5xl);
 

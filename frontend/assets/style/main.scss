@@ -16,9 +16,8 @@ body {
 body {
   color: var(--text);
   font-family: 'Atkinson Hyperlegible', sans-serif;
-  font-size: var(--font-18);
   font-weight: 400;
-  line-height: var(--line-140);
+  line-height: var(--line-default);
 }
 
 a {
@@ -100,11 +99,11 @@ img {
 }
 
 .heading {
-  font-size: var(--font-28);
+  font-size: var(--text-l);
   max-width: var(--width-heading);
 
   &--primary {
-    font-size: var(--font-40);
+    font-size: var(--text-xl);
   }
 }
 
@@ -155,22 +154,14 @@ img {
 
 @media screen and (min-width: 1024px) {
   body {
-    font-size: var(--font-22);
+    font-size: var(--text-s);
   }
 
   .gutter--heading {
     --gutter: 3rem;
   }
 
-  .heading {
-    font-size: var(--font-44);
-  
-    &--primary {
-      font-size: var(--font-64);
-    }
-  }
-
   .bubble {
-    font-size: var(--font-20);
+    font-size: var(--text-s);
   }
 }

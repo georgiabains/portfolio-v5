@@ -130,7 +130,7 @@
       }
 
       &__scroll {
-        font-size: var(--font-20);
+        font-size: var(--text-s);
       }
     }
   }

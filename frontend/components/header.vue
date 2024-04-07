@@ -83,7 +83,7 @@
     }
 
     &__title {
-      font-size: var(--font-28);
+      font-size: var(--text-m);
       font-weight: 400;
 
       a {
@@ -93,7 +93,7 @@
 
     &__navigation > ul {
       display: flex;
-      font-size: var(--font-20);
+      font-size: var(--text-s);
       gap: var(--spacing-l);
 
       a {
@@ -113,10 +113,6 @@
         align-items: center;
         gap: var(--spacing-4xl);
         flex-direction: row;
-      }
-
-      &__title {
-        font-size: var(--font-32);
       }
     }
   }

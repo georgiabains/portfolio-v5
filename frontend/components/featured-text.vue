@@ -51,7 +51,7 @@
     gap: var(--spacing-3xl);
 
     &__copy {
-      font-size: var(--font-22);
+      font-size: var(--text-s);
       max-width: var(--width-copy);
     }
 
