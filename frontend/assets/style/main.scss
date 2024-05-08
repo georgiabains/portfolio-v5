@@ -143,6 +143,7 @@ img {
   &:hover,
   &:focus {
     background-color: var(--secondary);
+    border-color: var(--secondary);
     color: var(--text-inverse);
 
     &#{$parent}--background-light {
