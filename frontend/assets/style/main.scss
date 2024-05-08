@@ -116,9 +116,8 @@ img {
 .bubble {
   $parent: &;
   border: 1px solid var(--primary);
-  border-radius: var(--border-radius-32);
-  padding-block: var(--spacing-xs);
-  padding-inline: var(--spacing-l);
+  border-radius: var(--border-radius-8);
+  padding: var(--spacing-2xs) var(--spacing-m);
   text-decoration: none;
 
   &--has-icon {
@@ -134,9 +133,8 @@ img {
 
   &:hover,
   &:focus {
-    @include focus-ring(var(--spacing-3xs));
     background-color: var(--secondary);
-    color: var(--text);
+    color: var(--text-inverse);
 
     &#{$parent}--background-light {
       @include focus-ring(var(--spacing-2xs), var(--background));
@@ -145,7 +143,15 @@ img {
     }
   }
 
+  &:focus {
+    @include focus-ring();
+  }
+
   &:focus-visible {
+    @include focus-ring();
+    background-color: var(--secondary);
+    color: var(--text-inverse);
+
     &#{$parent}--background-light {
       outline: var(--background);
     }

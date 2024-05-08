@@ -3,7 +3,7 @@
 }
 
 @mixin focus-ring($width: var(--spacing-2xs), $color: var(--primary)) {
-  box-shadow: 0 0 0 $width $color;
+  box-shadow: 0 0 0 var(--spacing-3xs) var(--background), 0 0 0 $width $color;
 }
 
 @mixin margin-reset() {

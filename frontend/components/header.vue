@@ -12,10 +12,19 @@
         <ul class="list--unstyled">
           <li>
             <a
+              :aria-current="getAriaCurrent('index')"
+              href="/"
+              class="bubble"
+              v-text="'Home'"
+            ></a>
+          </li>
+
+          <li>
+            <a
               :aria-current="getAriaCurrent('about')"
               href="/about"
               class="bubble"
-              v-text="'about'"
+              v-text="'About'"
             ></a>
           </li>
 
@@ -24,7 +33,7 @@
               :aria-current="getAriaCurrent('blogs')"
               href="/blogs"
               class="bubble"
-              v-text="'blogs'"
+              v-text="'Blogs'"
             ></a>
           </li>
         </ul>
