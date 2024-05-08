@@ -10,11 +10,13 @@
     />
 
     <div class="featured-text__grid">
-      <p
-        v-for="copy in section.featuredText"
+      <div
+        v-for="(text, index) in section.featuredText"
+        :key="index"
         class="featured-text__copy"
-        v-text="copy"
-      />
+      >
+        <SanityContent :blocks="text.body" />
+      </div>
     </div>
   </section>
 </template>
@@ -43,7 +45,7 @@
 
 <style lang="scss">
   .featured-text {
-    gap: var(--spacing-3xl);
+    gap: var(--spacing-xs);
 
     &__copy {
       font-size: var(--text-s);

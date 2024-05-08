@@ -47,7 +47,16 @@ export default defineType({
               name: 'featuredText',
               type: 'array',
               of: [{
-                type: 'text',
+                type: 'object',
+                name: 'featuredRichText',
+                title: 'Rich Text',
+                fields: [
+                  defineField({
+                    name: 'text',
+                    title: 'Text',
+                    type: 'blockContent',
+                  })
+                ]
               }]
             }
           ],
