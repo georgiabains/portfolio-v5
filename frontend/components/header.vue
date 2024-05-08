@@ -105,7 +105,7 @@
     &__navigation > ul {
       display: flex;
       font-size: var(--text-s);
-      gap: var(--spacing-l);
+      gap: var(--spacing-m);
 
       a {
         align-items: center;
@@ -124,6 +124,10 @@
         align-items: center;
         gap: var(--spacing-4xl);
         flex-direction: row;
+      }
+
+      &__navigation > ul {
+        gap: var(--spacing-l);
       }
     }
   }

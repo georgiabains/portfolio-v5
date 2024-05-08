@@ -72,6 +72,7 @@
 
     &__image {
       aspect-ratio: 16 / 9;
+      border-bottom: 0;
       border-radius: var(--border-radius-16);
       // TODO: Update variables
       box-shadow: 4px 4px 4px rgba(22, 24, 22, 0.16);
@@ -82,6 +83,10 @@
         height: 100%;
         object-fit: cover;
         width: 100%;
+      }
+
+      &:hover {
+        border-bottom: 0;
       }
     }
 

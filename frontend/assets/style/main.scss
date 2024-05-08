@@ -51,6 +51,12 @@ p {
   @include margin-reset;
 }
 
+h1,
+h2,
+h3 {
+  line-height: 1.4;
+}
+
 strong {
   font-weight: 700;
 }

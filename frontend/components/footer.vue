@@ -1,6 +1,6 @@
 <template>
   <footer class="footer container">
-    <a href="/sitemap.xml">Sitemap</a>
+    <a href="/sitemap.xml" class="footer__link">Sitemap</a>
 
     <p>&copy; Georgia Bains {{ dateRange }}.</p>
   </footer>
@@ -37,6 +37,10 @@
     gap: var(--spacing-m);
     justify-content: space-between;
     margin-block: var(--spacing-3xl) var(--spacing-5xl);
+
+    &__link {
+      width: fit-content;
+    }
 
     @media screen and (min-width: 1024px) {
       margin-block: var(--spacing-6xl) var(--spacing-8xl);

@@ -45,7 +45,7 @@
 
 <style lang="scss">
   .featured-text {
-    gap: var(--spacing-xs);
+    gap: var(--spacing-m);
 
     &__copy {
       font-size: var(--text-s);
@@ -56,6 +56,10 @@
       align-items: center;
       display: grid;
       gap: var(--spacing-2xl);
+    }
+
+    @media screen and (min-width: 1024px) {
+      gap: var(--spacing-xs);
     }
   }
 </style>
