@@ -16,11 +16,6 @@
         v-text="copy"
       />
     </div>
-
-    <p v-if="isFirst" class="section__scroll">
-      <nuxt-icon aria-hidden="true" name="mouse" />
-      Scroll to browse my work
-    </p>
   </section>
 </template>
 

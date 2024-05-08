@@ -80,6 +80,7 @@
       flex-direction: column;
       display: flex;
       gap: var(--spacing-m);
+      justify-content: space-between;
     }
 
     &__title {

@@ -13,6 +13,7 @@
    * Colours.
    */
   --color-off-black: #0f0f0fff;
+  --color-dark-grey: #484848; // TODO: Add to figma
   --color-pale-green: #e7e9e7ff;
   --color-green: #1f2a1cff;
   --color-grey-green: #444d41ff;
@@ -31,19 +32,20 @@
   --primary: var(--color-green);
   --secondary: var(--color-grey-green);
   --text: var(--color-off-black);
+  --text-light: var(var(--color-dark-grey));
   --text-inverse: var(--color-off-white);
 
   /**
    * Colours - dark mode.
    */
-  @media (prefers-color-scheme: dark) {
-    --accent: var(--color-light-purple);
-    --background: var(--color-dark-grey);
-    --primary: var(--color-light-green);
-    --secondary: var(--color-light-grey-green);
-    --text: var(--color-off-white);
-    --text-inverse: var(--color-off-black);
-  }
+  // @media (prefers-color-scheme: dark) {
+  //   --accent: var(--color-light-purple);
+  //   --background: var(--color-dark-grey);
+  //   --primary: var(--color-light-green);
+  //   --secondary: var(--color-light-grey-green);
+  //   --text: var(--color-off-white);
+  //   --text-inverse: var(--color-off-black);
+  // }
 
   /**
    * Text sizes.
@@ -51,6 +53,7 @@
   --text-base: 1rem; // 16px;
   --typescale-ratio: 1.333; // Perfect fourth
 
+  --text-xs: calc(var(--text-base) / var(--typescale-ratio));
   --text-s: var(--text-base);
   --text-m: calc(var(--text-s) * var(--typescale-ratio));
   --text-l: calc(var(--text-m) * var(--typescale-ratio));

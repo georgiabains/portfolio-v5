@@ -1,16 +1,16 @@
 <template>
-  <article
-    v-if="blog.slug"
-    ref="blogCard"
-    class="blog-card"
-    @click.prevent="handleCardClick"
-  >
+  <article v-if="blog.slug" class="blog-card" @click.prevent="handleCardClick">
     <div v-if="blog.mainImage?.asset?.url" class="blog-card__image">
       <img :src="blog.mainImage.asset.url" alt="" />
     </div>
+
     <header class="blog-card__info">
-      <component :is="useH3 ? 'h3' : 'h2'" class="blog-card__title">
-        <a class="blog-card__title-link" :href="getSlug" v-text="blog.title" />
+      <component :is="titleElement" class="blog-card__title">
+        <a class="blog-card__title-link" :href="getSlug">
+          <span v-text="blog.title" />
+
+          <nuxt-icon name="arrow-right" aria-hidden="true" />
+        </a>
       </component>
 
       <time
@@ -23,8 +23,6 @@
 </template>
 
 <script setup>
-  import { ref, onMounted } from 'vue'
-
   const props = defineProps({
     blog: {
       type: [Object],
@@ -56,86 +54,65 @@
   })
 
   /**
-   * Redirect pointer users to the blog link.
+   * Compute title element.
+   * @returns {String}
    */
-  const handleCardClick = () => window.location.assign(getSlug.value)
-
-  const blogCard = ref(null)
-
-  onMounted(() => {
-    blogCard.value.style.cursor = 'pointer'
-  })
+  const titleElement = computed(() => (props.useH3 ? 'h3' : 'h2'))
 </script>
 
 <style lang="scss">
   .blog-card {
     $parent: &;
 
-    background-color: var(--secondary);
-    border-radius: var(--border-radius-44);
-    color: var(--text);
-    display: block;
-    height: 100%;
-    overflow: hidden;
-    text-decoration: none;
-    width: 100%;
+    &__image {
+      aspect-ratio: 16 / 9;
+      border-radius: var(--border-radius-16);
+      // TODO: Update variables
+      box-shadow: 4px 4px 4px rgba(22, 24, 22, 0.16);
+      overflow: hidden;
 
-    &:hover {
-      @include focus-ring;
-      background-color: var(--secondary);
-
-      #{$parent}__title-link {
-        text-decoration: underline;
+      img {
+        height: 100%;
+        object-fit: cover;
+        width: 100%;
       }
     }
 
     &__info {
       display: flex;
       flex-direction: column;
-      gap: var(--spacing-s);
-      padding-block: var(--spacing-3xl);
-      padding-inline: var(--spacing-3xl);
+      gap: var(--spacing-m);
+      padding: var(--spacing-m) var(--spacing-xs);
     }
 
     &__title {
       font-size: var(--text-s);
-      line-height: 1.4;
-      max-width: 95%;
+
+      .nuxt-icon {
+        margin-inline-start: var(--spacing-xs);
+      }
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
 
     &__title-link {
       color: var(--text);
       text-decoration: none;
-
-      &:hover,
-      &:focus {
-        text-decoration: underline;
-      }
     }
 
     &__date {
-      font-size: var(--text-s);
+      color: var(--text-light);
+      font-size: var(--text-xs);
     }
 
-    &__image {
-      height: 12rem; // 240px
-      overflow: hidden;
-      width: 100%;
+    // @media (prefers-color-scheme: dark) {
+    //   color: var(--text-inverse);
 
-      img {
-        height: 100%;
-        object-fit: cover;
-        object-position: center center;
-        width: 100%;
-      }
-    }
-
-    @media (prefers-color-scheme: dark) {
-      color: var(--text-inverse);
-
-      &__title-link {
-        color: var(--text-inverse);
-      }
-    }
+    //   &__title-link {
+    //     color: var(--text-inverse);
+    //   }
+    // }
   }
 </style>
