@@ -11,11 +11,11 @@
 
     <div class="featured-text__grid">
       <div
-        v-for="(text, index) in section.featuredText"
+        v-for="(item, index) in section.featuredText"
         :key="index"
         class="featured-text__copy"
       >
-        <SanityContent :blocks="text.body" />
+        <SanityContent :blocks="item.text" />
       </div>
     </div>
   </section>
