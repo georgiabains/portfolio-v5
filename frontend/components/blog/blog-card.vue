@@ -1,8 +1,14 @@
 <template>
   <article v-if="blog.slug" class="blog-card" @click.prevent="handleCardClick">
-    <div v-if="blog.mainImage?.asset?.url" class="blog-card__image">
+    <a
+      v-if="blog.mainImage?.asset?.url"
+      aria-hidden="true"
+      class="blog-card__image"
+      :href="getSlug"
+      tabindex="-1"
+    >
       <img :src="blog.mainImage.asset.url" alt="" />
-    </div>
+    </a>
 
     <header class="blog-card__info">
       <component :is="titleElement" class="blog-card__title">
@@ -69,6 +75,7 @@
       border-radius: var(--border-radius-16);
       // TODO: Update variables
       box-shadow: 4px 4px 4px rgba(22, 24, 22, 0.16);
+      display: block;
       overflow: hidden;
 
       img {

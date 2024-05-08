@@ -84,7 +84,7 @@
 <style lang="scss">
   .blogs-container {
     display: grid;
-    gap: var(--spacing-3xl);
+    gap: var(--spacing-l);
     padding-block: var(--spacing-3xl);
 
     &__blogs {
@@ -92,10 +92,6 @@
       grid-template-columns: 1fr;
       gap: var(--spacing-5xl);
       justify-content: space-between;
-    }
-
-    &__cta-container {
-      margin-block: var(--spacing-m) var(--spacing-2xs);
     }
 
     &__cta {
