@@ -21,10 +21,13 @@ body {
 }
 
 a {
-  color: var(--primary);
+  border-bottom: 1px solid var(--secondary);
+  color: var(--secondary);
+  text-decoration: none;
   
   &:hover,
   &:focus {
+    border-bottom: 1px solid var(--text);
     color: var(--text);
   }
 }

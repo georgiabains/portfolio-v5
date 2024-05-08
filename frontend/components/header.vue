@@ -97,6 +97,7 @@
       font-weight: 400;
 
       a {
+        border: 0;
         text-decoration: none;
       }
     }

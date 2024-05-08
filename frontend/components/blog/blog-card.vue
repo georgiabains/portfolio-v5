@@ -98,13 +98,10 @@
       .nuxt-icon {
         margin-inline-start: var(--spacing-xs);
       }
-
-      &:hover {
-        text-decoration: underline;
-      }
     }
 
     &__title-link {
+      border-bottom: 0;
       color: var(--text);
       text-decoration: none;
     }

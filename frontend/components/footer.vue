@@ -1,26 +1,6 @@
 <template>
   <footer class="footer container">
-    <ul class="list--unstyled footer__socials">
-      <li>
-        <a
-          href="https://github.com/georgiabains"
-          class="footer__link"
-          rel="noreferrer noopener"
-        >
-          <span v-text="'Github'" />
-        </a>
-      </li>
-
-      <li>
-        <a
-          href="https://www.linkedin.com/in/georgia-bains/"
-          class="footer__link"
-          rel="noreferrer noopener"
-        >
-          <span v-text="'LinkedIn'" />
-        </a>
-      </li>
-    </ul>
+    <a href="/sitemap.xml">Sitemap</a>
 
     <p>&copy; Georgia Bains {{ dateRange }}.</p>
   </footer>
@@ -51,29 +31,16 @@
   .footer {
     $parent: &;
 
-    display: grid;
+    display: flex;
+    flex-direction: column;
     font-size: var(--text-s);
     gap: var(--spacing-m);
+    justify-content: space-between;
     margin-block: var(--spacing-3xl) var(--spacing-5xl);
-
-    &__socials {
-      display: flex;
-      gap: var(--spacing-m);
-    }
-
-    &__link {
-      border-bottom: 1px solid transparent;
-      text-decoration: none;
-
-      &:hover,
-      &:focus {
-        border-color: var(--text);
-        color: var(--text);
-      }
-    }
 
     @media screen and (min-width: 1024px) {
       margin-block: var(--spacing-6xl) var(--spacing-8xl);
+      flex-direction: row;
     }
   }
 </style>
