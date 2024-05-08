@@ -1,5 +1,5 @@
 <template>
-  <article v-if="blog.slug" class="blog-card" @click.prevent="handleCardClick">
+  <article v-if="blog.slug" class="blog-card">
     <a
       v-if="blog.mainImage?.asset?.url"
       aria-hidden="true"
