@@ -1,5 +1,5 @@
 import { defineField, defineType } from 'sanity'
-import { BookIcon, BlockContentIcon, DesktopIcon } from '@sanity/icons'
+import { BookIcon, BlockContentIcon, DesktopIcon, DocumentIcon } from '@sanity/icons'
 
 export default defineType({
   name: 'indexPage',
@@ -165,6 +165,38 @@ export default defineType({
               }
             }
           }
+        },
+        {
+          type: 'object',
+          name: 'indexFeaturedBlog',
+          title: 'Featured Blog',
+          icon: DocumentIcon,
+          fields: [
+            {
+              title: 'Featured Blog',
+              name: 'indexFeaturedBlogPost',
+              type: 'reference',
+              to: [{ type: 'post' }],
+              weak: true,
+              options: {
+                disableNew: true,
+              },              
+            },
+          ],
+          preview: {
+            select: {
+              media: 'indexFeaturedBlogPost.mainImage',
+              title: 'indexFeaturedBlogPost.title',
+            },
+            prepare(selection) {
+              const { media, title } = selection
+              return {
+                media: media,
+                title: 'Featured Blog',
+                subtitle: title
+              }
+            }
+          },
         },
       ],
       preview: {
