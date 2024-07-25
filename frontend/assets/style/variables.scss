@@ -60,6 +60,10 @@
   --text-xl: calc(var(--text-l) * var(--typescale-ratio));
 
   @media screen and (min-width: 1024px) {
+    --text-base: 1.25rem; // 20px
+  }
+
+  @media screen and (min-width: 1441px) {
     --text-base: 1.5rem; // 24px
   }
 
