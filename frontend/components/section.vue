@@ -37,10 +37,13 @@
       <h2 class="heading" v-text="section.title" />
     </template>
   </BlogContainer>
+
+  <FeaturedBlog v-if="showFeaturedBlog" :section="section" class="section" />
 </template>
 
 <script setup>
   import BlogContainer from '~/components/blog/blog-container'
+  import FeaturedBlog from './featured-blog'
   import FeaturedText from './featured-text'
   import ProjectContainer from '~/components/projects/projects-container'
 
@@ -76,6 +79,17 @@
     }
 
     return props.section.indexBlogUseLatest
+  })
+
+  /**
+   * Determine if the current section is a populated Featured Blog section.
+   * @returns {Boolean}
+   */
+  const showFeaturedBlog = computed(() => {
+    return (
+      sectionData.type === 'indexFeaturedBlog' &&
+      props.section.indexFeaturedBlogPost
+    )
   })
 
   /**

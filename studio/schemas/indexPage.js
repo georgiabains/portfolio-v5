@@ -173,6 +173,11 @@ export default defineType({
           icon: DocumentIcon,
           fields: [
             {
+              type: 'string',
+              name: 'title',
+              title: 'Title',
+            },
+            {
               title: 'Featured Blog',
               name: 'indexFeaturedBlogPost',
               type: 'reference',

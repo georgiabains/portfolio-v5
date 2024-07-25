@@ -37,6 +37,17 @@
               url
             }
           }
+        },
+        indexFeaturedBlogPost -> {
+          title,
+          slug,
+          _createdAt,
+          mainImage {
+            ...,
+            asset -> {
+              url
+            }
+          }
         }
       }
     }

@@ -1,5 +1,9 @@
 <template>
-  <article v-if="blog.slug" class="blog-card">
+  <article
+    v-if="blog.slug"
+    class="blog-card"
+    :class="{ 'blog-card--is-featured': isFeatured }"
+  >
     <a
       v-if="blog.mainImage?.asset?.url"
       aria-hidden="true"
@@ -32,6 +36,10 @@
   const props = defineProps({
     blog: {
       type: [Object],
+    },
+    isFeatured: {
+      type: Boolean,
+      default: false,
     },
     useH3: {
       type: Boolean,
@@ -114,6 +122,29 @@
     &__date {
       color: var(--text-light);
       font-size: var(--text-xs);
+    }
+
+    /**
+     * Featured blog card.
+     */
+    &--is-featured {
+      align-items: center;
+      display: grid;
+
+      #{$parent}__title-link {
+        font-size: var(--text-xl);
+      }
+
+      #{$parent}__date {
+        font-size: var(--text-s);
+      }
+    }
+
+    @media screen and (min-width: 1024px) {
+      &--is-featured {
+        gap: var(--spacing-4xl);
+        grid-template-columns: 5fr 7fr;
+      }
     }
 
     // @media (prefers-color-scheme: dark) {
