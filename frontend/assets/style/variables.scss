@@ -60,7 +60,7 @@
   --text-xl: calc(var(--text-l) * var(--typescale-ratio));
 
   @media screen and (min-width: 1024px) {
-    --text-base: 1.25rem; // 20px
+    --text-base: 1.5rem; // 24px
   }
 
   /**
@@ -103,6 +103,6 @@
   /**
    * Widths.
    */
-  --width-copy: 36rem; // 576px
-  --width-heading: 48rem; // 768px
+  --width-copy: 48rem; // 768px
+  --width-heading: 64rem; // 1024px
 }
