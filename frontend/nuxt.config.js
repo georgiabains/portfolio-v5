@@ -40,6 +40,9 @@ export default defineNuxtConfig({
     '@nuxtjs/sanity',
     '@nuxtjs/sitemap'
   ],
+  plugins: [
+    '~/plugins/click-outside.js'
+  ],
   sanity: {...sanityConfig},
   sitemap: {
     urls: sitemapUrls,
