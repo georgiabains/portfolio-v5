@@ -31,9 +31,9 @@
           <li>
             <a
               :aria-current="getAriaCurrent('blogs')"
-              href="/blogs"
+              href="/blog"
               class="bubble"
-              v-text="'Blogs'"
+              v-text="'Blog'"
             ></a>
           </li>
         </ul>
