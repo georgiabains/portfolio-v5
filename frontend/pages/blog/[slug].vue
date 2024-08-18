@@ -1,5 +1,5 @@
 <template>
-  <article class="container post">
+  <article class="container container--text post">
     <template v-if="post">
       <header>
         <h1

@@ -93,6 +93,10 @@ img {
       --gutter: 3rem;
     }
   }
+
+  &--text {
+    max-width: 1024px;
+  }
 }
 
 .margin-reset {
