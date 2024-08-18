@@ -8,41 +8,47 @@
         <a href="/" v-text="'Georgia Bains'" />
       </component>
 
-      <nav class="header__navigation">
-        <ul class="list--unstyled">
-          <li>
-            <a
-              :aria-current="getAriaCurrent('index')"
-              href="/"
-              class="bubble"
-              v-text="'Home'"
-            ></a>
-          </li>
+      <div class="header__right">
+        <nav class="header__navigation">
+          <ul class="list--unstyled">
+            <li>
+              <a
+                :aria-current="getAriaCurrent('index')"
+                href="/"
+                class="bubble"
+                v-text="'Home'"
+              ></a>
+            </li>
 
-          <li>
-            <a
-              :aria-current="getAriaCurrent('about')"
-              href="/about"
-              class="bubble"
-              v-text="'About'"
-            ></a>
-          </li>
+            <li>
+              <a
+                :aria-current="getAriaCurrent('about')"
+                href="/about"
+                class="bubble"
+                v-text="'About'"
+              ></a>
+            </li>
 
-          <li>
-            <a
-              :aria-current="getAriaCurrent('blogs')"
-              href="/blog"
-              class="bubble"
-              v-text="'Blog'"
-            ></a>
-          </li>
-        </ul>
-      </nav>
+            <li>
+              <a
+                :aria-current="getAriaCurrent('blogs')"
+                href="/blog"
+                class="bubble"
+                v-text="'Blog'"
+              ></a>
+            </li>
+          </ul>
+        </nav>
+
+        <ThemeToggle />
+      </div>
     </div>
   </header>
 </template>
 
 <script setup>
+  import ThemeToggle from './theme-toggle'
+
   const title = ref('Georgia Bains')
   const description = ref('My portfolio of web development work.')
 
@@ -102,6 +108,11 @@
       }
     }
 
+    &__right {
+      display: flex;
+      gap: var(--spacing-l);
+    }
+
     &__navigation > ul {
       display: flex;
       font-size: var(--text-s);
@@ -111,8 +122,6 @@
         align-items: center;
         display: flex;
         flex-direction: column;
-        padding-block: var(--spacing-2xs);
-        padding-inline: var(--spacing-m);
         position: relative;
       }
     }
