@@ -37,7 +37,7 @@
   import { ref, reactive } from 'vue'
 
   const scheme = ref('')
-  // const storageKey = ref('gb-theme')
+  const storageKey = ref('gb-theme')
 
   const themeToggleMenu = ref()
 
@@ -105,14 +105,30 @@
       activeTheme.value.scheme = systemScheme.value
     }
 
-    scheme.value = activeTheme.value.scheme
+    setColorPreference(activeTheme.value.scheme)
   }
 
   /**
    * Get initial colour preference.
    */
   function getColorPreference() {
-    scheme.value = systemScheme.value
+    const savedScheme = localStorage.getItem(storageKey.value)
+
+    if (savedScheme) {
+      scheme.value = savedScheme
+      return
+    }
+
+    setColorPreference(systemScheme.value)
+  }
+
+  /**
+   * Set and save colour scheme preference.
+   * @param {String} color
+   */
+  function setColorPreference(color) {
+    scheme.value = color
+    localStorage.setItem(storageKey.value, color)
   }
 </script>
 
