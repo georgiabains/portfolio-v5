@@ -8,10 +8,10 @@
     >
       <nuxt-icon
         class="theme-toggle__icon"
-        :name="activeTheme.icon"
+        :name="scheme.icon"
         aria-hidden="true"
       />
-      <span class="visually-hidden" v-text="activeTheme.name" />
+      <span class="visually-hidden" v-text="scheme.name" />
     </button>
 
     <ul ref="themeToggleMenu" class="theme-toggle__menu list--unstyled">
@@ -36,17 +36,16 @@
 <script setup>
   import { ref, reactive } from 'vue'
 
-  const scheme = ref('')
+  const scheme = ref({
+    icon: '',
+    name: '',
+    scheme: '',
+  })
+
+  const schemeString = ref(scheme.value.scheme)
   const storageKey = ref('gb-theme')
 
-  const themeToggleMenu = ref()
-
   const themes = reactive([
-    {
-      icon: 'system',
-      name: 'System',
-      scheme: scheme.value,
-    },
     {
       icon: 'sun',
       name: 'Light',
@@ -57,18 +56,29 @@
       name: 'Dark',
       scheme: 'dark',
     },
+    {
+      icon: 'system',
+      name: 'System',
+      scheme: schemeString,
+    },
   ])
 
-  const activeTheme = ref(themes[0])
+  const themeToggleMenu = ref()
 
   const systemScheme = computed(() => {
     const isDark = window.matchMedia('(prefers-color-scheme: dark)')?.matches
-    return isDark ? 'dark' : 'light'
+    const prefersScheme = isDark
+      ? themes.find((theme) => theme.scheme === 'dark')
+      : themes.find((theme) => theme.scheme === 'light')
+
+    console.log(prefersScheme)
+
+    return prefersScheme
   })
 
   useHead({
     bodyAttrs: {
-      'data-theme': scheme,
+      'data-theme': schemeString,
     },
   })
 
@@ -99,13 +109,11 @@
    * @param {Object} theme - Theme object.
    */
   function handleThemeSelection(theme) {
-    activeTheme.value = theme
-
-    if (activeTheme.value.name === 'System') {
-      activeTheme.value.scheme = systemScheme.value
+    if (theme.name === 'System') {
+      theme.scheme = systemScheme.value.scheme
     }
 
-    setColorPreference(activeTheme.value.scheme)
+    setColorPreference(theme)
   }
 
   /**
@@ -115,7 +123,7 @@
     const savedScheme = localStorage.getItem(storageKey.value)
 
     if (savedScheme) {
-      scheme.value = savedScheme
+      setColorPreference(JSON.parse(savedScheme))
       return
     }
 
@@ -124,11 +132,12 @@
 
   /**
    * Set and save colour scheme preference.
-   * @param {String} color
+   * @param {String} theme
    */
-  function setColorPreference(color) {
-    scheme.value = color
-    localStorage.setItem(storageKey.value, color)
+  function setColorPreference(theme) {
+    scheme.value = theme
+    schemeString.value = theme.scheme
+    localStorage.setItem(storageKey.value, JSON.stringify(theme))
   }
 </script>
 
