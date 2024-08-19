@@ -36,18 +36,6 @@
   --text-inverse: var(--color-off-white);
 
   /**
-   * Colours - dark mode.
-   */
-  [data-theme=dark] {
-    --accent: var(--color-light-purple);
-    --background: var(--color-dark-grey);
-    --primary: var(--color-light-green);
-    --secondary: var(--color-light-grey-green);
-    --text: var(--color-off-white);
-    --text-inverse: var(--color-off-black);
-  }
-
-  /**
    * Text sizes.
    */
   --text-base: 1rem; // 16px;
@@ -106,3 +94,15 @@
   --width-copy: 48rem; // 768px
   --width-heading: 64rem; // 1024px
 }
+
+/**
+   * Colours - dark mode.
+   */
+   html[data-theme=dark] {
+    --accent: var(--color-light-purple);
+    --background: var(--color-dark-grey);
+    --primary: var(--color-light-green);
+    --secondary: var(--color-light-grey-green);
+    --text: var(--color-off-white);
+    --text-inverse: var(--color-off-black);
+  }

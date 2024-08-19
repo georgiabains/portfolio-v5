@@ -71,13 +71,26 @@
       ? themes.find((theme) => theme.scheme === 'dark')
       : themes.find((theme) => theme.scheme === 'light')
 
-    console.log(prefersScheme)
-
     return prefersScheme
   })
 
   useHead({
-    bodyAttrs: {
+    script: [
+      {
+        children: `
+          const theme = localStorage.getItem('gb-theme');
+          const isDark = window.matchMedia("(prefers-color-scheme: light)");
+          if (theme) {
+            document.documentElement.setAttribute('data-theme', JSON.parse(theme).scheme)
+          } else if (isDark.matches) {
+            document.documentElement.setAttribute('data-theme', 'dark')
+          } else {
+            document.documentElement.setAttribute('data-theme', 'light')
+          }
+        `,
+      },
+    ],
+    htmlAttrs: {
       'data-theme': schemeString,
     },
   })
