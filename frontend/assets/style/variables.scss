@@ -38,14 +38,14 @@
   /**
    * Colours - dark mode.
    */
-  // @media (prefers-color-scheme: dark) {
-  //   --accent: var(--color-light-purple);
-  //   --background: var(--color-dark-grey);
-  //   --primary: var(--color-light-green);
-  //   --secondary: var(--color-light-grey-green);
-  //   --text: var(--color-off-white);
-  //   --text-inverse: var(--color-off-black);
-  // }
+  [data-theme=dark] {
+    --accent: var(--color-light-purple);
+    --background: var(--color-dark-grey);
+    --primary: var(--color-light-green);
+    --secondary: var(--color-light-grey-green);
+    --text: var(--color-off-white);
+    --text-inverse: var(--color-off-black);
+  }
 
   /**
    * Text sizes.
