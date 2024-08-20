@@ -11,7 +11,7 @@
         :key="`${theme.icon}-${index}`"
       >
         <nuxt-icon
-          class="theme-toggle__icon"
+          class="theme-toggle__icon theme-toggle__icon--selected"
           :class="`theme-toggle__icon--${theme.icon}`"
           :name="theme.icon"
           aria-hidden="true"
@@ -79,7 +79,9 @@
       ? themes.find((theme) => theme.scheme.includes('dark'))
       : themes.find((theme) => theme.scheme.includes('light'))
 
-    prefersScheme.scheme = `${prefersScheme.scheme} system`
+    if (!prefersScheme.scheme.includes('system')) {
+      prefersScheme.scheme = `${prefersScheme.scheme} system`
+    }
 
     return prefersScheme
   })
@@ -143,7 +145,6 @@
    * @param {String} theme
    */
   function setColorPreference(theme) {
-    console.log(theme)
     scheme.value = theme
     schemeString.value = theme.scheme
     localStorage.setItem(storageKey.value, JSON.stringify(theme))
@@ -189,11 +190,15 @@
     }
 
     &__icon {
-      display: none;
+      display: flex;
       // nuxt-icon size prop doesn't do anything
       font-size: var(--icon-m);
       height: var(--icon-m);
       width: var(--icon-m);
+    }
+
+    &__icon--selected {
+      display: none;
     }
 
     @media screen and (min-width: 1024px) {
