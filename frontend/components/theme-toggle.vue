@@ -6,12 +6,19 @@
       type="button"
       @click="handleToggleClick"
     >
-      <nuxt-icon
-        class="theme-toggle__icon"
-        :name="scheme.icon"
-        aria-hidden="true"
-      />
-      <span class="visually-hidden" v-text="scheme.name" />
+      <template
+        v-for="(theme, index) in themes"
+        :key="`${theme.icon}-${index}`"
+      >
+        <nuxt-icon
+          class="theme-toggle__icon"
+          :class="`theme-toggle__icon--${theme.icon}`"
+          :name="theme.icon"
+          aria-hidden="true"
+          filled
+        />
+      </template>
+      <span v-if="scheme.name" class="visually-hidden" v-text="scheme.name" />
     </button>
 
     <ul ref="themeToggleMenu" class="theme-toggle__menu list--unstyled">
@@ -25,6 +32,7 @@
             class="theme-toggle__icon"
             :name="theme.icon"
             aria-hidden="true"
+            filled
           />
           <span v-text="theme.name" />
         </button>
@@ -75,27 +83,28 @@
   })
 
   useHead({
-    script: [
-      {
-        children: `
-          const theme = localStorage.getItem('gb-theme');
-          const isDark = window.matchMedia("(prefers-color-scheme: light)");
-          if (theme) {
-            document.documentElement.setAttribute('data-theme', JSON.parse(theme).scheme)
-          } else if (isDark.matches) {
-            document.documentElement.setAttribute('data-theme', 'dark')
-          } else {
-            document.documentElement.setAttribute('data-theme', 'light')
-          }
-        `,
-      },
-    ],
+    // script: [
+    //   {
+    //     children: `
+    //       const theme = localStorage.getItem('gb-theme');
+    //       const isDark = window.matchMedia("(prefers-color-scheme: dark)");
+    //       if (theme) {
+    //         document.documentElement.setAttribute('data-theme', JSON.parse(theme).scheme)
+    //         window.gbTheme = JSON.parse(theme)
+    //       } else if (isDark.matches) {
+    //         document.documentElement.setAttribute('data-theme', 'dark')
+    //       } else {
+    //         document.documentElement.setAttribute('data-theme', 'light')
+    //       }
+    //     `,
+    //   },
+    // ],
     htmlAttrs: {
       'data-theme': schemeString,
     },
   })
 
-  onBeforeMount(() => {
+  onMounted(() => {
     getColorPreference()
   })
 
@@ -193,7 +202,7 @@
     }
 
     &__icon {
-      display: flex;
+      display: none;
       // nuxt-icon size prop doesn't do anything
       font-size: var(--icon-m);
       height: var(--icon-m);
@@ -204,6 +213,18 @@
       &__button {
         font-size: var(--text-s);
       }
+    }
+  }
+
+  html[data-theme='dark'] {
+    .theme-toggle__icon--moon {
+      display: flex;
+    }
+  }
+
+  html[data-theme='light'] {
+    .theme-toggle__icon--sun {
+      display: flex;
     }
   }
 </style>
