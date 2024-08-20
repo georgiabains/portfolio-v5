@@ -98,7 +98,8 @@
 /**
   * Colours - dark mode.
   */
-html[data-theme=dark] {
+html[data-theme=dark],
+html[data-theme="dark system"] {
   --accent: var(--color-light-purple);
   --background: var(--color-dark-grey);
   --primary: var(--color-light-green);

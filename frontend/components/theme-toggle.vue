@@ -55,6 +55,11 @@
 
   const themes = reactive([
     {
+      icon: 'system',
+      name: 'System',
+      scheme: schemeString,
+    },
+    {
       icon: 'sun',
       name: 'Light',
       scheme: 'light',
@@ -64,11 +69,6 @@
       name: 'Dark',
       scheme: 'dark',
     },
-    {
-      icon: 'system',
-      name: 'System',
-      scheme: schemeString,
-    },
   ])
 
   const themeToggleMenu = ref()
@@ -76,29 +76,15 @@
   const systemScheme = computed(() => {
     const isDark = window.matchMedia('(prefers-color-scheme: dark)')?.matches
     const prefersScheme = isDark
-      ? themes.find((theme) => theme.scheme === 'dark')
-      : themes.find((theme) => theme.scheme === 'light')
+      ? themes.find((theme) => theme.scheme.includes('dark'))
+      : themes.find((theme) => theme.scheme.includes('light'))
+
+    prefersScheme.scheme = `${prefersScheme.scheme} system`
 
     return prefersScheme
   })
 
   useHead({
-    // script: [
-    //   {
-    //     children: `
-    //       const theme = localStorage.getItem('gb-theme');
-    //       const isDark = window.matchMedia("(prefers-color-scheme: dark)");
-    //       if (theme) {
-    //         document.documentElement.setAttribute('data-theme', JSON.parse(theme).scheme)
-    //         window.gbTheme = JSON.parse(theme)
-    //       } else if (isDark.matches) {
-    //         document.documentElement.setAttribute('data-theme', 'dark')
-    //       } else {
-    //         document.documentElement.setAttribute('data-theme', 'light')
-    //       }
-    //     `,
-    //   },
-    // ],
     htmlAttrs: {
       'data-theme': schemeString,
     },
@@ -157,6 +143,7 @@
    * @param {String} theme
    */
   function setColorPreference(theme) {
+    console.log(theme)
     scheme.value = theme
     schemeString.value = theme.scheme
     localStorage.setItem(storageKey.value, JSON.stringify(theme))
@@ -224,6 +211,18 @@
 
   html[data-theme='light'] {
     .theme-toggle__icon--sun {
+      display: flex;
+    }
+  }
+
+  html[data-theme='dark system'] {
+    .theme-toggle__icon--system {
+      display: flex;
+    }
+  }
+
+  html[data-theme='light system'] {
+    .theme-toggle__icon--system {
       display: flex;
     }
   }

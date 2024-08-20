@@ -16,11 +16,10 @@
           const isDark = window.matchMedia("(prefers-color-scheme: dark)");
           if (theme) {
             document.documentElement.setAttribute('data-theme', JSON.parse(theme).scheme)
-            window.gbTheme = JSON.parse(theme)
           } else if (isDark.matches) {
-            document.documentElement.setAttribute('data-theme', 'dark')
+            document.documentElement.setAttribute('data-theme', 'dark system')
           } else {
-            document.documentElement.setAttribute('data-theme', 'light')
+            document.documentElement.setAttribute('data-theme', 'light system')
           }
         `,
       },
@@ -31,7 +30,7 @@
     // Check what the system color scheme preferences are
     try {
       // See references for more context for why "not all" is used here
-      let media = window.matchMedia('(prefers-color-scheme: light)'),
+      let media = window.matchMedia('(prefers-color-scheme: dark)'),
         rootElem = document.documentElement
       //
       const currentTheme = localStorage.getItem('gb-theme')
@@ -42,28 +41,31 @@
       } else if (currentTheme == 'light') {
         rootElem.setAttribute('data-theme', 'light')
       } else if (media.matches) {
-        rootElem.setAttribute('data-theme', 'dark')
-        localStorage.setItem('theme', {
-          icon: 'system',
-          name: 'System',
-          scheme: 'system',
-        })
+        rootElem.setAttribute('data-theme', 'dark system')
+        localStorage.setItem(
+          'gb-theme',
+          JSON.stringify({
+            icon: 'system',
+            name: 'System',
+            scheme: 'dark system',
+          })
+        )
       }
       // catches browser/OS level preference changes while the page is already loaded
       media.addEventListener('change', () => {
         if (media.matches) {
-          rootElem.setAttribute('data-theme', 'dark')
+          rootElem.setAttribute('data-theme', 'dark system')
           localStorage.setItem('theme', {
             icon: 'system',
             name: 'System',
-            scheme: 'dark',
+            scheme: 'dark system',
           })
         } else {
-          rootElem.setAttribute('data-theme', 'light')
+          rootElem.setAttribute('data-theme', 'light system')
           localStorage.setItem('theme', {
             icon: 'system',
             name: 'System',
-            scheme: 'light',
+            scheme: 'light system',
           })
         }
       })
