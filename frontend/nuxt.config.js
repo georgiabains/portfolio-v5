@@ -16,7 +16,7 @@ const sitemapUrls = async () => {
   const blogposts= await client.fetch(query);
 
   return blogposts.map((post) => ({
-    url: `/posts/${post.slug.current}`,
+    url: `/blog/${post.slug.current}`,
     lastmod: post._updatedAt,
     changefreq: 'weekly',
     priority: 0.8,
