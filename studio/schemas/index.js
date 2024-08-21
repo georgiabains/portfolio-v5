@@ -7,6 +7,7 @@ import indexPage from './indexPage'
 import metadata from './metadata'
 import post from './post'
 import project from './project'
+import sections from './sections'
 
 export const schemaTypes = [
   about,
@@ -18,4 +19,5 @@ export const schemaTypes = [
   metadata,
   post,
   project,
+  sections,
 ]
