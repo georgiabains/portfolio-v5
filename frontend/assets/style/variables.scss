@@ -47,10 +47,6 @@
   --text-l: calc(var(--text-m) * var(--typescale-ratio));
   --text-xl: calc(var(--text-l) * var(--typescale-ratio));
 
-  @media screen and (min-width: 1024px) {
-    --text-base: 1.25rem; // 20px
-  }
-
   /**
    * Icon sizes.
    */
@@ -84,15 +80,27 @@
 
   --gutter: var(--spacing-xl); // 32px
 
-  @media screen and (min-width: 1024px) {
-    --gutter: var(--spacing-9xl); // 96px
-  }
-
   /**
    * Widths.
    */
   --width-copy: 48rem; // 768px
   --width-heading: 64rem; // 1024px
+
+  /**
+   * Media queries.
+   */
+  @media screen and (min-width: 1024px) {
+
+    /**
+     * Text sizes.
+     */
+    --text-base: 1.25rem; // 20px
+
+    /**
+     * Spacing.
+     */
+    --gutter: var(--spacing-9xl); // 96px
+  }
 }
 
 /**

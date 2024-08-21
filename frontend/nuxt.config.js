@@ -30,23 +30,29 @@ export default defineNuxtConfig({
       viewport: 'width=device-width, initial-scale=1',
     }
   },
+
   css: [
     // SCSS file in the project
     '@/assets/style/variables.scss',
     '@/assets/style/main.scss',
   ],
+
   modules: [
     'nuxt-icons',
     '@nuxtjs/sanity',
     '@nuxtjs/sitemap'
   ],
+
   plugins: [
     '~/plugins/click-outside.js'
   ],
+
   sanity: {...sanityConfig},
+
   sitemap: {
     urls: sitemapUrls,
   },
+
   vite: {
     css: {
       preprocessorOptions: {
@@ -55,5 +61,7 @@ export default defineNuxtConfig({
         },
       },
     },
-  }
+  },
+
+  compatibilityDate: '2024-08-21'
 })
