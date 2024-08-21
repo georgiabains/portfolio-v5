@@ -45,8 +45,8 @@
   import { ref, reactive } from 'vue'
 
   const scheme = ref({
-    icon: '',
-    name: '',
+    icon: 'system',
+    name: 'System',
     scheme: '',
   })
 
@@ -75,15 +75,13 @@
 
   const systemScheme = computed(() => {
     const isDark = window.matchMedia('(prefers-color-scheme: dark)')?.matches
-    const prefersScheme = isDark
-      ? themes.find((theme) => theme.scheme.includes('dark'))
-      : themes.find((theme) => theme.scheme.includes('light'))
+    const scheme = isDark ? 'dark system' : 'light system'
 
-    if (!prefersScheme.scheme.includes('system')) {
-      prefersScheme.scheme = `${prefersScheme.scheme} system`
+    return {
+      icon: 'system',
+      name: 'System',
+      scheme,
     }
-
-    return prefersScheme
   })
 
   useHead({

@@ -12,11 +12,12 @@
     script: [
       {
         children: `
-          const theme = localStorage.getItem('gb-theme');
-          const isDark = window.matchMedia("(prefers-color-scheme: dark)");
-          if (theme) {
-            document.documentElement.setAttribute('data-theme', JSON.parse(theme).scheme)
-          } else if (isDark.matches) {
+          const storedTheme = localStorage.getItem('gb-theme')
+          const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+
+          if (storedTheme) {
+            document.documentElement.setAttribute('data-theme',JSON.parse(storedTheme).scheme)
+          } else if (isDark) {
             document.documentElement.setAttribute('data-theme', 'dark system')
           } else {
             document.documentElement.setAttribute('data-theme', 'light system')
@@ -36,10 +37,9 @@
       const currentTheme = localStorage.getItem('gb-theme')
         ? localStorage.getItem('gb-theme')
         : null
-      if (currentTheme.scheme == 'dark') {
-        rootElem.setAttribute('data-theme', 'dark')
-      } else if (currentTheme == 'light') {
-        rootElem.setAttribute('data-theme', 'light')
+      if (currentTheme) {
+        const theme = JSON.parse(currentTheme)
+        rootElem.setAttribute('data-theme', theme.scheme)
       } else if (media.matches) {
         rootElem.setAttribute('data-theme', 'dark system')
         localStorage.setItem(
