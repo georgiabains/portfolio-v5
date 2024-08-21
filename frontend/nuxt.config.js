@@ -37,8 +37,17 @@ export default defineNuxtConfig({
     '@/assets/style/main.scss',
   ],
 
+  icon: {
+    customCollections: [
+      {
+        prefix: 'custom',
+        dir: './assets/icons'
+      },
+    ],
+  },
+
   modules: [
-    'nuxt-icons',
+    '@nuxt/icon',
     '@nuxtjs/sanity',
     '@nuxtjs/sitemap'
   ],

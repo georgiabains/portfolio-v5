@@ -10,7 +10,7 @@
 
     <p v-if="!hideCta" class="blogs-container__cta-container">
       <a href="/blogs" class="blogs-container__cta bubble">
-        <nuxt-icon name="eye" aria-hidden="true" />
+        <Icon name="custom:eye" aria-hidden="true" />
         View all blog posts
       </a>
     </p>

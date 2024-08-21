@@ -12,7 +12,7 @@
 
     <div v-if="!hideCta" class="container">
       <p class="project-container__cta">
-        <nuxt-icon name="eye" />
+        <Icon name="custom:eye" />
         <a href="/projects">View all projects</a>
       </p>
     </div>

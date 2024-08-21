@@ -19,7 +19,7 @@
         <a class="blog-card__title-link" :href="getSlug">
           <span v-text="blog.title" />
 
-          <nuxt-icon name="arrow-right" aria-hidden="true" />
+          <Icon name="custom:arrow-right" aria-hidden="true" />
         </a>
       </component>
 
@@ -108,8 +108,9 @@
     &__title {
       font-size: var(--text-s);
 
-      .nuxt-icon {
+      .icon {
         margin-inline-start: var(--spacing-xs);
+        vertical-align: sub;
       }
     }
 

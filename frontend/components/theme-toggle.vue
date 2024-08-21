@@ -10,10 +10,10 @@
         v-for="(theme, index) in themes"
         :key="`${theme.icon}-${index}`"
       >
-        <nuxt-icon
+        <Icon
           class="theme-toggle__icon theme-toggle__icon--selected"
           :class="`theme-toggle__icon--${theme.icon}`"
-          :name="theme.icon"
+          :name="`custom:${theme.icon}`"
           aria-hidden="true"
           filled
         />
@@ -28,9 +28,9 @@
           type="button"
           @click="handleThemeSelection(theme)"
         >
-          <nuxt-icon
+          <Icon
             class="theme-toggle__icon"
-            :name="theme.icon"
+            :name="`custom:${theme.icon}`"
             aria-hidden="true"
             filled
           />
