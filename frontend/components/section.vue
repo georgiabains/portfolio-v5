@@ -5,33 +5,13 @@
     :section="section"
   />
 
-  <section
-    v-if="showProjects"
-    class="section"
-    :class="{ 'section--first': index === 0 }"
-  >
-    <ProjectContainer :project-array="section.indexProjectArray">
-      <template #copy>
-        <h2
-          class="project-container__title container"
-          v-text="'Featured projects'"
-        />
-
-        <p
-          class="container project-container__subheading"
-          v-text="section.indexProjectCopy"
-        />
-      </template>
-    </ProjectContainer>
-  </section>
-
   <BlogContainer
     v-if="showBlogPosts"
-    :blog-array="section.indexBlogArray"
+    :blog-array="section.blogArray"
     class="section"
     :class="{ 'section--first': index === 0 }"
     use-h3
-    :use-latest="section.indexBlogUseLatest"
+    :use-latest="section.useLatest"
   >
     <template #copy>
       <h2 class="heading" v-text="section.title" />
@@ -45,7 +25,6 @@
   import BlogContainer from '~/components/blog/blog-container'
   import FeaturedBlog from './featured-blog'
   import FeaturedText from './featured-text'
-  import ProjectContainer from '~/components/projects/projects-container'
 
   /**
    * Props.
@@ -71,14 +50,14 @@
    * @returns {Boolean}
    */
   const showBlogPosts = computed(() => {
-    if (!props.section.indexBlogUseLatest) {
+    if (!props.section.useLatest) {
       return (
-        sectionData.type === 'indexBlogPosts' &&
-        props.section.indexBlogArray?.length > 0
+        sectionData.type === 'selectedBlogs' &&
+        props.section.blogArray?.length > 0
       )
     }
 
-    return props.section.indexBlogUseLatest
+    return props.section.useLatest
   })
 
   /**
@@ -86,10 +65,7 @@
    * @returns {Boolean}
    */
   const showFeaturedBlog = computed(() => {
-    return (
-      sectionData.type === 'indexFeaturedBlog' &&
-      props.section.indexFeaturedBlogPost
-    )
+    return sectionData.type === 'featuredBlog' && props.section.featuredBlog
   })
 
   /**
@@ -97,10 +73,7 @@
    * @returns {Boolean}
    */
   const showFeaturedText = computed(() => {
-    return (
-      sectionData.type === 'indexFeaturedText' &&
-      props.section.featuredText?.length > 0
-    )
+    return sectionData.type === 'featuredText' && props.section.text?.length > 0
   })
 
   /**

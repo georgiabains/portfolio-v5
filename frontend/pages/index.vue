@@ -16,18 +16,7 @@
       ...,
       sections[] {
         ...,
-        indexProjectArray[] -> {
-          title,
-          slug,
-          featuredImage {
-            ...,
-            asset -> {
-              url
-            }
-          },
-          description
-        },
-        indexBlogArray[] -> {
+        blogArray[] -> {
           title,
           slug,
           _createdAt,
@@ -38,7 +27,7 @@
             }
           }
         },
-        indexFeaturedBlogPost -> {
+        featuredBlogPost -> {
           title,
           slug,
           _createdAt,

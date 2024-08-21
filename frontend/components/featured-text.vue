@@ -10,12 +10,8 @@
     />
 
     <div class="featured-text__grid">
-      <div
-        v-for="(item, index) in section.featuredText"
-        :key="index"
-        class="featured-text__copy"
-      >
-        <SanityContent :blocks="item.text" />
+      <div class="featured-text__copy">
+        <SanityContent :blocks="section.text" />
       </div>
     </div>
   </section>
@@ -34,7 +30,7 @@
       type: Object,
       default() {
         return {
-          featuredText: '',
+          text: '',
           title: '',
         }
       },
