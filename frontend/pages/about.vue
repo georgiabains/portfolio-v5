@@ -17,11 +17,3 @@
 
   const { data: aboutPage } = await useSanityQuery(aboutPageQuery)
 </script>
-
-<style lang="scss">
-  .about {
-    &__body {
-      max-width: var(--width-copy);
-    }
-  }
-</style>

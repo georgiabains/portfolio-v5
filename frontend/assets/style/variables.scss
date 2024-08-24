@@ -87,12 +87,6 @@
   --gutter: var(--spacing-xl); // 32px
 
   /**
-   * Widths.
-   */
-  --width-copy: 50ch; // 50 characters
-  --width-heading: 64rem; // 1024px
-
-  /**
    * Media queries.
    */
   @media screen and (min-width: 1024px) {

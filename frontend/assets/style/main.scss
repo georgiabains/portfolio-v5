@@ -99,7 +99,7 @@ svg {
   }
 
   &--text {
-    max-width: 1024px;
+    max-width: calc(650px + var(--gutter) + var(--gutter))
   }
 }
 

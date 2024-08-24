@@ -114,6 +114,7 @@
 
     &__table-of-contents {
       border: 1px solid var(--accent);
+      border-radius: var(--border-radius-8);
       margin-block-start: var(--spacing-2xl);
       padding: var(--spacing-m);
       position: sticky;
