@@ -36,7 +36,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: #2d2d2d; // TODO: Tweak & add to Figma - goal is dark greyish
+  color: #2d2d2d; // TODO: Add dark mode version, tweak & add to Figma - goal is dark greyish
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
 }
@@ -117,7 +117,6 @@ svg {
 
 .heading {
   font-size: var(--text-l);
-  max-width: var(--width-heading);
 
   &--primary {
     font-size: var(--text-xl);

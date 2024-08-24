@@ -9,8 +9,14 @@
         />
       </header>
 
-      <div v-if="post.body" class="post__body rte">
-        <SanityContent :blocks="post.body" :serializers="serializers" />
+      <div class="post__content">
+        <aside class="post__table-of-contents">
+          <p>In this article</p>
+        </aside>
+
+        <div v-if="post.body" class="post__body rte">
+          <CustomPortableText :value="post.body" />
+        </div>
       </div>
     </template>
 
@@ -25,32 +31,38 @@
 </template>
 
 <script setup>
-  import CodeBlock from '../../components/code-block'
+  import CustomPortableText from '../../components/custom-portable-text'
 
   const query = groq`*[_type == "post" && slug.current == $slug][0] {
     title,
-    body
+    body,
+    "headings": body[length(style) == 2 && string::startsWith(style, "h")]
   }`
-
   const route = useRoute()
 
   const { data: post } = await useSanityQuery(query, {
     slug: route.params.slug,
   })
-
-  const serializers = {
-    types: {
-      code: CodeBlock,
-    },
-  }
 </script>
 
 <style lang="scss" scoped>
   .post {
     margin-block-end: var(--spacing-6xl);
+    max-width: calc(1024px + var(--gutter) + var(--gutter));
 
-    &__body {
-      max-width: var(--width-copy);
+    &__content {
+      display: grid;
+      gap: var(--spacing-3xl);
+      grid-template-columns: 1fr 2fr;
+    }
+
+    &__table-of-contents {
+      border: 1px solid var(--accent);
+      margin-block-start: var(--spacing-2xl);
+      padding: var(--spacing-m);
+      position: sticky;
+      align-self: start;
+      top: var(--spacing-2xl);
     }
   }
 
