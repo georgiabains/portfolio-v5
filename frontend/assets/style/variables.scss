@@ -30,16 +30,57 @@
   --color-light-grey-green: #b5bdb2ff;
   --color-light-purple: #bbb5bfff;
 
+  // reference - https://accessiblepalette.com/?lightness=97.5,91,82,72,42,31.6,27.8,15,7.5,4.3&0F0F0F=0,0&444d41=0,-10&454049=0,-10 
+
+  // neutral - black through white
+  --color-neutral-0: #f8f8f8;
+  --color-neutral-1: #e5e5e5;
+  --color-neutral-2: #cccccc;
+  --color-neutral-3: #b0b0b0;
+  --color-neutral-4: #636363;
+  --color-neutral-5: #4a4a4a;
+  --color-neutral-6: #424242;
+  --color-neutral-7: #262626;
+  --color-neutral-8: #171619;
+  --color-neutral-9: #0f0f0f;
+
+  // green - primary
+  --color-primary-0: #F8F8F7;
+  --color-primary-1: #E4E6E4;
+  --color-primary-2: #CACDC9;
+  --color-primary-3: #AEB2AC;
+  --color-primary-4: #5F655A;
+  --color-primary-5: #464D40;
+  --color-primary-6: #3E4438;
+  --color-primary-7: #232720;
+  --color-primary-8: #151713;
+  --color-primary-9: #0E0F0D;
+
+  // purple - accent
+  --color-accent-0: #F8F8F8;
+  --color-accent-1: #E6E5E6;
+  --color-accent-2: #CDCBCE;
+  --color-accent-3: #B1B0B4;
+  --color-accent-4: #656269;
+  --color-accent-5: #4C4952;
+  --color-accent-6: #43404A;
+  --color-accent-7: #27252A;
+  --color-accent-8: #171717;
+  --color-accent-9: #0F0F11;
+
   /**
    * Colours - light mode.
    */
   --accent: var(--color-purple);
-  --background: var(--color-pale-green);
+  --background: var(--color-primary-1);
   --primary: var(--color-green);
   --secondary: var(--color-grey-green);
   --text: var(--color-off-black);
   --text-light: var(var(--color-dark-grey));
   --text-inverse: var(--color-off-white);
+  --text-heading: var(--color-primary-7);
+  --text-paragraph: var(--color-neutral-8);
+  --text-paragraph-emphasis: var(--color-neutral-9);
 
   /**
    * Text sizes.
@@ -109,9 +150,12 @@
 html[data-theme=dark],
 html[data-theme="dark system"] {
   --accent: var(--color-light-purple);
-  --background: var(--color-dark-grey);
+  --background: var(--color-primary-8);
   --primary: var(--color-light-green);
   --secondary: var(--color-light-grey-green);
   --text: var(--color-off-white);
   --text-inverse: var(--color-off-black);
+  --text-heading: var(--color-primary-1);
+  --text-paragraph: var(--color-neutral-1);
+  --text-paragraph-emphasis: var(--color-neutral-0);
 }

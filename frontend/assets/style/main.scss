@@ -12,7 +12,7 @@ body {
 }
 
 body {
-  color: var(--text);
+  color: var(--text-paragraph);
   font-family: 'Atkinson Hyperlegible', sans-serif;
   font-weight: 400;
   line-height: var(--line-default);
@@ -36,7 +36,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: #2d2d2d; // TODO: Add dark mode version, tweak & add to Figma - goal is dark greyish
+  color: var(--text-heading);
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
 }
@@ -58,6 +58,7 @@ h3 {
 }
 
 strong {
+  color: var(--text-paragraph-emphasis);
   font-weight: 700;
 }
 
