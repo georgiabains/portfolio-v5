@@ -218,6 +218,13 @@
         font-size: var(--text-s);
         padding: var(--spacing-xs);
       }
+
+      &__icon {
+        &--list {
+          height: var(--icon-m);
+          width: var(--icon-m);
+        }
+      }
     }
   }
 
