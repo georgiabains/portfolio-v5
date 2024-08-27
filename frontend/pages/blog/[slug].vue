@@ -104,7 +104,7 @@
 <style lang="scss" scoped>
   .post {
     margin-block-end: var(--spacing-6xl);
-    max-width: calc(1024px + var(--gutter) + var(--gutter));
+    max-width: calc(1070px + var(--gutter) + var(--gutter));
 
     &__content {
       display: grid;
