@@ -24,12 +24,12 @@
     <ul ref="themeToggleMenu" class="theme-toggle__menu list--unstyled">
       <li v-for="(theme, index) in themes" :key="`${theme.name}-${index}`">
         <button
-          class="theme-toggle__button"
+          class="theme-toggle__button theme-toggle__button--list"
           type="button"
           @click="handleThemeSelection(theme)"
         >
           <Icon
-            class="theme-toggle__icon"
+            class="theme-toggle__icon theme-toggle__icon--list"
             :name="`custom:${theme.icon}`"
             aria-hidden="true"
             filled
@@ -160,9 +160,10 @@
       border: 1px solid var(--accent);
       display: none;
       flex-direction: column;
+      gap: var(--spacing-2xs);
       padding: var(--spacing-2xs);
       position: absolute;
-      top: var(--spacing-3xl);
+      top: var(--spacing-2xl);
 
       &.is-active {
         display: flex;
@@ -172,12 +173,12 @@
     &__button {
       align-items: center;
       background-color: var(--background);
-      border: none;
+      border: 1px solid var(--primary);
       border-radius: var(--border-radius-8);
       color: var(--text);
       display: flex;
       gap: var(--spacing-xs);
-      padding: var(--spacing-xs);
+      padding: var(--spacing-2xs);
       width: 100%;
 
       &:hover,
@@ -185,14 +186,22 @@
         // TODO: Check contrast; add to figma and variables
         background-color: #b6c4b6;
       }
+
+      &--list {
+        align-items: flex-end;
+        padding: var(--spacing-2xs) var(--spacing-xs);
+      }
     }
 
     &__icon {
       display: flex;
-      // nuxt-icon size prop doesn't do anything
-      font-size: var(--icon-m);
       height: var(--icon-m);
       width: var(--icon-m);
+
+      &--list {
+        height: var(--icon-s);
+        width: var(--icon-s);
+      }
     }
 
     &__icon--selected {
@@ -200,8 +209,14 @@
     }
 
     @media screen and (min-width: 1024px) {
+      &__menu {
+        gap: var(--spacing-2xs);
+        top: var(--spacing-3xl);
+      }
+
       &__button {
         font-size: var(--text-s);
+        padding: var(--spacing-xs);
       }
     }
   }
