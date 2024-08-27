@@ -108,8 +108,8 @@
 
     &__content {
       display: grid;
-      gap: var(--spacing-3xl);
-      grid-template-columns: 1fr 2fr;
+      column-gap: var(--spacing-3xl);
+      grid-template-columns: 1fr;
     }
 
     &__table-of-contents {
@@ -117,9 +117,18 @@
       border-radius: var(--border-radius-8);
       margin-block-start: var(--spacing-2xl);
       padding: var(--spacing-m);
-      position: sticky;
       align-self: start;
       top: var(--spacing-2xl);
+    }
+
+    @media screen and (min-width: 1024px) {
+      &__content {
+        grid-template-columns: 1fr 2fr;
+      }
+
+      &__table-of-contents {
+        position: sticky;
+      }
     }
   }
 
