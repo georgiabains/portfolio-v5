@@ -1,7 +1,7 @@
 <template>
   <article class="container container--text post">
     <template v-if="post">
-      <header>
+      <header class="post__header">
         <h1
           v-if="post.title"
           class="heading heading--primary"
@@ -9,15 +9,13 @@
         />
       </header>
 
-      <div class="post__content">
-        <aside class="post__table-of-contents">
-          <p>In this article</p>
-          <TableOfContents :headings="tableOfContents" />
-        </aside>
+      <aside class="post__table-of-contents">
+        <p>In this article</p>
+        <TableOfContents :headings="tableOfContents" />
+      </aside>
 
-        <div v-if="post.body" class="post__body rte">
-          <CustomPortableText :value="post.body" />
-        </div>
+      <div v-if="post.body" class="post__body rte">
+        <CustomPortableText :value="post.body" />
       </div>
     </template>
 
@@ -103,29 +101,34 @@
 
 <style lang="scss" scoped>
   .post {
+    display: grid;
+    column-gap: var(--spacing-3xl);
+    grid-template-areas:
+      'header header header'
+      'sidebar post .';
+    grid-template-columns: 1fr 2fr 1fr;
     margin-block-end: var(--spacing-6xl);
-    max-width: calc(1070px + var(--gutter) + var(--gutter));
+    max-width: calc(86.25rem + var(--gutter) + var(--gutter)); // 1380px
 
-    &__content {
-      display: grid;
-      column-gap: var(--spacing-3xl);
-      grid-template-columns: 1fr;
+    &__header {
+      grid-area: header;
     }
 
     &__table-of-contents {
       border: 1px solid var(--accent);
       border-radius: var(--border-radius-8);
+      grid-area: sidebar;
       margin-block-start: var(--spacing-2xl);
       padding: var(--spacing-m);
       align-self: start;
       top: var(--spacing-2xl);
     }
 
-    @media screen and (min-width: 1024px) {
-      &__content {
-        grid-template-columns: 1fr 2fr;
-      }
+    &__body {
+      grid-area: post;
+    }
 
+    @media screen and (min-width: 1024px) {
       &__table-of-contents {
         position: sticky;
       }
