@@ -19,6 +19,10 @@
             <time :datetime="post._updatedAt" v-text="dateUpdated" />
           </div>
         </div>
+
+        <div class="post__main-image">
+          <img :src="post.mainImage.asset.url" alt="" />
+        </div>
       </header>
 
       <aside class="post__table-of-contents">
@@ -51,7 +55,14 @@
     body,
     "headings": body[length(style) == 2 && string::startsWith(style, "h")],
     _createdAt,
-    _updatedAt
+    _updatedAt,
+    defined(mainImage) => {
+      'mainImage':  {
+        'asset': {
+          'url': mainImage.asset -> url
+        }
+      }
+    },
   }`
   const route = useRoute()
 
@@ -148,6 +159,19 @@
       &::before {
         content: '\2022';
         padding: 0 var(--spacing-m);
+      }
+    }
+
+    &__main-image {
+      aspect-ratio: 16/9;
+      overflow: hidden;
+      border-radius: var(--border-radius-16);
+      margin-block-start: var(--spacing-xl);
+
+      img {
+        height: 100%;
+        object-fit: cover;
+        width: 100%;
       }
     }
 
