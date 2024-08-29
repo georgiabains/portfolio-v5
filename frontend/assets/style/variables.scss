@@ -30,7 +30,7 @@
   --color-light-grey-green: #b5bdb2ff;
   --color-light-purple: #bbb5bfff;
 
-  // reference - https://accessiblepalette.com/?lightness=97.5,91,82,72,42,31.6,27.8,15,7.5,4.3&0F0F0F=0,0&444d41=0,-10&454049=0,-10 
+  // reference - https://accessiblepalette.com/?lightness=97,91,82,72,47,36,25,14,7.5,4.3&786a86=0,0&a0ba97=0,0&0F0F0F=0,0
 
   // neutral - black through white
   --color-neutral-0: #f8f8f8;
@@ -45,42 +45,48 @@
   --color-neutral-9: #0f0f0f;
 
   // green - primary
-  --color-primary-0: #F8F8F7;
-  --color-primary-1: #E4E6E4;
-  --color-primary-2: #CACDC9;
-  --color-primary-3: #AEB2AC;
-  --color-primary-4: #5F655A;
-  --color-primary-5: #464D40;
-  --color-primary-6: #3E4438;
-  --color-primary-7: #232720;
-  --color-primary-8: #151713;
-  --color-primary-9: #0E0F0D;
+  --color-primary-0: #F4F7F3;
+  --color-primary-1: #DFE8DC;
+  --color-primary-2: #C0D1BA;
+  --color-primary-3: #9EB895;
+  --color-primary-4: #64745E;
+  --color-primary-5: #4C5848;
+  --color-primary-6: #353E32;
+  --color-primary-7: #20251E;
+  --color-primary-8: #141713;
+  --color-primary-9: #0D100D;
 
   // purple - accent
-  --color-accent-0: #F8F8F8;
-  --color-accent-1: #E6E5E6;
-  --color-accent-2: #CDCBCE;
-  --color-accent-3: #B1B0B4;
-  --color-accent-4: #656269;
-  --color-accent-5: #4C4952;
-  --color-accent-6: #43404A;
-  --color-accent-7: #27252A;
-  --color-accent-8: #171717;
-  --color-accent-9: #0F0F11;
+  --color-accent-0: #F8F8F9;
+  --color-accent-1: #E7E4E9;
+  --color-accent-2: #CFCAD4;
+  --color-accent-3: #B5AEBD;
+  --color-accent-4: #786A86;
+  --color-accent-5: #5B5166;
+  --color-accent-6: #403847;
+  --color-accent-7: #26222B;
+  --color-accent-8: #18151B;
+  --color-accent-9: #100E12;
 
   /**
    * Colours - light mode.
    */
+  // TODO: replace these colours + rename properties
   --accent: var(--color-purple);
-  --background: var(--color-primary-1);
   --primary: var(--color-green);
   --secondary: var(--color-grey-green);
   --text: var(--color-off-black);
-  --text-light: var(var(--color-dark-grey));
   --text-inverse: var(--color-off-white);
+
+  // new colours
+  --background: var(--color-primary-0);
+
+  // only use against --background
   --text-heading: var(--color-primary-7);
+  --text-link: var(--color-primary-6);
   --text-paragraph: var(--color-neutral-8);
   --text-paragraph-emphasis: var(--color-neutral-9);
+  --text-paragraph-data: var(--color-neutral-6);
 
   /**
    * Text sizes.
@@ -104,7 +110,7 @@
    * Line heights.
    */
   --line-baseline: 100%;
-  --line-default: 1.5;
+  --line-default: 1.55;
 
   /**
    * Spacing.
@@ -149,13 +155,18 @@
   */
 html[data-theme=dark],
 html[data-theme="dark system"] {
+  // TODO: replace + rename
   --accent: var(--color-light-purple);
-  --background: var(--color-primary-8);
   --primary: var(--color-light-green);
   --secondary: var(--color-light-grey-green);
   --text: var(--color-off-white);
   --text-inverse: var(--color-off-black);
-  --text-heading: var(--color-primary-1);
+
+  // new colours
+  --background: var(--color-primary-8);
+  --text-heading: var(--color-neutral-2);
+  --text-link: var(--color-primary-1);
   --text-paragraph: var(--color-neutral-1);
   --text-paragraph-emphasis: var(--color-neutral-0);
+  --text-paragraph-data: var(--color-neutral-4);
 }

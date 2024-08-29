@@ -121,7 +121,7 @@
     }
 
     &__date {
-      color: var(--text-light);
+      color: var(--text-paragraph-data);
       font-size: var(--text-xs);
     }
 

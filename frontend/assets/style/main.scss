@@ -19,8 +19,8 @@ body {
 }
 
 a {
-  border-bottom: 1px solid var(--secondary);
-  color: var(--secondary);
+  border-bottom: 2px solid var(--text-link);
+  color: var(--text-link);
   text-decoration: none;
   
   &:hover,
@@ -132,8 +132,9 @@ svg {
 
 .bubble {
   $parent: &;
-  border: 1px solid var(--primary);
+  border: 1px solid var(--text-link);
   border-radius: var(--border-radius-8);
+  color: var(--text-link);
   padding: var(--spacing-2xs) var(--spacing-m);
   text-decoration: none;
 
