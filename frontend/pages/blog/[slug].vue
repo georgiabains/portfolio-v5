@@ -139,9 +139,10 @@
     display: grid;
     column-gap: var(--spacing-3xl);
     grid-template-areas:
-      'header header header'
-      'sidebar post .';
-    grid-template-columns: 1fr 2fr 1fr;
+      'header'
+      'sidebar'
+      'post';
+    grid-template-columns: 1fr;
     margin-block-end: var(--spacing-6xl);
     max-width: calc(86.25rem + var(--gutter) + var(--gutter)); // 1380px
 
@@ -190,6 +191,11 @@
     }
 
     @media screen and (min-width: 1024px) {
+      grid-template-areas:
+        'header header header'
+        'sidebar post .';
+      grid-template-columns: 1fr 2fr 1fr;
+
       &__table-of-contents {
         position: sticky;
       }
