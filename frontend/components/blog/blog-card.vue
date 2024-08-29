@@ -24,7 +24,7 @@
       </component>
 
       <time
-        class="blog-card__date"
+        class="blog-card__date meta"
         :datetime="blog._createdAt"
         v-text="publishDate"
       />
@@ -33,6 +33,8 @@
 </template>
 
 <script setup>
+  import { formatDate } from '../../utils'
+
   const props = defineProps({
     blog: {
       type: [Object],
@@ -60,11 +62,7 @@
    * @returns {String}
    */
   const publishDate = computed(() => {
-    return new Date(props.blog._createdAt).toLocaleString('en', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    })
+    return formatDate(props.blog._createdAt)
   })
 
   /**
@@ -121,7 +119,6 @@
     }
 
     &__date {
-      color: var(--text-paragraph-data);
       font-size: var(--text-xs);
     }
 

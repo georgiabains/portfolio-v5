@@ -7,6 +7,18 @@
           class="heading heading--primary"
           v-text="post.title"
         />
+
+        <div class="post__meta meta">
+          <div class="post__meta-item">
+            <span v-text="'Published '" />
+            <time :datetime="post._createdAt" v-text="datePublished" />
+          </div>
+
+          <div class="post__meta-item">
+            <span v-text="'Updated '" />
+            <time :datetime="post._updatedAt" v-text="dateUpdated" />
+          </div>
+        </div>
       </header>
 
       <aside class="post__table-of-contents">
@@ -30,13 +42,16 @@
 </template>
 
 <script setup>
+  import { formatDate } from '../../utils'
   import CustomPortableText from '../../components/custom-portable-text'
   import TableOfContents from '../../components/table-of-contents'
 
   const query = groq`*[_type == "post" && slug.current == $slug][0] {
     title,
     body,
-    "headings": body[length(style) == 2 && string::startsWith(style, "h")]
+    "headings": body[length(style) == 2 && string::startsWith(style, "h")],
+    _createdAt,
+    _updatedAt
   }`
   const route = useRoute()
 
@@ -46,6 +61,14 @@
 
   const tableOfContents = computed(() => {
     return parseOutline()
+  })
+
+  const datePublished = computed(() => {
+    return formatDate(post.value._createdAt)
+  })
+
+  const dateUpdated = computed(() => {
+    return formatDate(post.value._updatedAt)
   })
 
   /**
@@ -101,6 +124,7 @@
 
 <style lang="scss" scoped>
   .post {
+    $parent: &;
     display: grid;
     column-gap: var(--spacing-3xl);
     grid-template-areas:
@@ -112,6 +136,19 @@
 
     &__header {
       grid-area: header;
+    }
+
+    &__meta {
+      align-items: center;
+      display: flex;
+      margin-block-start: var(--spacing-m);
+    }
+
+    &__meta-item + #{$parent}__meta-item {
+      &::before {
+        content: '\2022';
+        padding: 0 var(--spacing-m);
+      }
     }
 
     &__table-of-contents {

@@ -130,6 +130,10 @@ svg {
   }
 }
 
+.meta {
+  color: var(--text-heading);
+}
+
 .bubble {
   $parent: &;
   border: 1px solid var(--text-link);
