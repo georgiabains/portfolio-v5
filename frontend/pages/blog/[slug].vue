@@ -24,9 +24,19 @@
           <CustomPortableText :value="post.excerpt" />
         </div>
 
-        <div class="post__main-image">
-          <img :src="post.mainImage.asset.url" alt="" />
-        </div>
+        <figure class="post__main-image">
+          <img :alt="post.mainImage.alt" :src="post.mainImage.asset.url" />
+          <figcaption class="meta">
+            {{ post.mainImage.alt }}
+            <br />
+
+            Photo by
+            <a
+              :href="post.mainImage.attribution.url"
+              v-text="post.mainImage.attribution.title"
+            />
+          </figcaption>
+        </figure>
       </header>
 
       <aside class="post__table-of-contents">
@@ -69,7 +79,9 @@
       'mainImage':  {
         'asset': {
           'url': mainImage.asset -> url
-        }
+        },
+        'alt': mainImage.alt,
+        'attribution': mainImage.attribution
       }
     },
     excerpt
@@ -154,7 +166,7 @@
       'sidebar'
       'post'
       'footer';
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(1rem, 1fr);
     max-width: calc(86.25rem + var(--gutter) + var(--gutter)); // 1380px
 
     &__header {
@@ -167,7 +179,7 @@
         'excerpt'
         'image';
       grid-area: header;
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(1rem, 1fr);
     }
 
     &__title {
@@ -188,10 +200,10 @@
     &__main-image {
       aspect-ratio: 16/9;
       grid-area: image;
-      overflow: hidden;
-      border-radius: var(--border-radius-l);
+      margin: 0;
 
       img {
+        border-radius: var(--border-radius-l);
         height: 100%;
         object-fit: cover;
         width: 100%;
@@ -247,6 +259,12 @@
 
       &__excerpt {
         margin-block: var(--spacing-xl) var(--spacing-2xl);
+      }
+
+      &__main-image {
+        figcaption {
+          font-size: var(--text-xs);
+        }
       }
 
       &__table-of-contents {

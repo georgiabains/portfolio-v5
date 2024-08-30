@@ -25,6 +25,31 @@ export default defineType({
       name: 'mainImage',
       title: 'Main image',
       type: 'image',
+      fields: [
+        {
+          name: 'alt',
+          type: 'string',
+          title: 'Alt',
+          description: 'Only used on blog pages (omitted from blog cards for brevity).'
+        },
+        {
+          name: 'attribution',
+          type: 'object',
+          title: 'Attribution',
+          fields: [
+            {
+              name: 'url',
+              type: 'url',
+              title: 'URL',
+            },
+            {
+              name: 'title',
+              type: 'string',
+              title: 'Title'
+            }
+          ]
+        }
+      ],
       options: {
         hotspot: true,
       },
