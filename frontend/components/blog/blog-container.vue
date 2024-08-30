@@ -13,7 +13,7 @@
     </ul>
 
     <p v-if="!hideCta" class="blogs-container__cta-container">
-      <a href="/blogs" class="blogs-container__cta bubble">
+      <a href="/blog" class="blogs-container__cta bubble">
         <Icon name="custom:eye" aria-hidden="true" />
         View all blog posts
       </a>
