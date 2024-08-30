@@ -147,4 +147,8 @@ html[data-theme="dark system"] {
   --text-paragraph: var(--color-neutral-1);
   --text-paragraph-emphasis: var(--color-neutral-0);
   --text-paragraph-data: var(--color-neutral-4);
+
+  img {
+    filter: brightness(75%);
+  }
 }
