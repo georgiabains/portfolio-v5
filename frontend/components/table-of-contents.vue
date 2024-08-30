@@ -8,7 +8,9 @@
     },
     label: {
       type: String,
-      required: true,
+    },
+    isNested: {
+      type: Boolean,
     },
   })
 
@@ -27,7 +29,8 @@
 </script>
 
 <template>
-  <nav :aria-labelledby="label">
+  <!-- TODO: Refactor, its messy & i don't like it -->
+  <nav v-if="!isNested" :aria-labelledby="label">
     <ol>
       <li v-for="heading in props.headings">
         <a
@@ -35,11 +38,23 @@
           v-text="heading.children[0].text"
         />
         <template v-if="headingHasSubheadings(heading)">
-          <TableOfContents :headings="heading.subheadings" />
+          <TableOfContents :headings="heading.subheadings" is-nested />
         </template>
       </li>
     </ol>
   </nav>
+
+  <ol v-else>
+    <li v-for="heading in props.headings">
+      <a
+        :href="`#${slugify(heading.children[0].text, { lower: true })}`"
+        v-text="heading.children[0].text"
+      />
+      <template v-if="headingHasSubheadings(heading)">
+        <TableOfContents :headings="heading.subheadings" is-nested />
+      </template>
+    </li>
+  </ol>
 </template>
 
 <style lang="scss" scoped>
