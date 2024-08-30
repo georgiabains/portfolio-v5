@@ -125,8 +125,23 @@ svg {
 }
 
 .rte {
-  p {
-    margin-block: var(--spacing-2xl);
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    & + * {
+      margin-block-start: var(--spacing-xs);
+    }
+
+    &:not(:first-child) {
+      margin-block-start: var(--spacing-xl);
+    }
+  }
+
+  p + p {
+    margin-block-start: var(--spacing-l);
   }
 }
 
@@ -192,5 +207,11 @@ svg {
 
   .bubble {
     font-size: var(--text-s);
+  }
+
+  .rte {
+    p + p {
+      margin-block: var(--spacing-2xl);
+    }
   }
 }

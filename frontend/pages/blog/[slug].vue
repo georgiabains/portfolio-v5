@@ -37,6 +37,11 @@
       <div v-if="post.body" class="post__body rte">
         <CustomPortableText :value="post.body" />
       </div>
+
+      <!-- TODO: Add social share links -->
+      <footer class="post__footer">
+        <p>Share: Permalink</p>
+      </footer>
     </template>
 
     <p v-else>Loading</p>
@@ -143,17 +148,18 @@
     $parent: &;
     display: grid;
     column-gap: var(--spacing-3xl);
+    row-gap: var(--spacing-xl);
     grid-template-areas:
       'header'
       'sidebar'
-      'post';
+      'post'
+      'footer';
     grid-template-columns: 1fr;
-    margin-block-end: var(--spacing-6xl);
     max-width: calc(86.25rem + var(--gutter) + var(--gutter)); // 1380px
 
     &__header {
       column-gap: var(--spacing-3xl);
-      row-gap: var(--spacing-s);
+      row-gap: var(--spacing-xs);
       display: grid;
       grid-template-areas:
         'title'
@@ -170,20 +176,13 @@
 
     &__meta {
       grid-area: meta;
-      align-items: center;
       display: flex;
-    }
-
-    &__meta-item + #{$parent}__meta-item {
-      &::before {
-        content: '\2022';
-        padding: 0 var(--spacing-m);
-      }
+      flex-direction: column;
     }
 
     &__excerpt {
       grid-area: excerpt;
-      margin-block: var(--spacing-xl) var(--spacing-2xl);
+      margin-block: var(--spacing-s) var(--spacing-m);
     }
 
     &__main-image {
@@ -203,7 +202,6 @@
       border: 1px solid var(--accent);
       border-radius: var(--border-radius-8);
       grid-area: sidebar;
-      margin-block-start: var(--spacing-2xl);
       padding: var(--spacing-m);
       align-self: start;
       top: var(--spacing-2xl);
@@ -213,11 +211,18 @@
       grid-area: post;
     }
 
+    &__footer {
+      grid-area: footer;
+    }
+
     @media screen and (min-width: 1024px) {
       grid-template-areas:
         'header header header'
-        'sidebar post .';
+        'sidebar post .'
+        '. footer .';
       grid-template-columns: 1fr 2fr 1fr;
+      row-gap: var(--spacing-3xl);
+      margin-block-end: var(--spacing-6xl);
 
       &__header {
         grid-template-areas:
@@ -226,6 +231,22 @@
           'excerpt excerpt .'
           'image image image';
         grid-template-columns: 1fr 1fr 1fr;
+      }
+
+      &__meta {
+        align-items: center;
+        flex-direction: row;
+      }
+
+      &__meta-item + #{$parent}__meta-item {
+        &::before {
+          content: '\2022';
+          padding: 0 var(--spacing-m);
+        }
+      }
+
+      &__excerpt {
+        margin-block: var(--spacing-xl) var(--spacing-2xl);
       }
 
       &__table-of-contents {
