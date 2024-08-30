@@ -4,7 +4,7 @@
       <header class="post__header">
         <h1
           v-if="post.title"
-          class="heading heading--primary"
+          class="post__title heading heading--primary"
           v-text="post.title"
         />
 
@@ -18,6 +18,10 @@
             <span v-text="'Updated '" />
             <time :datetime="post._updatedAt" v-text="dateUpdated" />
           </div>
+        </div>
+
+        <div class="post__excerpt">
+          <CustomPortableText :value="post.excerpt" />
         </div>
 
         <div class="post__main-image">
@@ -63,6 +67,7 @@
         }
       }
     },
+    excerpt
   }`
   const route = useRoute()
 
@@ -147,13 +152,26 @@
     max-width: calc(86.25rem + var(--gutter) + var(--gutter)); // 1380px
 
     &__header {
+      column-gap: var(--spacing-3xl);
+      row-gap: var(--spacing-s);
+      display: grid;
+      grid-template-areas:
+        'title'
+        'meta'
+        'excerpt'
+        'image';
       grid-area: header;
+      grid-template-columns: 1fr;
+    }
+
+    &__title {
+      grid-area: title;
     }
 
     &__meta {
+      grid-area: meta;
       align-items: center;
       display: flex;
-      margin-block-start: var(--spacing-m);
     }
 
     &__meta-item + #{$parent}__meta-item {
@@ -163,11 +181,16 @@
       }
     }
 
+    &__excerpt {
+      grid-area: excerpt;
+      margin-block: var(--spacing-xl) var(--spacing-2xl);
+    }
+
     &__main-image {
       aspect-ratio: 16/9;
+      grid-area: image;
       overflow: hidden;
       border-radius: var(--border-radius-16);
-      margin-block-start: var(--spacing-xl);
 
       img {
         height: 100%;
@@ -195,6 +218,15 @@
         'header header header'
         'sidebar post .';
       grid-template-columns: 1fr 2fr 1fr;
+
+      &__header {
+        grid-template-areas:
+          'title title title'
+          'meta meta meta'
+          'excerpt excerpt .'
+          'image image image';
+        grid-template-columns: 1fr 1fr 1fr;
+      }
 
       &__table-of-contents {
         position: sticky;

@@ -60,6 +60,7 @@
         defined(slug) => {
           'slug': slug
         },
+        excerpt,
         _createdAt,
         defined(mainImage) => {
           'mainImage':  {

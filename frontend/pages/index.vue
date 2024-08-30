@@ -19,6 +19,7 @@
         blogArray[] -> {
           title,
           slug,
+          excerpt,
           _createdAt,
           mainImage {
             ...,

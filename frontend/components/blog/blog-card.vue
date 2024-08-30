@@ -12,26 +12,33 @@
       <img :src="blog.mainImage.asset.url" alt="" />
     </div>
 
-    <header class="blog-card__info">
-      <component :is="titleElement" class="blog-card__title">
-        <a class="blog-card__title-link" :href="getSlug">
-          <span v-text="blog.title" />
+    <div class="blog-card__info">
+      <header>
+        <component :is="titleElement" class="blog-card__title">
+          <a class="blog-card__title-link" :href="getSlug">
+            <span v-text="blog.title" />
 
-          <Icon name="custom:arrow-right" aria-hidden="true" />
-        </a>
-      </component>
+            <Icon name="custom:arrow-right" aria-hidden="true" />
+          </a>
+        </component>
+      </header>
 
-      <time
-        class="blog-card__date meta"
-        :datetime="blog._createdAt"
-        v-text="publishDate"
-      />
-    </header>
+      <CustomPortableText class="blog-card__excerpt" :value="blog.excerpt" />
+
+      <footer class="blog-card__footer">
+        <time
+          class="blog-card__date meta"
+          :datetime="blog._createdAt"
+          v-text="publishDate"
+        />
+      </footer>
+    </div>
   </article>
 </template>
 
 <script setup>
   import { formatDate } from '../../utils'
+  import CustomPortableText from '../../components/custom-portable-text'
 
   const props = defineProps({
     blog: {
@@ -74,7 +81,7 @@
   .blog-card {
     $parent: &;
     border: 1px solid var(--text-link);
-    border-radius: var(--border-radius-16);
+    border-radius: var(--border-radius-8);
     display: flex;
     flex-direction: column;
     gap: var(--spacing-m);
@@ -148,8 +155,15 @@
       }
     }
 
-    &__date {
+    p {
+      font-size: var(--text-s);
+    }
+
+    &__footer {
       margin-top: auto;
+    }
+
+    &__date {
       font-size: var(--text-xs);
     }
 
@@ -173,6 +187,10 @@
       &--is-featured {
         gap: var(--spacing-4xl);
         grid-template-columns: 5fr 7fr;
+      }
+
+      p {
+        font-size: var(--text-xs);
       }
     }
   }

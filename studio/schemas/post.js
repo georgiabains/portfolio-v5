@@ -30,9 +30,9 @@ export default defineType({
       },
     }),
     defineField({
-      name: 'publishedAt',
-      title: 'Published at',
-      type: 'datetime',
+      name: 'excerpt',
+      title: 'Excerpt',
+      type: 'blockContent',
     }),
     defineField({
       name: 'body',
