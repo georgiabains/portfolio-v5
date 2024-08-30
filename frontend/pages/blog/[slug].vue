@@ -189,7 +189,7 @@
       aspect-ratio: 16/9;
       grid-area: image;
       overflow: hidden;
-      border-radius: var(--border-radius-16);
+      border-radius: var(--border-radius-l);
 
       img {
         height: 100%;
@@ -199,8 +199,8 @@
     }
 
     &__table-of-contents {
-      border: 1px solid var(--accent);
-      border-radius: var(--border-radius-8);
+      border: 1px solid var(--text-link);
+      border-radius: var(--border-radius-m);
       grid-area: sidebar;
       padding: var(--spacing-m);
       align-self: start;
@@ -256,8 +256,11 @@
   }
 
   pre {
-    background-color: var(--color-dark-grey);
-    color: var(--color-off-white);
+    /**
+     * TODO: Add some sort of helper or dedicated property for the background & colour here.
+     */
+    background-color: var(--color-neutral-8);
+    color: var(--color-neutral-0);
     overflow-x: scroll;
     padding: var(--spacing-m);
   }

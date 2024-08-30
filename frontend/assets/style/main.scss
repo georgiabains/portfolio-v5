@@ -25,8 +25,8 @@ a {
   
   &:hover,
   &:focus {
-    border-bottom: 1px solid var(--text);
-    color: var(--text);
+    border-bottom: 2px solid var(--text-paragraph);
+    color: var(--text-paragraph);
   }
 }
 
@@ -152,7 +152,7 @@ svg {
 .bubble {
   $parent: &;
   border: 1px solid var(--text-link);
-  border-radius: var(--border-radius-8);
+  border-radius: var(--border-radius-m);
   color: var(--text-link);
   padding: var(--spacing-2xs) var(--spacing-m);
   text-decoration: none;
@@ -163,22 +163,12 @@ svg {
     gap: var(--spacing-s);
   }
 
-  &--background-light {
-    background-color: var(--background);
-    border-color: var(--background);
-  }
-
   &:hover,
   &:focus {
-    background-color: var(--secondary);
-    border-color: var(--secondary);
+    background-color: var(--background-on-hover);
+    border-color: var(--background-on-hover);
     color: var(--text-inverse);
-
-    &#{$parent}--background-light {
-      @include focus-ring(var(--spacing-2xs), var(--background));
-      background-color: var(--primary);
-      color: var(--color-off-white);
-    }
+    border-bottom-width: 1px;
   }
 
   &:focus {
@@ -187,12 +177,8 @@ svg {
 
   &:focus-visible {
     @include focus-ring();
-    background-color: var(--secondary);
+    background-color: var(--background-on-hover);
     color: var(--text-inverse);
-
-    &#{$parent}--background-light {
-      outline: var(--background);
-    }
   }
 }
 

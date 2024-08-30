@@ -25,9 +25,12 @@
 
 <style scoped>
   .code-block {
-    background-color: var(--color-dark-grey);
-    border-radius: var(--border-radius-22);
-    color: var(--color-off-white);
+    /**
+     * TODO: Add some sort of helper or dedicated property for the background & colour here.
+     */
+    background-color: var(--color-neutral-8);
+    border-radius: var(--border-radius-m);
+    color: var(--color-neutral-0);
     display: grid;
     padding-block: var(--spacing-m);
     padding-inline: var(--spacing-xl);

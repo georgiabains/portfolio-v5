@@ -75,17 +75,6 @@
   const showFeaturedText = computed(() => {
     return sectionData.type === 'featuredText' && props.section.text?.length > 0
   })
-
-  /**
-   * Determine if the current section is a populated Projects Container section.
-   * @returns {Boolean}
-   */
-  const showProjects = computed(() => {
-    return (
-      sectionData.type === 'indexProjects' &&
-      props.section.indexProjectArray?.length > 0
-    )
-  })
 </script>
 
 <style lang="scss">

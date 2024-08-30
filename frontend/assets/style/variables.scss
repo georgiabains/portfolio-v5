@@ -8,29 +8,14 @@
   /**
    * Border radii.
    */
-  --border-radius-8: 0.5rem; // 8px
-  --border-radius-12: 0.75rem; // 12px
-  --border-radius-16: 1rem; // 16px
-  --border-radius-22: 1.375rem; // 22px
-  --border-radius-32: 2rem; // 32px
-  --border-radius-44: 2.75rem; // 44px
+  --border-radius-s: 0.25rem; // 4px
+  --border-radius-m: 0.5rem; // 8px
+  --border-radius-l: 1rem; // 16px
 
   /**
    * Colours.
+   * https://accessiblepalette.com/?lightness=97,91,82,72,47,36,25,14,7.5,4.3&786a86=0,0&a0ba97=0,0&0F0F0F=0,0
    */
-  --color-off-black: #0f0f0fff;
-  --color-dark-grey: #484848; // TODO: Add to figma
-  --color-pale-green: #e7e9e7ff;
-  --color-green: #1f2a1cff;
-  --color-grey-green: #444d41ff;
-  --color-purple: #454049ff;
-  --color-off-white: #f0f0f0ff;
-  --color-dark-grey: #161816ff;
-  --color-light-green: #d7e2d4ff;
-  --color-light-grey-green: #b5bdb2ff;
-  --color-light-purple: #bbb5bfff;
-
-  // reference - https://accessiblepalette.com/?lightness=97,91,82,72,47,36,25,14,7.5,4.3&786a86=0,0&a0ba97=0,0&0F0F0F=0,0
 
   // neutral - black through white
   --color-neutral-0: #f8f8f8;
@@ -71,18 +56,12 @@
   /**
    * Colours - light mode.
    */
-  // TODO: replace these colours + rename properties
-  --accent: var(--color-purple);
-  --primary: var(--color-green);
-  --secondary: var(--color-grey-green);
-  --text: var(--color-off-black);
-  --text-inverse: var(--color-off-white);
-
-  // new colours
   --background: var(--color-primary-0);
+  --background-on-hover: var(--color-primary-6);
 
   // only use against --background
   --text-heading: var(--color-primary-7);
+  --text-inverse: var(--color-primary-0); // mainly used in hover states
   --text-link: var(--color-primary-6);
   --text-paragraph: var(--color-neutral-8);
   --text-paragraph-emphasis: var(--color-neutral-9);
@@ -155,16 +134,11 @@
   */
 html[data-theme=dark],
 html[data-theme="dark system"] {
-  // TODO: replace + rename
-  --accent: var(--color-light-purple);
-  --primary: var(--color-light-green);
-  --secondary: var(--color-light-grey-green);
-  --text: var(--color-off-white);
-  --text-inverse: var(--color-off-black);
-
-  // new colours
   --background: var(--color-primary-8);
+  --background-on-hover: var(--color-primary-3);
+
   --text-heading: var(--color-neutral-2);
+  --text-inverse: var(--color-primary-9);
   --text-link: var(--color-primary-1);
   --text-paragraph: var(--color-neutral-1);
   --text-paragraph-emphasis: var(--color-neutral-0);

@@ -8,7 +8,6 @@ import footer from './footer'
 import indexPage from './indexPage'
 import metadata from './metadata'
 import post from './post'
-import project from './project'
 import sections from './sections'
 import selectedBlogs from './selectedBlogs'
 
@@ -23,7 +22,6 @@ export const schemaTypes = [
   indexPage,
   metadata,
   post,
-  project,
   sections,
   selectedBlogs,
 ]

@@ -156,8 +156,8 @@
     position: relative;
 
     &__menu {
-      border-radius: var(--border-radius-8);
-      border: 1px solid var(--accent);
+      border-radius: var(--border-radius-m);
+      border: 1px solid var(--text-link);
       display: none;
       flex-direction: column;
       gap: var(--spacing-2xs);
@@ -173,9 +173,9 @@
     &__button {
       align-items: center;
       background-color: var(--background);
-      border: 1px solid var(--primary);
-      border-radius: var(--border-radius-8);
-      color: var(--text);
+      border: 1px solid var(--text-link);
+      border-radius: var(--border-radius-m);
+      color: var(--text-link);
       display: flex;
       gap: var(--spacing-xs);
       padding: var(--spacing-2xs);

@@ -81,7 +81,7 @@
   .blog-card {
     $parent: &;
     border: 1px solid var(--text-link);
-    border-radius: var(--border-radius-8);
+    border-radius: var(--border-radius-m);
     display: flex;
     flex-direction: column;
     gap: var(--spacing-m);
@@ -106,7 +106,7 @@
     &__image {
       aspect-ratio: 16 / 9;
       border-bottom: 0;
-      border-radius: var(--border-radius-8);
+      border-radius: var(--border-radius-s);
       display: block;
       overflow: hidden;
 
