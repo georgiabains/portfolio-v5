@@ -110,11 +110,13 @@
 
     &__right {
       display: flex;
+      flex-wrap: wrap;
       gap: var(--spacing-l);
     }
 
     &__navigation > ul {
       display: flex;
+      flex-wrap: wrap;
       font-size: var(--text-s);
       gap: var(--spacing-m);
 

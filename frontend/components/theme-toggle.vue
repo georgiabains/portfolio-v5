@@ -2,7 +2,7 @@
   <div class="theme-toggle">
     <button
       v-click-outside="handleToggleClose"
-      class="theme-toggle__button"
+      class="theme-toggle__button bubble"
       type="button"
       @click="handleToggleClick"
     >
@@ -24,7 +24,7 @@
     <ul ref="themeToggleMenu" class="theme-toggle__menu list--unstyled">
       <li v-for="(theme, index) in themes" :key="`${theme.name}-${index}`">
         <button
-          class="theme-toggle__button theme-toggle__button--list"
+          class="theme-toggle__button theme-toggle__button--list bubble"
           type="button"
           @click="handleThemeSelection(theme)"
         >
@@ -172,23 +172,14 @@
 
     &__button {
       align-items: center;
-      background-color: var(--background);
-      border: 1px solid var(--text-link);
-      border-radius: var(--border-radius-m);
-      color: var(--text-link);
       display: flex;
       gap: var(--spacing-xs);
       padding: var(--spacing-2xs);
       width: 100%;
 
-      &:hover,
-      &:focus {
-        // TODO: Check contrast; add to figma and variables
-        background-color: #b6c4b6;
-      }
-
       &--list {
         align-items: flex-end;
+        border-radius: var(--border-radius-s);
         padding: var(--spacing-2xs) var(--spacing-xs);
       }
     }

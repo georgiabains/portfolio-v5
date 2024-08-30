@@ -90,7 +90,11 @@
   .blogs-container {
     display: grid;
     gap: var(--spacing-l);
-    padding-block: var(--spacing-3xl);
+    padding-block-end: var(--spacing-3xl);
+
+    &:not(:first-child) {
+      padding-block-start: var(--spacing-3xl);
+    }
 
     &__blogs {
       display: grid;

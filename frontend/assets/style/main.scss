@@ -156,6 +156,7 @@ svg {
 
 .bubble {
   $parent: &;
+  background-color: var(--background);
   border: 1px solid var(--text-link);
   border-radius: var(--border-radius-m);
   color: var(--text-link);
