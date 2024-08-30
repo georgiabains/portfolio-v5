@@ -3,7 +3,11 @@
     <slot name="copy"></slot>
 
     <ul class="blogs-container__blogs list--unstyled">
-      <li v-for="(blog, blogIndex) in blogPosts" :key="blogIndex">
+      <li
+        v-for="(blog, blogIndex) in blogPosts"
+        :key="blogIndex"
+        class="blogs-container__blog"
+      >
         <BlogCard :blog="blog" :use-h3="useH3" />
       </li>
     </ul>
@@ -89,9 +93,14 @@
 
     &__blogs {
       display: grid;
+      grid-auto-rows: 1fr;
       grid-template-columns: 1fr;
       gap: var(--spacing-5xl);
       justify-content: space-between;
+    }
+
+    &__blog {
+      display: flex;
     }
 
     &__cta {

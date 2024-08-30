@@ -4,15 +4,13 @@
     class="blog-card"
     :class="{ 'blog-card--is-featured': isFeatured }"
   >
-    <a
+    <div
       v-if="blog.mainImage?.asset?.url"
       aria-hidden="true"
       class="blog-card__image"
-      :href="getSlug"
-      tabindex="-1"
     >
       <img :src="blog.mainImage.asset.url" alt="" />
-    </a>
+    </div>
 
     <header class="blog-card__info">
       <component :is="titleElement" class="blog-card__title">
@@ -75,13 +73,33 @@
 <style lang="scss">
   .blog-card {
     $parent: &;
+    border: 1px solid var(--text-link);
+    border-radius: var(--border-radius-16);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-m);
+    height: 100%;
+    padding: var(--spacing-m);
+    position: relative;
+
+    &:hover,
+    &:focus {
+      box-shadow: 0 0 0 0.25rem;
+    }
+
+    &:focus-within {
+      box-shadow: 0 0 0 0.25rem;
+
+      #{$parent}__title-link:focus {
+        border-bottom: none;
+        text-decoration: none;
+      }
+    }
 
     &__image {
       aspect-ratio: 16 / 9;
       border-bottom: 0;
-      border-radius: var(--border-radius-16);
-      // TODO: Update variables
-      box-shadow: 4px 4px 4px rgba(22, 24, 22, 0.16);
+      border-radius: var(--border-radius-8);
       display: block;
       overflow: hidden;
 
@@ -99,8 +117,8 @@
     &__info {
       display: flex;
       flex-direction: column;
+      flex-grow: 1;
       gap: var(--spacing-m);
-      padding: var(--spacing-m) var(--spacing-xs);
     }
 
     &__title {
@@ -114,11 +132,24 @@
 
     &__title-link {
       border-bottom: 0;
-      color: var(--text);
       text-decoration: none;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
+
+      &:focus {
+        text-decoration: underline;
+      }
     }
 
     &__date {
+      margin-top: auto;
       font-size: var(--text-xs);
     }
 
@@ -144,13 +175,5 @@
         grid-template-columns: 5fr 7fr;
       }
     }
-
-    // @media (prefers-color-scheme: dark) {
-    //   color: var(--text-inverse);
-
-    //   &__title-link {
-    //     color: var(--text-inverse);
-    //   }
-    // }
   }
 </style>
