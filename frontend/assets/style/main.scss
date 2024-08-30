@@ -63,7 +63,12 @@ strong {
 }
 
 code {
-  font-family: 'PT Mono', monospace;
+  background-color: var(--color-neutral-3);
+  border-radius: var(--border-radius-s);
+  color: var(--color-neutral-8);
+  font-family: 'Source Code Pro Variable', monospace;
+  font-weight: 600;
+  padding-inline: var(--spacing-2xs);
 }
 
 img {

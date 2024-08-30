@@ -18,6 +18,7 @@
     "sass-loader": "^13.2.2"
   },
   "dependencies": {
+    "@fontsource-variable/source-code-pro": "^5.0.20",
     "@fontsource/atkinson-hyperlegible": "^4.5.11",
     "@fontsource/poppins": "^5.0.15",
     "@fontsource/pt-mono": "^4.5.11",
