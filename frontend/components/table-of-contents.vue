@@ -6,6 +6,10 @@
       type: Array,
       required: true,
     },
+    label: {
+      type: String,
+      required: true,
+    },
   })
 
   /**
@@ -23,15 +27,39 @@
 </script>
 
 <template>
-  <ol>
-    <li v-for="heading in props.headings">
-      <a
-        :href="`#${slugify(heading.children[0].text, { lower: true })}`"
-        v-text="heading.children[0].text"
-      />
-      <template v-if="headingHasSubheadings(heading)">
-        <TableOfContents :headings="heading.subheadings" />
-      </template>
-    </li>
-  </ol>
+  <nav :aria-labelledby="label">
+    <ol>
+      <li v-for="heading in props.headings">
+        <a
+          :href="`#${slugify(heading.children[0].text, { lower: true })}`"
+          v-text="heading.children[0].text"
+        />
+        <template v-if="headingHasSubheadings(heading)">
+          <TableOfContents :headings="heading.subheadings" />
+        </template>
+      </li>
+    </ol>
+  </nav>
 </template>
+
+<style lang="scss" scoped>
+  ol {
+    counter-reset: toc;
+    list-style: none;
+    padding-inline-start: var(--spacing-l);
+
+    li {
+      margin-block-end: var(--spacing-2xs);
+
+      &::before {
+        content: counters(toc, '.') '. ';
+        counter-increment: toc;
+        margin-left: -20px;
+      }
+
+      & > ol {
+        counter-reset: toc;
+      }
+    }
+  }
+</style>

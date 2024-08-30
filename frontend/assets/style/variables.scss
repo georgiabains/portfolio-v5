@@ -14,12 +14,12 @@
 
   /**
    * Colours.
-   * https://accessiblepalette.com/?lightness=97,91,82,72,47,36,25,14,7.5,4.3&786a86=0,0&a0ba97=0,0&0F0F0F=0,0
+   * https://accessiblepalette.com/?lightness=97,92,82,72,47,36,25,14,7.5,4.3&a0ba97=0,0&786a86=0,0&0F0F0F=0,0
    */
 
   // neutral - black through white
   --color-neutral-0: #f8f8f8;
-  --color-neutral-1: #e5e5e5;
+  --color-neutral-1: #E8E8E8;
   --color-neutral-2: #cccccc;
   --color-neutral-3: #b0b0b0;
   --color-neutral-4: #636363;
@@ -31,7 +31,7 @@
 
   // green - primary
   --color-primary-0: #F5F7F1;
-  --color-primary-1: #DFE8DC;
+  --color-primary-1: #E3EAE0;
   --color-primary-2: #C0D1BA;
   --color-primary-3: #9EB895;
   --color-primary-4: #64745E;
@@ -43,7 +43,7 @@
 
   // purple - accent
   --color-accent-0: #F8F8F9;
-  --color-accent-1: #E7E4E9;
+  --color-accent-1: #E9E7EC;
   --color-accent-2: #CFCAD4;
   --color-accent-3: #B5AEBD;
   --color-accent-4: #786A86;
@@ -58,6 +58,8 @@
    */
   --background: var(--color-primary-0);
   --background-on-hover: var(--color-primary-6);
+  --background-on-hover-shade: var(--color-primary-1);
+  --background-raised: var(--color-primary-1);
 
   // only use against --background
   --text-heading: var(--color-primary-7);
@@ -136,6 +138,8 @@ html[data-theme=dark],
 html[data-theme="dark system"] {
   --background: var(--color-primary-8);
   --background-on-hover: var(--color-primary-1);
+  --background-on-hover-shade: var(--color-primary-9);
+  --background-raised: var(--color-primary-9);
 
   --text-heading: var(--color-neutral-2);
   --text-inverse: var(--color-primary-9);

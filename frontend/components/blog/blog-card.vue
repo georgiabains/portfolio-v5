@@ -92,12 +92,12 @@
     &:hover,
     &:focus {
       box-shadow: 0 0 0 var(--spacing-2xs);
-      background-color: var(--color-primary-9);
+      background-color: var(--background-on-hover-shade);
     }
 
     &:focus-within {
       box-shadow: 0 0 0 var(--spacing-2xs);
-      background-color: var(--color-primary-9);
+      background-color: var(--background-on-hover-shade);
 
       #{$parent}__title-link:focus {
         border-bottom: none;

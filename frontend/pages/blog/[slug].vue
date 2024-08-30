@@ -40,8 +40,8 @@
       </header>
 
       <aside class="post__table-of-contents">
-        <p>In this article</p>
-        <TableOfContents :headings="tableOfContents" />
+        <p id="post-toc">In this article</p>
+        <TableOfContents :headings="tableOfContents" label="post-toc" />
       </aside>
 
       <div v-if="post.body" class="post__body rte">
@@ -211,7 +211,7 @@
     }
 
     &__table-of-contents {
-      border: 1px solid var(--text-link);
+      background-color: var(--background-raised);
       border-radius: var(--border-radius-m);
       grid-area: sidebar;
       padding: var(--spacing-m);
@@ -229,20 +229,20 @@
 
     @media screen and (min-width: 1024px) {
       grid-template-areas:
-        'header header header'
-        'sidebar post .'
-        '. footer .';
-      grid-template-columns: 1fr 2fr 1fr;
+        'header header'
+        'sidebar post'
+        '. footer';
+      grid-template-columns: 1fr 1.5fr;
       row-gap: var(--spacing-3xl);
       margin-block-end: var(--spacing-6xl);
 
       &__header {
         grid-template-areas:
-          'title title title'
-          'meta meta meta'
-          'excerpt excerpt .'
-          'image image image';
-        grid-template-columns: 1fr 1fr 1fr;
+          'title title'
+          'meta meta'
+          'excerpt excerpt'
+          'image image';
+        grid-template-columns: 1fr 1.5fr;
       }
 
       &__meta {
@@ -269,6 +269,23 @@
 
       &__table-of-contents {
         position: sticky;
+      }
+    }
+
+    @media screen and (min-width: 1378px) {
+      grid-template-areas:
+        'header header header'
+        'sidebar post .'
+        '. footer .';
+      grid-template-columns: 1fr 2fr 1fr;
+
+      &__header {
+        grid-template-areas:
+          'title title title'
+          'meta meta meta'
+          'excerpt excerpt .'
+          'image image image';
+        grid-template-columns: 1fr 1fr 1fr;
       }
     }
   }
