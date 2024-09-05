@@ -30,11 +30,13 @@
             {{ post.mainImage.alt }}
             <br />
 
-            Photo by
-            <a
-              :href="post.mainImage.attribution.url"
-              v-text="post.mainImage.attribution.title"
-            />
+            <template v-if="post.mainImage.attribution">
+              Photo by
+              <a
+                :href="post.mainImage.attribution.url"
+                v-text="post.mainImage.attribution.title"
+              />
+            </template>
           </figcaption>
         </figure>
       </header>
@@ -118,6 +120,10 @@
     const headings = post.value.headings
     const path = []
     let lastLevel = 0
+
+    if (!headings) {
+      return []
+    }
 
     headings.forEach((heading) => {
       const level = Number(heading.style.slice(1))
@@ -261,7 +267,7 @@
         margin-block: var(--spacing-xl) var(--spacing-2xl);
       }
 
-      &__main-image {
+      &__main-image-container {
         figcaption {
           font-size: var(--text-xs);
         }

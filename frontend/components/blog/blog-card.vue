@@ -15,15 +15,16 @@
     <div class="blog-card__info">
       <header>
         <component :is="titleElement" class="blog-card__title">
-          <a class="blog-card__title-link" :href="getSlug">
+          <NuxtLink
+            class="blog-card__title-link"
+            :to="{ name: 'blog-slug', params: { slug } }"
+          >
             <span v-text="blog.title" />
 
             <Icon name="custom:arrow-right" aria-hidden="true" />
-          </a>
+          </NuxtLink>
         </component>
       </header>
-
-      <CustomPortableText class="blog-card__excerpt" :value="blog.excerpt" />
 
       <footer class="blog-card__footer">
         <time
@@ -58,8 +59,8 @@
    * Return blog slug with correct path.
    * @returns {String}
    */
-  const getSlug = computed(() => {
-    return `/blog/${props.blog.slug.current}`
+  const slug = computed(() => {
+    return props.blog.slug.current
   })
 
   /**
@@ -187,7 +188,7 @@
 
     @media screen and (min-width: 1024px) {
       &--is-featured {
-        gap: var(--spacing-4xl);
+        gap: var(--spacing-3xl);
         grid-template-columns: 5fr 7fr;
       }
 

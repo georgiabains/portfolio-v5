@@ -22,6 +22,22 @@ export default defineType({
       },
     }),
     defineField({
+      title: 'Tags',
+      name: 'tags',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{ type: 'category' }],
+        }
+      ]
+    }),
+    defineField({
+      name: 'excerpt',
+      title: 'Excerpt',
+      type: 'blockContent',
+    }),
+    defineField({
       name: 'mainImage',
       title: 'Main image',
       type: 'image',
@@ -53,11 +69,6 @@ export default defineType({
       options: {
         hotspot: true,
       },
-    }),
-    defineField({
-      name: 'excerpt',
-      title: 'Excerpt',
-      type: 'blockContent',
     }),
     defineField({
       name: 'body',

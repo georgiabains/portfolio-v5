@@ -13,10 +13,10 @@
     </ul>
 
     <p v-if="!hideCta" class="blogs-container__cta-container">
-      <a href="/blog" class="blogs-container__cta bubble">
+      <NuxtLink class="blogs-container__cta bubble" :to="{ name: 'blog' }">
         <Icon name="custom:eye" aria-hidden="true" />
         View all blog posts
-      </a>
+      </NuxtLink>
     </p>
   </section>
 </template>
@@ -116,7 +116,7 @@
 
     @media screen and (min-width: 1024px) {
       &__blogs {
-        gap: var(--spacing-4xl);
+        gap: var(--spacing-3xl);
         grid-template-columns: 1fr 1fr 1fr;
       }
     }

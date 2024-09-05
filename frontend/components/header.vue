@@ -5,37 +5,30 @@
         :is="isCurrentPage('index') ? 'h1' : 'h2'"
         class="header__title"
       >
-        <a href="/" v-text="'Georgia Bains'" />
+        <NuxtLink :to="{ name: 'index' }">Georgia Bains</NuxtLink>
       </component>
 
       <div class="header__right">
         <nav class="header__navigation">
           <ul class="list--unstyled">
             <li>
-              <a
-                :aria-current="getAriaCurrent('index')"
-                href="/"
-                class="bubble"
-                v-text="'Home'"
-              ></a>
-            </li>
-
-            <li>
-              <a
+              <NuxtLink
                 :aria-current="getAriaCurrent('about')"
-                href="/about"
+                :to="{ name: 'about' }"
                 class="bubble"
-                v-text="'About'"
-              ></a>
+              >
+                About
+              </NuxtLink>
             </li>
 
             <li>
-              <a
+              <NuxtLink
                 :aria-current="getAriaCurrent('blogs')"
-                href="/blog"
+                :to="{ name: 'blog' }"
                 class="bubble"
-                v-text="'Blog'"
-              ></a>
+              >
+                Blog
+              </NuxtLink>
             </li>
           </ul>
         </nav>
@@ -133,12 +126,8 @@
 
       &__container {
         align-items: center;
-        gap: var(--spacing-4xl);
+        gap: var(--spacing-3xl);
         flex-direction: row;
-      }
-
-      &__navigation > ul {
-        gap: var(--spacing-l);
       }
     }
   }
