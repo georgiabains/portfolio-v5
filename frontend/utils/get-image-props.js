@@ -1,5 +1,5 @@
 /**
- * https://hdoro.dev/performant-sanity-io-images
+ * Adapted from: https://hdoro.dev/performant-sanity-io-images
  */
 import { getImageDimensions } from "./get-image-dimensions";
 import imageUrlBuilder from "@sanity/image-url";
@@ -13,9 +13,11 @@ export const imageBuilder = imageUrlBuilder({
 const LARGEST_VIEWPORT = 1920; // Retina sizes will take care of 4k (2560px) and other huge screens
 
 const DEFAULT_MIN_STEP = 0.1; // 10%
-const DEFAULT_WIDTH_STEPS = [400, 600, 850, 1000, 1150]; // arbitrary
-// Based on statcounter's most common screen sizes: https://gs.statcounter.com/screen-resolution-stats
-const DEFAULT_FULL_WIDTH_STEPS = [360, 414, 768, 1366, 1536, 1920];
+const DEFAULT_WIDTH_STEPS = [320, 400, 500, 600, 768, 850, 1024, 1280, 1380, 1500]; // arbitrary
+// // Based on statcounter's most common screen sizes: https://gs.statcounter.com/screen-resolution-stats
+// const DEFAULT_FULL_WIDTH_STEPS = [360, 414, 768, 1366, 1536, 1920];
+
+const DEFAULT_FULL_WIDTH_STEPS = [320, 400, 500, 640, 768, 900, 1024, 1280, 1380, 1500]
 
 export default function getImageProps({
   /**
@@ -65,8 +67,7 @@ export default function getImageProps({
     // De-duplicate sizes with a Set
     new Set([
       ...baseSizes,
-      ...baseSizes.map((size) => size * 2),
-      ...baseSizes.map((size) => size * 3),
+      // ...baseSizes.map((size) => size * 2),
     ])
   )
     .sort((a, b) => a - b) // Lowest to highest
@@ -75,9 +76,9 @@ export default function getImageProps({
         // Exclude sizes 10% or more larger than the image itself. Sizes slightly larger
         // than the image are included to ensure we always get closest to the highest
         // quality for an image. Sanity's CDN won't scale the image above its limits.
-        size <= imageDimensions.width * 1.1 &&
-        // Exclude those larger than maxWidth's retina (x3)
-        size <= maxWidth * 3
+        // size <= imageDimensions.width * 1.1 &&
+        // Exclude those larger than maxWidth's retina (x2)
+        size <= maxWidth * 2
     )
 
     // Exclude those with a value difference to their following size smaller than `minimumWidthStep`
@@ -89,7 +90,10 @@ export default function getImageProps({
       }
 
       return true;
-    });
+    })
+    // actual max rendered size of images is 1380
+    // TODO: Sort out this logic cause this is Something TM
+    .filter((size) => size !== 1920)
 
   return {
     // Use the original image as the `src` for the <img>
@@ -102,10 +106,10 @@ export default function getImageProps({
     sizes:
       maxWidth === "100vw"
         ? "100vw"
-        : sizes || `(max-width: ${maxWidth}px) 100vw, ${maxWidth}px`,
+        : sizes || `(max-width: 320px) 320w, (max-width: 400px) 400w, (max-width: 500px) 500w,(max-width: 640px) 640w, (max-width: 768px) 768w, (max-width: 900px) 900w, (max-width: 1024px) 1024w, (max-width: 1280) 1280w, (max-width: 1380px) 1380w, (max-width: 1500px) 1500w, 100vw`,
 
-    // Let's also tell the browser what's the size of the image so it can calculate aspect ratios
-    width: retinaSizes[0],
-    height: retinaSizes[0] / imageDimensions.aspectRatio,
+    // // Let's also tell the browser what's the size of the image so it can calculate aspect ratios
+    // width: retinaSizes[0],
+    // height: retinaSizes[0] / imageDimensions.aspectRatio,
   };
 }

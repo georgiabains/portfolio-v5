@@ -27,12 +27,11 @@
         <figure class="post__main-image">
           <img
             :alt="post.mainImage.alt"
+            fetchpriority="high"
             v-bind="{
-              ...getImageProps({ image: post.mainImage, maxWidth: '100vw' }),
+              ...getImageProps({ image: post.mainImage, maxWidth: 1920 }),
             }"
           />
-
-          <!-- <img :alt="post.mainImage.alt" :src="post.mainImage.asset.url" />
 
           <figcaption class="meta">
             {{ post.mainImage.alt }}
@@ -45,7 +44,7 @@
                 v-text="post.mainImage.attribution.title"
               />
             </template>
-          </figcaption> -->
+          </figcaption>
         </figure>
       </header>
 
