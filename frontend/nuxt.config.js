@@ -56,6 +56,12 @@ export default defineNuxtConfig({
     '~/plugins/click-outside.js'
   ],
 
+  runtimeConfig: {
+    public: {
+      sanity: {...sanityConfig}
+    }
+  },
+
   sanity: {...sanityConfig},
 
   sitemap: {

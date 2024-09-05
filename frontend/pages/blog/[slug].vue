@@ -25,7 +25,15 @@
         </div>
 
         <figure class="post__main-image">
-          <img :alt="post.mainImage.alt" :src="post.mainImage.asset.url" />
+          <img
+            :alt="post.mainImage.alt"
+            v-bind="{
+              ...getImageProps({ image: post.mainImage, maxWidth: '100vw' }),
+            }"
+          />
+
+          <!-- <img :alt="post.mainImage.alt" :src="post.mainImage.asset.url" />
+
           <figcaption class="meta">
             {{ post.mainImage.alt }}
             <br />
@@ -37,7 +45,7 @@
                 v-text="post.mainImage.attribution.title"
               />
             </template>
-          </figcaption>
+          </figcaption> -->
         </figure>
       </header>
 
@@ -59,17 +67,18 @@
     <p v-else>Loading</p>
   </article>
 
-  <BlogContainer use-latest>
+  <!-- <BlogContainer use-latest>
     <template #copy>
       <h2 v-text="'Browse Other Blog Posts'" />
     </template>
-  </BlogContainer>
+  </BlogContainer> -->
 </template>
 
 <script setup>
   import { formatDate } from '../../utils'
   import CustomPortableText from '../../components/custom-portable-text'
   import TableOfContents from '../../components/table-of-contents'
+  import getImageProps from '../../utils/get-image-props'
 
   const query = groq`*[_type == "post" && slug.current == $slug][0] {
     title,
@@ -77,15 +86,7 @@
     "headings": body[length(style) == 2 && string::startsWith(style, "h")],
     _createdAt,
     _updatedAt,
-    defined(mainImage) => {
-      'mainImage':  {
-        'asset': {
-          'url': mainImage.asset -> url
-        },
-        'alt': mainImage.alt,
-        'attribution': mainImage.attribution
-      }
-    },
+    mainImage,
     excerpt
   }`
   const route = useRoute()
@@ -159,6 +160,12 @@
       ? path
       : ['subheadings'].concat(path.join('.subheadings.').split('.'))
   }
+
+  const mainImage = JSON.parse(JSON.stringify(post.value.mainImage))
+
+  // const test = getImageProps({ image: mainImage, maxWidth: 1000 })
+
+  // console.log(test)
 </script>
 
 <style lang="scss" scoped>
