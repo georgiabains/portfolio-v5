@@ -68,6 +68,8 @@ export default defineNuxtConfig({
     urls: sitemapUrls,
   },
 
+  ssr: false,
+
   vite: {
     css: {
       preprocessorOptions: {
