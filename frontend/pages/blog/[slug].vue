@@ -77,7 +77,7 @@
   import { formatDate } from '../../utils'
   import CustomPortableText from '../../components/custom-portable-text'
   import TableOfContents from '../../components/table-of-contents'
-  import getImageProps from '../../utils/get-image-props'
+  import getImageProps from '../../composables/get-image-props'
 
   const query = groq`*[_type == "post" && slug.current == $slug][0] {
     title,

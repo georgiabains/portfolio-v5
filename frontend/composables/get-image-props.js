@@ -4,11 +4,15 @@
 import { getImageDimensions } from "./get-image-dimensions";
 import imageUrlBuilder from "@sanity/image-url";
 
-export const imageBuilder = imageUrlBuilder({
-  projectId: 'fvc665c4',
-  dataset: 'production',
-  apiVersion: '2022-03-25'
-});
+// const imageBuilder = imageUrlBuilder({
+//   projectId: 'fvc665c4',
+//   dataset: 'production',
+//   apiVersion: '2022-03-25'
+// });
+
+const runtimeConfig = useRuntimeConfig()
+
+const imageBuilder = imageUrlBuilder(runtimeConfig.public.sanity)
 
 const LARGEST_VIEWPORT = 1920; // Retina sizes will take care of 4k (2560px) and other huge screens
 
@@ -19,7 +23,7 @@ const DEFAULT_WIDTH_STEPS = [320, 400, 500, 600, 768, 850, 1024, 1280, 1380, 150
 
 const DEFAULT_FULL_WIDTH_STEPS = [320, 400, 500, 640, 768, 900, 1024, 1280, 1380, 1500]
 
-export default function getImageProps({
+export default function getImageProps ({
   /**
    * The image's reference object.
    * Example: {asset: {_ref: string}, hotspot: {...}, crop: {...} }
@@ -43,7 +47,6 @@ export default function getImageProps({
   // Custom <img> element's `sizes` attribute
   sizes,
 }) {
-
   if (!image?.asset?._ref) {
     return {};
   }
