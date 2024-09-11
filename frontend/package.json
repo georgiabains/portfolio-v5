@@ -10,6 +10,7 @@
   },
   "devDependencies": {
     "@nuxt/icon": "^1.4.7",
+    "@nuxtjs/sanity": "^1.12.1",
     "@types/node": "^18",
     "eslint": "^8.40.0",
     "eslint-plugin-vue": "^9.12.0",
@@ -22,7 +23,6 @@
     "@fontsource/atkinson-hyperlegible": "^4.5.11",
     "@fontsource/poppins": "^5.0.15",
     "@fontsource/pt-mono": "^4.5.11",
-    "@nuxtjs/sanity": "^1.7.0",
     "@nuxtjs/sitemap": "^5.0.5",
     "@portabletext/vue": "^1.0.11",
     "@sanity/client": "^5.4.2",
