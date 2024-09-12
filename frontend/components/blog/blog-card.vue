@@ -28,7 +28,9 @@
           </NuxtLink>
         </component>
 
-        <SanityContent v-if="isFeatured" :blocks="blog.excerpt" />
+        <div class="meta">
+          <SanityContent v-if="isFeatured" :blocks="blog.excerpt" />
+        </div>
       </div>
 
       <footer class="blog-card__footer">
@@ -184,10 +186,6 @@
       gap: var(--spacing-xs);
     }
 
-    p {
-      font-size: var(--text-s);
-    }
-
     &__footer {
       margin-top: auto;
     }
@@ -231,10 +229,6 @@
 
       &__top {
         gap: var(--spacing-m);
-      }
-
-      p {
-        font-size: var(--text-xs);
       }
 
       &__footer {
