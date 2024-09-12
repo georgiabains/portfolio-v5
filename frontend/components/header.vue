@@ -1,5 +1,11 @@
 <template>
   <header class="header">
+    <a
+      :href="route.name === 'index' ? '#main' : '#content'"
+      class="skiplink"
+      v-text="'Skip to content'"
+    />
+
     <div class="header__container container">
       <component
         :is="isCurrentPage('index') ? 'h1' : 'h2'"

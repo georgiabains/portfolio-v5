@@ -2,6 +2,7 @@
   <BlogContainer v-if="blogs" class="blogs" hide-cta :blog-array="blogs">
     <template #copy>
       <h1
+        id="content"
         class="heading heading--primary"
         v-text="`All Posts Tagged: ${title}`"
       />

@@ -4,6 +4,7 @@
       <header class="post__header">
         <h1
           v-if="post.title"
+          id="content"
           class="post__title heading heading--primary"
           v-text="post.title"
         />

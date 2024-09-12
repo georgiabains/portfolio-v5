@@ -188,6 +188,18 @@ svg {
   }
 }
 
+.skiplink {
+  position: absolute;
+  left: -1000px;
+  z-index: 2;
+  top: 0;
+  padding: var(--spacing-xs) var(--spacing-l);
+
+  &:focus {
+    left: 0;
+  }
+}
+
 @media screen and (min-width: 1024px) {
   body {
     font-size: var(--text-s);

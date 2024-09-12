@@ -1,7 +1,11 @@
 <template>
   <BlogContainer v-if="blogs" class="blogs" hide-cta :blog-array="blogs">
     <template #copy>
-      <h1 class="heading heading--primary" v-text="blogsPage.title" />
+      <h1
+        id="content"
+        class="heading heading--primary"
+        v-text="blogsPage.title"
+      />
     </template>
   </BlogContainer>
 </template>
