@@ -166,6 +166,7 @@
     position: relative;
 
     &__menu {
+      background-color: var(--background);
       border-radius: var(--border-radius-m);
       border: 1px solid var(--text-link);
       display: none;
@@ -183,12 +184,13 @@
     &__button {
       align-items: center;
       display: flex;
+      font-size: var(--text-s);
+      padding: var(--spacing-xs);
       gap: var(--spacing-xs);
       padding: var(--spacing-2xs);
       width: 100%;
 
       &--list {
-        align-items: flex-end;
         border-radius: var(--border-radius-s);
         padding: var(--spacing-2xs) var(--spacing-xs);
       }
@@ -200,8 +202,8 @@
       width: var(--icon-m);
 
       &--list {
-        height: var(--icon-s);
-        width: var(--icon-s);
+        height: var(--icon-m);
+        width: var(--icon-m);
       }
     }
 
@@ -218,13 +220,6 @@
       &__button {
         font-size: var(--text-s);
         padding: var(--spacing-xs);
-      }
-
-      &__icon {
-        &--list {
-          height: var(--icon-m);
-          width: var(--icon-m);
-        }
       }
     }
   }
