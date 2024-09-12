@@ -1,6 +1,7 @@
 <template>
   <header class="header">
     <a
+      ref="skipLink"
       :href="route.name === 'index' ? '#main' : '#content'"
       class="skiplink"
       v-text="'Skip to content'"
@@ -66,6 +67,18 @@
   })
 
   const route = useRoute()
+  const skipLink = ref('skipLink')
+
+  /**
+   * Watch route change to focus on skip link. Follows guidelines from:
+   * https://www.gatsbyjs.com/blog/2019-07-11-user-testing-accessible-client-routing/
+   */
+  watch(
+    () => route.path,
+    () => {
+      skipLink.value.focus()
+    }
+  )
 
   /**
    * Determine if a given route matches the current page's route.
