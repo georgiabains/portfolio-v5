@@ -225,6 +225,7 @@
       &--is-featured {
         gap: var(--spacing-xl);
         grid-template-columns: 3fr 4fr;
+        padding: var(--spacing-l);
       }
 
       &__top {

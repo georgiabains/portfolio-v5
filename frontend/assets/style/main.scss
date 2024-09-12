@@ -195,7 +195,7 @@ svg {
   top: 0;
   padding: var(--spacing-xs) var(--spacing-l);
 
-  &:focus {
+  &:focus-visible {
     left: 0;
   }
 }
