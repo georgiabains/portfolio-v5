@@ -29,7 +29,7 @@
 
             <li>
               <NuxtLink
-                :aria-current="getAriaCurrent('blogs')"
+                :aria-current="getAriaCurrent('blog')"
                 :to="{ name: 'blog' }"
                 class="bubble"
               >
@@ -48,14 +48,15 @@
 <script setup>
   import ThemeToggle from './theme-toggle'
 
-  const title = ref('Georgia Bains')
   const description = ref('My portfolio of web development work.')
 
   useHead({
     htmlAttrs: {
       lang: 'en',
     },
-    title,
+    titleTemplate: (test) => {
+      return test ? `${test} - Georgia Bains` : 'Georgia Bains'
+    },
     meta: [
       {
         name: 'description',

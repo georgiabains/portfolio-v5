@@ -1,4 +1,9 @@
 <template>
+  <NuxtRouteAnnouncer>
+    <template #default>
+      <p>"{{ route }}" was loaded.</p>
+    </template>
+  </NuxtRouteAnnouncer>
   <Header />
   <main id="main" tabindex="-1">
     <slot />
@@ -8,6 +13,8 @@
 
 <script setup>
   // https://seanedevane.com/blog/dark-mode-nuxt-3#other-considerations
+  const route = computed(() => useRoute().meta.title)
+
   useHead({
     script: [
       {

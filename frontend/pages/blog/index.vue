@@ -41,4 +41,12 @@
 
   const { data: blogs } = await useSanityQuery(postsQuery)
   const { data: blogsPage } = await useSanityQuery(blogsPageQuery)
+
+  useHead({
+    title: 'Blog',
+  })
+
+  definePageMeta({
+    title: 'Blog',
+  })
 </script>

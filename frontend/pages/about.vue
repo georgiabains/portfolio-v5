@@ -20,4 +20,12 @@
   `
 
   const { data: aboutPage } = await useSanityQuery(aboutPageQuery)
+
+  useHead({
+    title: 'About',
+  })
+
+  definePageMeta({
+    title: 'About',
+  })
 </script>

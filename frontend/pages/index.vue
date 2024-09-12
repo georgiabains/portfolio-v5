@@ -47,4 +47,8 @@
   `
 
   const { data: indexPage } = reactive(await useSanityQuery(indexPageQuery))
+
+  definePageMeta({
+    title: 'Georgia Bains',
+  })
 </script>

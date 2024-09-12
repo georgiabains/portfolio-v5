@@ -124,6 +124,8 @@
     ogImage: () => post.value.mainImage.url,
   })
 
+  route.meta.title = post.value.title
+
   const tableOfContents = computed(() => {
     return parseOutline()
   })

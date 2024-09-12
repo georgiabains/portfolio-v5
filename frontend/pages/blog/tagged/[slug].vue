@@ -1,11 +1,7 @@
 <template>
   <BlogContainer v-if="blogs" class="blogs" hide-cta :blog-array="blogs">
     <template #copy>
-      <h1
-        id="content"
-        class="heading heading--primary"
-        v-text="`All Posts Tagged: ${title}`"
-      />
+      <h1 id="content" class="heading heading--primary" v-text="title" />
     </template>
   </BlogContainer>
 </template>
@@ -44,6 +40,13 @@
     tag: route.params.slug,
   })
 
-  const title = taggedWithBlogs.value[0].title
+  const tag = taggedWithBlogs.value[0].title
+  const title = `All Posts Tagged: ${tag}`
   const blogs = taggedWithBlogs.value[0].posts
+
+  useHead({
+    title,
+  })
+
+  route.meta.title = title
 </script>
