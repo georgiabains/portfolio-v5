@@ -2,6 +2,8 @@
   <div class="theme-toggle">
     <button
       v-click-outside="handleToggleClose"
+      aria-controls="theme-toggle-menu"
+      :aria-expanded="isDialogOpen"
       class="theme-toggle__button bubble"
       type="button"
       @click="handleToggleClick"
@@ -21,7 +23,11 @@
       <span v-if="scheme.name" class="visually-hidden" v-text="scheme.name" />
     </button>
 
-    <ul ref="themeToggleMenu" class="theme-toggle__menu list--unstyled">
+    <ul
+      ref="themeToggleMenu"
+      id="theme-toggle-menu"
+      class="theme-toggle__menu list--unstyled"
+    >
       <li v-for="(theme, index) in themes" :key="`${theme.name}-${index}`">
         <button
           class="theme-toggle__button theme-toggle__button--list bubble"
@@ -49,6 +55,8 @@
     name: 'System',
     scheme: '',
   })
+
+  let isDialogOpen = ref(false)
 
   const schemeString = ref(scheme.value.scheme)
   const storageKey = ref('gb-theme')
@@ -103,6 +111,7 @@
    */
   function handleToggleClick() {
     themeToggleMenu.value.classList.toggle('is-active')
+    isDialogOpen.value = !isDialogOpen.value
   }
 
   /**
@@ -110,6 +119,7 @@
    */
   function handleToggleClose() {
     themeToggleMenu.value.classList.remove('is-active')
+    isDialogOpen.value = false
   }
 
   /**
