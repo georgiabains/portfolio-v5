@@ -26,13 +26,13 @@
         excerpt,
         slug,
         _createdAt,
-        defined(mainImage) => {
-          'mainImage':  {
-            'asset': {
-              'url': mainImage.asset -> url
-            }
+        mainImage,
+        defined(tags) => {
+          'tags': tags[] -> {
+            'slug': slug.current,
+            title
           }
-        },
+        }
       }
     }
   `

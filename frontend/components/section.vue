@@ -65,7 +65,9 @@
    * @returns {Boolean}
    */
   const showFeaturedBlog = computed(() => {
-    return sectionData.type === 'featuredBlog' && props.section.featuredBlog
+    return Boolean(
+      sectionData.type === 'featuredBlog' && props.section.featuredBlogPost
+    )
   })
 
   /**

@@ -29,7 +29,7 @@
             :alt="post.mainImage.alt"
             fetchpriority="high"
             v-bind="{
-              ...getImageProps({ image: post.mainImage, maxWidth: 1920 }),
+              ...getImageProps({ image: post.mainImage, maxWidth: 1380 }),
             }"
           />
 
@@ -48,33 +48,45 @@
         </figure>
       </header>
 
-      <aside class="post__table-of-contents">
-        <p id="post-toc">In this article</p>
-        <TableOfContents :headings="tableOfContents" label="post-toc" />
+      <aside class="post__sidebar">
+        <div v-if="post.headings?.length" class="post__sidebar-item">
+          <p id="post-toc">In this article</p>
+          <TableOfContents :headings="tableOfContents" label="post-toc" />
+        </div>
+
+        <div v-if="post.tags?.length" class="post__sidebar-item">
+          <p id="post-tags-title">Tags</p>
+          <ul
+            aria-labelledby="post-tags-title"
+            class="post__tags list--unstyled"
+          >
+            <li v-for="tag in post.tags">
+              <NuxtLink
+                :to="{ name: 'blog-tagged-slug', params: { slug: tag.slug } }"
+                >#{{ tag.title }}</NuxtLink
+              >
+            </li>
+          </ul>
+        </div>
       </aside>
 
       <div v-if="post.body" class="post__body rte">
         <CustomPortableText :value="post.body" />
       </div>
-
-      <!-- TODO: Add social share links -->
-      <footer class="post__footer">
-        <p>Share: Permalink</p>
-      </footer>
     </template>
 
     <p v-else>Loading</p>
   </article>
 
-  <!-- <BlogContainer use-latest>
+  <BlogContainer use-latest>
     <template #copy>
       <h2 v-text="'Browse Other Blog Posts'" />
     </template>
-  </BlogContainer> -->
+  </BlogContainer>
 </template>
 
 <script setup>
-  import { formatDate } from '../../utils'
+  import { blocksToText, formatDate } from '../../utils'
   import CustomPortableText from '../../components/custom-portable-text'
   import TableOfContents from '../../components/table-of-contents'
   import getImageProps from '../../composables/get-image-props'
@@ -85,13 +97,30 @@
     "headings": body[length(style) == 2 && string::startsWith(style, "h")],
     _createdAt,
     _updatedAt,
-    mainImage,
-    excerpt
+    mainImage {
+      ...,
+      'url': asset -> url
+    },
+    excerpt,
+    defined(tags) => {
+      'tags': tags[] -> {
+        'slug': slug.current,
+        title
+      }
+    }
   }`
   const route = useRoute()
 
   const { data: post } = await useSanityQuery(query, {
     slug: route.params.slug,
+  })
+
+  useSeoMeta({
+    title: () => post.value.title,
+    ogTitle: () => post.value.title,
+    description: () => blocksToText(post.value.excerpt),
+    ogDescription: () => blocksToText(post.value.excerpt),
+    ogImage: () => post.value.mainImage.url,
   })
 
   const tableOfContents = computed(() => {
@@ -159,12 +188,6 @@
       ? path
       : ['subheadings'].concat(path.join('.subheadings.').split('.'))
   }
-
-  const mainImage = JSON.parse(JSON.stringify(post.value.mainImage))
-
-  // const test = getImageProps({ image: mainImage, maxWidth: 1000 })
-
-  // console.log(test)
 </script>
 
 <style lang="scss" scoped>
@@ -222,13 +245,24 @@
       }
     }
 
-    &__table-of-contents {
-      background-color: var(--background-raised);
-      border-radius: var(--border-radius-m);
+    &__sidebar {
+      display: grid;
+      gap: var(--spacing-m);
       grid-area: sidebar;
-      padding: var(--spacing-m);
       align-self: start;
       top: var(--spacing-2xl);
+    }
+
+    &__sidebar-item {
+      background-color: var(--background-raised);
+      border-radius: var(--border-radius-m);
+      padding: var(--spacing-m);
+    }
+
+    &__tags {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-2xs);
     }
 
     &__body {
@@ -279,7 +313,8 @@
         }
       }
 
-      &__table-of-contents {
+      &__sidebar {
+        gap: var(--spacing-l);
         position: sticky;
       }
     }

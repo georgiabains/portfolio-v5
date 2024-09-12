@@ -4,29 +4,50 @@
     class="blog-card"
     :class="{ 'blog-card--is-featured': isFeatured }"
   >
-    <div
-      v-if="blog.mainImage?.asset?.url"
-      aria-hidden="true"
-      class="blog-card__image"
-    >
-      <img :src="blog.mainImage.asset.url" alt="" />
+    <div v-if="blog.mainImage" aria-hidden="true" class="blog-card__image">
+      <img
+        alt=""
+        v-bind="{
+          ...getImageProps({
+            image: blog.mainImage,
+            maxWidth: 900,
+            sizes: `(max-width: 320px) 320w, (max-width: 400px) 400w, (max-width: 500px) 500w, (max-width: 640px) 640w, (max-width: 768px) 768w, (max-width: 900px) 900w, (max-width: 1024px) 100vw, (max-width: 1921px) 500w, 25vw`,
+          }),
+        }"
+      />
     </div>
 
     <div class="blog-card__info">
-      <header>
+      <div class="blog-card__top">
         <component :is="titleElement" class="blog-card__title">
           <NuxtLink
             class="blog-card__title-link"
             :to="{ name: 'blog-slug', params: { slug } }"
           >
-            <span v-text="blog.title" />
-
-            <Icon name="custom:arrow-right" aria-hidden="true" />
+            {{ blog.title }}
           </NuxtLink>
         </component>
-      </header>
+
+        <SanityContent v-if="isFeatured" :blocks="blog.excerpt" />
+      </div>
 
       <footer class="blog-card__footer">
+        <ul v-if="blog.tags" class="blog-card__tags list--unstyled meta">
+          <li
+            v-for="(tag, index) in blog.tags"
+            :key="index"
+            class="blog-card__tag"
+          >
+            <Icon
+              v-if="index > 0"
+              class="blog-card__separator"
+              name="custom:circle"
+              filled
+            />
+            {{ tag.title }}
+          </li>
+        </ul>
+
         <time
           class="blog-card__date meta"
           :datetime="blog._createdAt"
@@ -39,7 +60,7 @@
 
 <script setup>
   import { formatDate } from '../../utils'
-  import CustomPortableText from '../../components/custom-portable-text'
+  import getImageProps from '../../composables/get-image-props'
 
   const props = defineProps({
     blog: {
@@ -107,7 +128,7 @@
     }
 
     &__image {
-      aspect-ratio: 16 / 9;
+      aspect-ratio: 16 / 10;
       border-bottom: 0;
       border-radius: var(--border-radius-s);
       display: block;
@@ -128,7 +149,7 @@
       display: flex;
       flex-direction: column;
       flex-grow: 1;
-      gap: var(--spacing-m);
+      gap: var(--spacing-l);
     }
 
     &__title {
@@ -158,6 +179,11 @@
       }
     }
 
+    &__top {
+      display: grid;
+      gap: var(--spacing-xs);
+    }
+
     p {
       font-size: var(--text-s);
     }
@@ -166,33 +192,52 @@
       margin-top: auto;
     }
 
-    &__date {
-      font-size: var(--text-xs);
+    &__tags {
+      display: flex;
+    }
+
+    &__tag {
+      display: flex;
+      align-items: center;
+    }
+
+    &__separator {
+      margin-inline: var(--spacing-xs);
+      height: var(--icon-xs);
+      width: var(--icon-xs);
     }
 
     /**
      * Featured blog card.
      */
     &--is-featured {
-      align-items: center;
       display: grid;
 
-      #{$parent}__title-link {
-        font-size: var(--text-xl);
+      #{$parent}__info {
+        justify-content: space-between;
+        height: 100%;
       }
 
-      #{$parent}__date {
-        font-size: var(--text-s);
+      #{$parent}__title-link {
+        font-size: var(--text-m);
       }
     }
 
     @media screen and (min-width: 1024px) {
       &--is-featured {
-        gap: var(--spacing-3xl);
-        grid-template-columns: 5fr 7fr;
+        gap: var(--spacing-xl);
+        grid-template-columns: 3fr 4fr;
+      }
+
+      &__top {
+        gap: var(--spacing-m);
       }
 
       p {
+        font-size: var(--text-xs);
+      }
+
+      &__footer {
         font-size: var(--text-xs);
       }
     }

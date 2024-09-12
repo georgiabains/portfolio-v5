@@ -62,7 +62,7 @@
   --background-raised: var(--color-primary-1);
 
   // only use against --background
-  --text-heading: var(--color-primary-7);
+  --text-heading: var(--color-neutral-7);
   --text-inverse: var(--color-primary-0); // mainly used in hover states
   --text-link: var(--color-primary-6);
   --text-paragraph: var(--color-neutral-8);
@@ -84,6 +84,7 @@
   /**
    * Icon sizes.
    */
+  --icon-xs: 0.5rem; // 8px
   --icon-s: 1rem; // 16px
   --icon-m: 1.5rem; // 24px
 

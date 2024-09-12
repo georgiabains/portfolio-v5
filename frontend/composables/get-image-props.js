@@ -16,7 +16,7 @@ const imageBuilder = imageUrlBuilder(runtimeConfig.public.sanity)
 
 const LARGEST_VIEWPORT = 1920; // Retina sizes will take care of 4k (2560px) and other huge screens
 
-const DEFAULT_MIN_STEP = 0.1; // 10%
+const DEFAULT_MIN_STEP = 0.05; // 5%
 const DEFAULT_WIDTH_STEPS = [320, 400, 500, 600, 768, 850, 1024, 1280, 1380, 1500]; // arbitrary
 // // Based on statcounter's most common screen sizes: https://gs.statcounter.com/screen-resolution-stats
 // const DEFAULT_FULL_WIDTH_STEPS = [360, 414, 768, 1366, 1536, 1920];
@@ -75,19 +75,24 @@ export default function getImageProps ({
   )
     .sort((a, b) => a - b) // Lowest to highest
     .filter(
-      (size) =>
+      (size) => {
+        // console.log(size)
         // Exclude sizes 10% or more larger than the image itself. Sizes slightly larger
         // than the image are included to ensure we always get closest to the highest
         // quality for an image. Sanity's CDN won't scale the image above its limits.
         // size <= imageDimensions.width * 1.1 &&
         // Exclude those larger than maxWidth's retina (x2)
-        size <= maxWidth * 2
+        return size <= maxWidth * 2
+      }
     )
 
     // Exclude those with a value difference to their following size smaller than `minimumWidthStep`
     // This ensures we don't have too many srcSet variations, polluting the HTML
     .filter((size, i, arr) => {
       const nextSize = arr[i + 1];
+      if (nextSize === maxWidth) {
+        return nextSize
+      }
       if (nextSize) {
         return nextSize / size > minimumWidthStep + 1;
       }
@@ -96,7 +101,10 @@ export default function getImageProps ({
     })
     // actual max rendered size of images is 1380
     // TODO: Sort out this logic cause this is Something TM
-    .filter((size) => size !== 1920)
+    .filter((size) => {
+      // console.log(size) 
+      return size <= maxWidth
+    })
 
   return {
     // Use the original image as the `src` for the <img>
@@ -109,7 +117,7 @@ export default function getImageProps ({
     sizes:
       maxWidth === "100vw"
         ? "100vw"
-        : sizes || `(max-width: 320px) 320w, (max-width: 400px) 400w, (max-width: 500px) 500w,(max-width: 640px) 640w, (max-width: 768px) 768w, (max-width: 900px) 900w, (max-width: 1024px) 1024w, (max-width: 1280) 1280w, (max-width: 1380px) 1380w, (max-width: 1500px) 1500w, 100vw`,
+        : sizes || `(max-width: 320px) 320w, (max-width: 400px) 400w, (max-width: 500px) 500w,(max-width: 640px) 640w, (max-width: 768px) 768w, (max-width: 900px) 900w, (max-width: 1024px) 1024w, (max-width: 1280) 1280w, (max-width: 1380px) 1380w, (max-width: 1400px) 1400w, (max-width: 1500px) 1500w, (max-width: ${maxWidth}px) ${maxWidth}w, 100vw`,
 
     // // Let's also tell the browser what's the size of the image so it can calculate aspect ratios
     // width: retinaSizes[0],

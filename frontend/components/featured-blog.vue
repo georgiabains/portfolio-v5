@@ -1,7 +1,7 @@
 <template>
   <section class="container featured-blog">
     <h2 class="featured-blog__title heading" v-text="section.title"></h2>
-    <BlogCard :blog="section.indexFeaturedBlogPost" is-featured />
+    <BlogCard :blog="section.featuredBlogPost" is-featured />
   </section>
 </template>
 

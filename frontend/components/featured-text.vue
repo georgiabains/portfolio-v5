@@ -9,10 +9,8 @@
       v-text="section.title"
     />
 
-    <div class="featured-text__grid">
-      <div class="featured-text__copy">
-        <SanityContent :blocks="section.text" />
-      </div>
+    <div class="featured-text__copy">
+      <SanityContent :blocks="section.text" />
     </div>
   </section>
 </template>
@@ -45,17 +43,14 @@
 
     &__copy {
       font-size: var(--text-s);
-      max-width: var(--width-copy);
-    }
-
-    &__grid {
-      align-items: center;
-      display: grid;
-      gap: var(--spacing-2xl);
     }
 
     @media screen and (min-width: 1024px) {
       gap: var(--spacing-xs);
+
+      &__copy {
+        max-width: 50%;
+      }
     }
   }
 </style>

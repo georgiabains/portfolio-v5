@@ -21,10 +21,11 @@
           slug,
           excerpt,
           _createdAt,
-          mainImage {
-            ...,
-            asset -> {
-              url
+          mainImage,
+          defined(tags) => {
+            'tags': tags[] -> {
+              'slug': slug.current,
+              title
             }
           }
         },
@@ -32,10 +33,12 @@
           title,
           slug,
           _createdAt,
-          mainImage {
-            ...,
-            asset -> {
-              url
+          mainImage,
+          excerpt,
+          defined(tags) => {
+            'tags': tags[] -> {
+              'slug': slug.current,
+              title
             }
           }
         }
